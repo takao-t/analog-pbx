@@ -59,7 +59,7 @@ PBXはPrivate Branch eXchangeのことで、日本語では『構内交換機』
 
 3つの部分に分けられます。
 
-![components](pbx_part.JPG)
+![components](pbx_part.jpg)
 
 トップのPBX制作例の画像を上から見るとこのようになっています。配線は外してあります。
 
