@@ -1,0 +1,48 @@
+{
+    "version": "1.9",
+    "configurations": [
+        {
+            "name": "default",
+            "id": "conf1",
+            "device": "PIC16F18323",
+            "imagePath": "./out/SB_2X2/default.elf",
+            "packs": [
+                {
+                    "name": "PIC16F1xxxx_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.31.465"
+                }
+            ],
+            "fileSet": "default",
+            "toolchain": "default-XC8"
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "default-XC8",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc8@3.10",
+            "properties": {}
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "default",
+            "files": [
+                {
+                    "include": "**/*",
+                    "exclude": "**/@(build|_build|out|cmake|.vscode)/**/*"
+                },
+                "config.mcc/mcc_generated_files/system/src/clock.c",
+                "config.mcc/mcc_generated_files/system/src/interrupt.c",
+                "config.mcc/mcc_generated_files/system/src/config_bits.c",
+                "config.mcc/mcc_generated_files/system/src/system.c",
+                "config.mcc/main.c",
+                "config.mcc/mcc_generated_files/system/src/pins.c",
+                "config.mcc/mcc_generated_files/timer/src/tmr2.c",
+                "config.mcc/mcc_generated_files/uart/src/eusart.c",
+                "config.mcc/mcc_generated_files/system/src/watchdog.c"
+            ]
+        }
+    ]
+}

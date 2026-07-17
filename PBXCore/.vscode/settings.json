@@ -1,0 +1,8 @@
+{
+    "mplab.clangd.arguments": [
+        "--header-insertion=never"
+    ],
+    "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\PBXCore\\default",
+    "mplab.clangd.path": "c:\\Program Files\\Microchip\\xc8\\v3.10\\bin\\xc8-clangd.exe",
+    "cmake.sourceDirectory": "C:/Users/tsq/MPLABProjects/Analog_PBX/PBXCore/cmake/PBXCore/default"
+}

@@ -1,0 +1,8 @@
+
+16F18323 Memory Summary:
+    Program space        used   745h (  1861) of   800h words   ( 90.9%)
+    Data space           used    BFh (   191) of   100h bytes   ( 74.6%)
+    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
+    Configuration bits   used     4h (     4) of     4h words   (100.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+

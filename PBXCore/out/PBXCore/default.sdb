@@ -1,0 +1,1672 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18857 ]
+[d frameptr 6 ]
+"55 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[e E36 . `uc
+TONE_OFF 0
+TONE_DIAL 1
+TONE_RINGBACK 2
+TONE_BUSY 3
+]
+"46 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\i2c_helper.c
+[e E12069 . `uc
+I2C_ERROR_NONE 0
+I2C_ERROR_ADDR_NACK 1
+I2C_ERROR_DATA_NACK 2
+I2C_ERROR_BUS_COLLISION 3
+]
+"85 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[e E12427 . `uc
+STATE_IDLE 0
+STATE_DIALTONE 1
+STATE_DIALING 2
+STATE_ROUTING 3
+STATE_CALLING 4
+STATE_RINGING 5
+STATE_TALKING 6
+STATE_BUSY 7
+STATE_UNAVAIL 8
+STATE_AUTOANS 9
+]
+"443
+[e E12234 . `uc
+TONE_OFF 0
+TONE_DIAL 1
+TONE_RINGBACK 2
+TONE_BUSY 3
+]
+"55 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[e E11643 . `uc
+I2C_ERROR_NONE 0
+I2C_ERROR_ADDR_NACK 1
+I2C_ERROR_DATA_NACK 2
+I2C_ERROR_BUS_COLLISION 3
+]
+"69
+[e E11652 . `uc
+I2C_STATE_IDLE 0
+I2C_STATE_SEND_RD_ADDR 1
+I2C_STATE_SEND_WR_ADDR 2
+I2C_STATE_TX 3
+I2C_STATE_RX 4
+I2C_STATE_NACK 5
+I2C_STATE_ERROR 6
+I2C_STATE_STOP 7
+I2C_STATE_RESET 8
+]
+"53 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\nvm\src\nvm.c
+[e E11647 . `uc
+NVM_OK 0
+NVM_ERROR 1
+]
+"101 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[e E11643 . `uc
+TMR2_ROP_STARTS_TMRON 0
+TMR2_ROP_STARTS_TMRON_ERSHIGH 1
+TMR2_ROP_STARTS_TMRON_ERSLOW 2
+TMR2_ROP_RESETS_ERSBOTHEDGE 3
+TMR2_ROP_RESETS_ERSRISINGEDGE 4
+TMR2_ROP_RESETS_ERSFALLINGEDGE 5
+TMR2_ROP_RESETS_ERSLOW 6
+TMR2_ROP_RESETS_ERSHIGH 7
+TMR2_OS_STARTS_TMRON 8
+TMR2_OS_STARTS_ERSRISINGEDGE 9
+TMR2_OS_STARTS_ERSFALLINGEDGE 10
+TMR2_OS_STARTS_ERSBOTHEDGE 11
+TMR2_OS_STARTS_ERSFIRSTRISINGEDGE 12
+TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE 13
+TMR2_OS_STARTS_ERSRISINGEDGEDETECT 14
+TMR2_OS_STARTS_ERSFALLINGEDGEDETECT 15
+TMR2_OS_STARTS_TMRON_ERSHIGH 22
+TMR2_OS_STARTS_TMRON_ERSLOW 23
+TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT 17
+TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT 18
+TMR2_MS_STARTS_TMRON_ERSBOTHEDGE 19
+]
+"106
+[e E11666 . `uc
+TMR2_T2CKIPPS_PIN 0
+TMR2_TMR4_POSTSCALED 2
+TMR2_TMR6_POSTSCALED 3
+TMR2_CCP1_OUT 4
+TMR2_CCP2_OUT 5
+TMR2_CCP3_OUT 6
+TMR2_CCP4_OUT 7
+TMR2_CCP5_OUT 8
+TMR2_PWM6_OUT 9
+TMR2_PWM7_OUT 10
+TMR2_SYNC_C1OUT 11
+TMR2_SYNC_C2OUT 12
+TMR2_ZCD_OUT 13
+TMR2_LC1_OUT 14
+TMR2_LC2_OUT 15
+TMR2_LC3_OUT 16
+TMR2_LC4_OUT 17
+]
+"1 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"193 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _pad pad `(v  1 s 1 pad ]
+"513
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+"942
+[v _stoa stoa `(v  1 s 1 stoa ]
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1817
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"4 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.4v  1 e 2 0 ]
+"8 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strcmp.c
+[v _strcmp strcmp `(i  1 e 2 0 ]
+"3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+"15 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+[v i1___wmul __wmul `(ui  1 e 2 0 ]
+"4 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"4 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"51 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _HAL_PBX_Init HAL_PBX_Init `(v  1 e 1 0 ]
+"98
+[v _HAL_SetTone HAL_SetTone `(v  1 e 1 0 ]
+"150
+[v _HAL_SetRing HAL_SetRing `(v  1 e 1 0 ]
+"190
+[v _HAL_GetHook HAL_GetHook `(a  1 e 1 0 ]
+"223
+[v _HAL_GetMaxLines HAL_GetMaxLines `(uc  1 e 1 0 ]
+"228
+[v _HAL_SoftwareUART_WriteByte HAL_SoftwareUART_WriteByte `(v  1 e 1 0 ]
+"14 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\i2c_helper.c
+[v _MCP23017_WriteData MCP23017_WriteData `(a  1 e 1 0 ]
+"50
+[v _MCP23017_WriteReg MCP23017_WriteReg `(a  1 e 1 0 ]
+"55
+[v _MCP23017_ReadData MCP23017_ReadData `(a  1 e 1 0 ]
+"93 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _SaveSettings SaveSettings `(v  1 e 1 0 ]
+"102
+[v _LoadSettings LoadSettings `(v  1 e 1 0 ]
+"129
+[v _GetStateString GetStateString `(*.25DCuc  1 e 2 0 ]
+"147
+[v _PBX_SystemTick_1ms PBX_SystemTick_1ms `(v  1 e 1 0 ]
+"181
+[v _main main `(i  1 e 2 0 ]
+"343
+[v _SoftwareUART_WriteString SoftwareUART_WriteString `(v  1 e 1 0 ]
+"354
+[v _SwitchControl SwitchControl `(v  1 e 1 0 ]
+"409
+[v _ProcessStateMachine ProcessStateMachine `(v  1 e 1 0 ]
+"634
+[v _ProcessCommandLine ProcessCommandLine `(v  1 e 1 0 ]
+"83 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+"100
+[v _I2C1_Deinitialize I2C1_Deinitialize `(v  1 e 1 0 ]
+"111
+[v _I2C1_Write I2C1_Write `(a  1 e 1 0 ]
+"130
+[v _I2C1_Read I2C1_Read `(a  1 e 1 0 ]
+"149
+[v _I2C1_WriteRead I2C1_WriteRead `(a  1 e 1 0 ]
+"168
+[v _I2C1_ErrorGet I2C1_ErrorGet `(E12069  1 e 1 0 ]
+"175
+[v _I2C1_IsBusy I2C1_IsBusy `(a  1 e 1 0 ]
+"180
+[v _I2C1_CallbackRegister I2C1_CallbackRegister `(v  1 e 1 0 ]
+"188
+[v _I2C1_ISR I2C1_ISR `(v  1 e 1 0 ]
+"193
+[v _I2C1_ERROR_ISR I2C1_ERROR_ISR `(v  1 e 1 0 ]
+"201
+[v _I2C1_ReadStart I2C1_ReadStart `(v  1 s 1 I2C1_ReadStart ]
+"207
+[v _I2C1_WriteStart I2C1_WriteStart `(v  1 s 1 I2C1_WriteStart ]
+"213
+[v _I2C1_Close I2C1_Close `(v  1 s 1 I2C1_Close ]
+"226
+[v _I2C1_EventHandler I2C1_EventHandler `(v  1 s 1 I2C1_EventHandler ]
+"254
+[v _I2C1_ErrorEventHandler I2C1_ErrorEventHandler `(v  1 s 1 I2C1_ErrorEventHandler ]
+"263
+[v _I2C1_EVENT_IDLE I2C1_EVENT_IDLE `(E11652  1 s 1 I2C1_EVENT_IDLE ]
+"269
+[v _I2C1_EVENT_SEND_RD_ADDR I2C1_EVENT_SEND_RD_ADDR `(E11652  1 s 1 I2C1_EVENT_SEND_RD_ADDR ]
+"275
+[v _I2C1_EVENT_SEND_WR_ADDR I2C1_EVENT_SEND_WR_ADDR `(E11652  1 s 1 I2C1_EVENT_SEND_WR_ADDR ]
+"281
+[v _I2C1_EVENT_TX I2C1_EVENT_TX `(E11652  1 s 1 I2C1_EVENT_TX ]
+"308
+[v _I2C1_EVENT_RX I2C1_EVENT_RX `(E11652  1 s 1 I2C1_EVENT_RX ]
+"343
+[v _I2C1_EVENT_NACK I2C1_EVENT_NACK `(E11652  1 s 1 I2C1_EVENT_NACK ]
+"350
+[v _I2C1_EVENT_ERROR I2C1_EVENT_ERROR `(E11652  1 s 1 I2C1_EVENT_ERROR ]
+"357
+[v _I2C1_EVENT_STOP I2C1_EVENT_STOP `(E11652  1 s 1 I2C1_EVENT_STOP ]
+"364
+[v _I2C1_EVENT_RESET I2C1_EVENT_RESET `(E11652  1 s 1 I2C1_EVENT_RESET ]
+"43 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\nvm\src\nvm.c
+[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
+"65
+[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
+"39 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+"40 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\interrupt.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"59
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+"104
+[v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
+"113
+[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
+"117
+[v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
+"38 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"39 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"35 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\watchdog.c
+[v _WWDT_Initialize WWDT_Initialize `(v  1 e 1 0 ]
+"50 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"146
+[v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
+"156
+[v _TMR2_PeriodMatchCallbackRegister TMR2_PeriodMatchCallbackRegister `(v  1 e 1 0 ]
+"161
+[v _TMR2_DefaultPeriodMatchCallback TMR2_DefaultPeriodMatchCallback `(v  1 s 1 TMR2_DefaultPeriodMatchCallback ]
+"100 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+"236
+[v _EUSART_IsRxReady EUSART_IsRxReady `(a  1 e 1 0 ]
+"241
+[v _EUSART_IsTxReady EUSART_IsTxReady `(a  1 e 1 0 ]
+"257
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+"277
+[v _EUSART_ReceiveISR EUSART_ReceiveISR `(v  1 e 1 0 ]
+"322
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+"346
+[v _EUSART_TransmitISR EUSART_TransmitISR `(v  1 e 1 0 ]
+"378
+[v _putch putch `(v  1 e 1 0 ]
+"387
+[v _EUSART_DefaultFramingErrorCallback EUSART_DefaultFramingErrorCallback `(v  1 s 1 EUSART_DefaultFramingErrorCallback ]
+"392
+[v _EUSART_DefaultOverrunErrorCallback EUSART_DefaultOverrunErrorCallback `(v  1 s 1 EUSART_DefaultOverrunErrorCallback ]
+"399
+[v _EUSART_FramingErrorCallbackRegister EUSART_FramingErrorCallbackRegister `(v  1 e 1 0 ]
+"407
+[v _EUSART_OverrunErrorCallbackRegister EUSART_OverrunErrorCallbackRegister `(v  1 e 1 0 ]
+[s S493 . 1 `uc 1 C 1 0 :1:0 
+`uc 1 DC 1 0 :1:1 
+`uc 1 Z 1 0 :1:2 
+`uc 1 nPD 1 0 :1:3 
+`uc 1 nTO 1 0 :1:4 
+]
+"115 C:/Users/tsq/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.31.465/xc8\pic\include\proc/pic16f18857.h
+[s S499 . 1 `uc 1 CARRY 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ZERO 1 0 :1:2 
+]
+[u S503 . 1 `S493 1 . 1 0 `S499 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES503  1 e 1 @3 ]
+[s S198 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"354
+[u S203 . 1 `S198 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES203  1 e 1 @11 ]
+[s S127 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"391
+[u S136 . 1 `S127 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES136  1 e 1 @12 ]
+[s S148 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"453
+[u S157 . 1 `S148 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES157  1 e 1 @13 ]
+[s S169 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"515
+[u S178 . 1 `S169 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES178  1 e 1 @14 ]
+"581
+[v _TRISA TRISA `VEuc  1 e 1 @17 ]
+"643
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+"705
+[v _TRISC TRISC `VEuc  1 e 1 @19 ]
+"767
+[v _LATA LATA `VEuc  1 e 1 @22 ]
+[s S85 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"784
+[u S94 . 1 `S85 1 . 1 0 ]
+[v _LATAbits LATAbits `VES94  1 e 1 @22 ]
+"829
+[v _LATB LATB `VEuc  1 e 1 @23 ]
+[s S49 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"846
+[u S58 . 1 `S49 1 . 1 0 ]
+[v _LATBbits LATBbits `VES58  1 e 1 @23 ]
+"891
+[v _LATC LATC `VEuc  1 e 1 @24 ]
+[s S106 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"908
+[u S115 . 1 `S106 1 . 1 0 ]
+[v _LATCbits LATCbits `VES115  1 e 1 @24 ]
+"3481
+[v _RC1REG RC1REG `VEuc  1 e 1 @281 ]
+"3535
+[v _TX1REG TX1REG `VEuc  1 e 1 @282 ]
+"3601
+[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @283 ]
+"3655
+[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
+"3709
+[v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
+[s S2032 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3735
+[u S2041 . 1 `S2032 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES2041  1 e 1 @285 ]
+"3889
+[v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
+[s S2053 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3915
+[u S2062 . 1 `S2053 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES2062  1 e 1 @286 ]
+"4069
+[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
+[s S2074 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4103
+[u S2083 . 1 `S2074 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES2083  1 e 1 @287 ]
+"4315
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
+"4335
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @397 ]
+"4525
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @399 ]
+[s S1118 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"4634
+[s S1127 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S1132 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S1137 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S1142 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[s S1147 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DAT 1 0 :1:5 
+]
+[s S1153 . 1 `uc 1 BF1 1 0 :1:0 
+`uc 1 UA1 1 0 :1:1 
+`uc 1 R 1 0 :1:2 
+`uc 1 START 1 0 :1:3 
+`uc 1 STOP 1 0 :1:4 
+`uc 1 D 1 0 :1:5 
+`uc 1 CKE1 1 0 :1:6 
+`uc 1 SMP1 1 0 :1:7 
+]
+[s S1162 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+`uc 1 START1 1 0 :1:3 
+`uc 1 STOP1 1 0 :1:4 
+`uc 1 DA 1 0 :1:5 
+]
+[s S1168 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW1 1 0 :1:2 
+`uc 1 I2C_START1 1 0 :1:3 
+`uc 1 I2C_STOP2 1 0 :1:4 
+`uc 1 DA1 1 0 :1:5 
+]
+[s S1174 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ1 1 0 :1:2 
+`uc 1 S2 1 0 :1:3 
+`uc 1 P2 1 0 :1:4 
+`uc 1 DATA_ADDRESS1 1 0 :1:5 
+]
+[s S1180 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A1 1 0 :1:5 
+]
+[s S1185 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_nA1 1 0 :1:5 
+]
+[s S1190 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_nW1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 I2C_DAT1 1 0 :1:5 
+]
+[s S1195 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA2 1 0 :1:5 
+]
+[s S1200 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE1 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS1 1 0 :1:5 
+]
+[u S1205 . 1 `S1118 1 . 1 0 `S1127 1 . 1 0 `S1132 1 . 1 0 `S1137 1 . 1 0 `S1142 1 . 1 0 `S1147 1 . 1 0 `S1153 1 . 1 0 `S1162 1 . 1 0 `S1168 1 . 1 0 `S1174 1 . 1 0 `S1180 1 . 1 0 `S1185 1 . 1 0 `S1190 1 . 1 0 `S1195 1 . 1 0 `S1200 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES1205  1 e 1 @399 ]
+"4889
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @400 ]
+[s S995 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4919
+[s S1001 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[s S1006 . 1 `uc 1 SSPM01 1 0 :1:0 
+`uc 1 SSPM11 1 0 :1:1 
+`uc 1 SSPM21 1 0 :1:2 
+`uc 1 SSPM31 1 0 :1:3 
+`uc 1 CKP1 1 0 :1:4 
+`uc 1 SSPEN1 1 0 :1:5 
+`uc 1 SSPOV1 1 0 :1:6 
+`uc 1 WCOL1 1 0 :1:7 
+]
+[u S1015 . 1 `S995 1 . 1 0 `S1001 1 . 1 0 `S1006 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES1015  1 e 1 @400 ]
+"5009
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @401 ]
+[s S322 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"5056
+[s S331 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK 1 0 :5:1 
+]
+[s S334 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK1 1 0 :1:1 
+`uc 1 ADMSK2 1 0 :1:2 
+`uc 1 ADMSK3 1 0 :1:3 
+`uc 1 ADMSK4 1 0 :1:4 
+`uc 1 ADMSK5 1 0 :1:5 
+]
+[s S341 . 1 `uc 1 SEN1 1 0 :1:0 
+`uc 1 ADMSK11 1 0 :1:1 
+`uc 1 ADMSK21 1 0 :1:2 
+`uc 1 ADMSK31 1 0 :1:3 
+`uc 1 ACKEN1 1 0 :1:4 
+`uc 1 ACKDT1 1 0 :1:5 
+`uc 1 ACKSTAT1 1 0 :1:6 
+`uc 1 GCEN1 1 0 :1:7 
+]
+[s S350 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RSEN1 1 0 :1:1 
+`uc 1 PEN1 1 0 :1:2 
+`uc 1 RCEN1 1 0 :1:3 
+`uc 1 ADMSK41 1 0 :1:4 
+`uc 1 ADMSK51 1 0 :1:5 
+]
+[u S357 . 1 `S322 1 . 1 0 `S331 1 . 1 0 `S334 1 . 1 0 `S341 1 . 1 0 `S350 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES357  1 e 1 @401 ]
+"5196
+[v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @402 ]
+"9050
+[v _T2TMR T2TMR `VEuc  1 e 1 @652 ]
+"9088
+[v _T2PR T2PR `VEuc  1 e 1 @653 ]
+"9126
+[v _T2CON T2CON `VEuc  1 e 1 @654 ]
+[s S1748 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 CKPS 1 0 :3:4 
+`uc 1 ON 1 0 :1:7 
+]
+"9162
+[s S1752 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+`uc 1 T2CKPS 1 0 :3:4 
+`uc 1 T2ON 1 0 :1:7 
+]
+[s S1756 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+`uc 1 T2OUTPS1 1 0 :1:1 
+`uc 1 T2OUTPS2 1 0 :1:2 
+`uc 1 T2OUTPS3 1 0 :1:3 
+`uc 1 T2CKPS0 1 0 :1:4 
+`uc 1 T2CKPS1 1 0 :1:5 
+`uc 1 T2CKPS2 1 0 :1:6 
+]
+[s S1764 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
+`uc 1 TMR2ON 1 0 :1:7 
+]
+[u S1773 . 1 `S1748 1 . 1 0 `S1752 1 . 1 0 `S1756 1 . 1 0 `S1764 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1773  1 e 1 @654 ]
+"9272
+[v _T2HLT T2HLT `VEuc  1 e 1 @655 ]
+[s S1826 . 1 `uc 1 MODE 1 0 :5:0 
+`uc 1 CKSYNC 1 0 :1:5 
+`uc 1 CKPOL 1 0 :1:6 
+`uc 1 PSYNC 1 0 :1:7 
+]
+"9305
+[s S1831 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 MODE3 1 0 :1:3 
+`uc 1 MODE4 1 0 :1:4 
+]
+[s S1837 . 1 `uc 1 T2MODE 1 0 :5:0 
+`uc 1 T2CKSYNC 1 0 :1:5 
+`uc 1 T2CKPOL 1 0 :1:6 
+`uc 1 T2PSYNC 1 0 :1:7 
+]
+[s S1842 . 1 `uc 1 T2MODE0 1 0 :1:0 
+`uc 1 T2MODE1 1 0 :1:1 
+`uc 1 T2MODE2 1 0 :1:2 
+`uc 1 T2MODE3 1 0 :1:3 
+`uc 1 T2MODE4 1 0 :1:4 
+]
+[u S1848 . 1 `S1826 1 . 1 0 `S1831 1 . 1 0 `S1837 1 . 1 0 `S1842 1 . 1 0 ]
+[v _T2HLTbits T2HLTbits `VES1848  1 e 1 @655 ]
+"9400
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @656 ]
+"9558
+[v _T2RST T2RST `VEuc  1 e 1 @657 ]
+[s S1894 . 1 `uc 1 RSEL 1 0 :5:0 
+]
+"9585
+[s S1896 . 1 `uc 1 RSEL0 1 0 :1:0 
+`uc 1 RSEL1 1 0 :1:1 
+`uc 1 RSEL2 1 0 :1:2 
+`uc 1 RSEL3 1 0 :1:3 
+`uc 1 RSEL4 1 0 :1:4 
+]
+[s S1902 . 1 `uc 1 T2RSEL 1 0 :5:0 
+]
+[s S1904 . 1 `uc 1 T2RSEL0 1 0 :1:0 
+`uc 1 T2RSEL1 1 0 :1:1 
+`uc 1 T2RSEL2 1 0 :1:2 
+`uc 1 T2RSEL3 1 0 :1:3 
+`uc 1 T2RSEL4 1 0 :1:4 
+]
+[u S1910 . 1 `S1894 1 . 1 0 `S1896 1 . 1 0 `S1902 1 . 1 0 `S1904 1 . 1 0 ]
+[v _T2RSTbits T2RSTbits `VES1910  1 e 1 @657 ]
+[s S1485 . 1 `uc 1 INTF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"20980
+[u S1490 . 1 `S1485 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES1490  1 e 1 @1804 ]
+[s S1101 . 1 `uc 1 SSP1IF 1 0 :1:0 
+`uc 1 BCL1IF 1 0 :1:1 
+`uc 1 SSP2IF 1 0 :1:2 
+`uc 1 BCL2IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+"21087
+[u S1108 . 1 `S1101 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES1108  1 e 1 @1807 ]
+[s S1559 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 TMR3IF 1 0 :1:2 
+`uc 1 TMR4IF 1 0 :1:3 
+`uc 1 TMR5IF 1 0 :1:4 
+`uc 1 TMR6IF 1 0 :1:5 
+]
+"21137
+[u S1566 . 1 `S1559 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1566  1 e 1 @1808 ]
+[s S978 . 1 `uc 1 SSP1IE 1 0 :1:0 
+`uc 1 BCL1IE 1 0 :1:1 
+`uc 1 SSP2IE 1 0 :1:2 
+`uc 1 BCL2IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+"21509
+[u S985 . 1 `S978 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES985  1 e 1 @1817 ]
+[s S1542 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 TMR3IE 1 0 :1:2 
+`uc 1 TMR4IE 1 0 :1:3 
+`uc 1 TMR5IE 1 0 :1:4 
+`uc 1 TMR6IE 1 0 :1:5 
+]
+"21559
+[u S1549 . 1 `S1542 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1549  1 e 1 @1818 ]
+"22148
+[v _WDTCON0 WDTCON0 `VEuc  1 e 1 @2060 ]
+"22223
+[v _WDTCON1 WDTCON1 `VEuc  1 e 1 @2061 ]
+[s S1687 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nRI 1 0 :1:2 
+`uc 1 nRMCLR 1 0 :1:3 
+`uc 1 nRWDT 1 0 :1:4 
+`uc 1 nWDTWV 1 0 :1:5 
+`uc 1 STKUNF 1 0 :1:6 
+`uc 1 STKOVF 1 0 :1:7 
+]
+"22720
+[u S1696 . 1 `S1687 1 . 1 0 ]
+[v _PCON0bits PCON0bits `VES1696  1 e 1 @2067 ]
+"22798
+[v _NVMADRL NVMADRL `VEuc  1 e 1 @2074 ]
+"22860
+[v _NVMADRH NVMADRH `VEuc  1 e 1 @2075 ]
+"22916
+[v _NVMDATL NVMDATL `VEuc  1 e 1 @2076 ]
+"22978
+[v _NVMDATH NVMDATH `VEuc  1 e 1 @2077 ]
+[s S470 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 LWLO 1 0 :1:5 
+`uc 1 NVMREGS 1 0 :1:6 
+]
+"23044
+[u S478 . 1 `S470 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES478  1 e 1 @2078 ]
+"23084
+[v _NVMCON2 NVMCON2 `VEuc  1 e 1 @2079 ]
+"23148
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
+"23288
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @2191 ]
+"23385
+[v _OSCEN OSCEN `VEuc  1 e 1 @2193 ]
+"23436
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @2194 ]
+"23494
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @2195 ]
+"31027
+[v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @7877 ]
+"31079
+[v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @7878 ]
+"31339
+[v _RXPPS RXPPS `VEuc  1 e 1 @7883 ]
+"31943
+[v _RB2PPS RB2PPS `VEuc  1 e 1 @7962 ]
+"32243
+[v _RC0PPS RC0PPS `VEuc  1 e 1 @7968 ]
+"32293
+[v _RC1PPS RC1PPS `VEuc  1 e 1 @7969 ]
+"32643
+[v _ANSELA ANSELA `VEuc  1 e 1 @7992 ]
+"32705
+[v _WPUA WPUA `VEuc  1 e 1 @7993 ]
+"32767
+[v _ODCONA ODCONA `VEuc  1 e 1 @7994 ]
+"32829
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @7995 ]
+"32891
+[v _INLVLA INLVLA `VEuc  1 e 1 @7996 ]
+"32953
+[v _IOCAP IOCAP `VEuc  1 e 1 @7997 ]
+"33015
+[v _IOCAN IOCAN `VEuc  1 e 1 @7998 ]
+"33077
+[v _IOCAF IOCAF `VEuc  1 e 1 @7999 ]
+"33263
+[v _ANSELB ANSELB `VEuc  1 e 1 @8003 ]
+"33325
+[v _WPUB WPUB `VEuc  1 e 1 @8004 ]
+"33387
+[v _ODCONB ODCONB `VEuc  1 e 1 @8005 ]
+"33449
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @8006 ]
+"33511
+[v _INLVLB INLVLB `VEuc  1 e 1 @8007 ]
+"33573
+[v _IOCBP IOCBP `VEuc  1 e 1 @8008 ]
+"33635
+[v _IOCBN IOCBN `VEuc  1 e 1 @8009 ]
+"33697
+[v _IOCBF IOCBF `VEuc  1 e 1 @8010 ]
+"33883
+[v _ANSELC ANSELC `VEuc  1 e 1 @8014 ]
+"33945
+[v _WPUC WPUC `VEuc  1 e 1 @8015 ]
+"34007
+[v _ODCONC ODCONC `VEuc  1 e 1 @8016 ]
+"34069
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @8017 ]
+"34131
+[v _INLVLC INLVLC `VEuc  1 e 1 @8018 ]
+"34193
+[v _IOCCP IOCCP `VEuc  1 e 1 @8019 ]
+"34255
+[v _IOCCN IOCCN `VEuc  1 e 1 @8020 ]
+"34317
+[v _IOCCF IOCCF `VEuc  1 e 1 @8021 ]
+"34503
+[v _WPUE WPUE `VEuc  1 e 1 @8037 ]
+"34535
+[v _INLVLE INLVLE `VEuc  1 e 1 @8040 ]
+"34567
+[v _IOCEP IOCEP `VEuc  1 e 1 @8041 ]
+"34588
+[v _IOCEN IOCEN `VEuc  1 e 1 @8042 ]
+"34609
+[v _IOCEF IOCEF `VEuc  1 e 1 @8043 ]
+"153 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"154
+[v _flags flags `uc  1 s 1 flags ]
+"185
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+"39 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _active_lines active_lines `uc  1 s 1 active_lines ]
+"43
+[v _mcp_olat mcp_olat `[2]uc  1 s 2 mcp_olat ]
+"46
+[v _mcp_gpio_cache mcp_gpio_cache `[2]uc  1 s 2 mcp_gpio_cache ]
+"38 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _current_max_lines current_max_lines `uc  1 e 1 0 ]
+[s S443 . 4 `uc 1 extension 1 0 `uc 1 initial_state 1 1 `uc 1 hotline_ext 1 2 `uc 1 reserved 1 3 ]
+"50
+[v _port_configs port_configs `[8]S443  1 e 32 0 ]
+[s S459 . 14 `E12427 1 state 1 0 `a 1 current_hook 1 1 `a 1 last_hook 1 2 `uc 1 dp_count 1 3 `uc 1 dialed_digits 1 4 `[2]uc 1 dialed_number 2 5 `VEus 1 dp_timer 2 7 `VEus 1 state_timer 2 9 `VEus 1 hangup_timer 2 11 `uc 1 target_port 1 13 ]
+"85
+[v _lines lines `VE[8]S459  1 e 112 @12160 ]
+"166
+[v _rxBuffer rxBuffer `[64]uc  1 e 64 0 ]
+"167
+[v _rxIndex rxIndex `uc  1 e 1 0 ]
+"68 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[v _I2C1_Callback I2C1_Callback `*.37(v  1 s 2 I2C1_Callback ]
+[s S926 . 14 `a 1 busy 1 0 `us 1 address 2 1 `*.39uc 1 writePtr 2 3 `ui 1 writeLength 2 5 `*.39uc 1 readPtr 2 7 `ui 1 readLength 2 9 `a 1 switchToRead 1 11 `E11643 1 errorState 1 12 `E11652 1 state 1 13 ]
+"69
+[v _i2c1Status i2c1Status `VES926  1 e 14 0 ]
+"71
+[v _i2c1_eventTable i2c1_eventTable `DC[9]*.37(E11652  1 e 18 0 ]
+"40 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\nvm\src\nvm.c
+[v _unlockKeyLow unlockKeyLow `VNEuc  1 s 1 unlockKeyLow ]
+"41
+[v _unlockKeyHigh unlockKeyHigh `VNEuc  1 s 1 unlockKeyHigh ]
+"38 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\interrupt.c
+[v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
+"43 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[v _TMR2_PeriodMatchCallback TMR2_PeriodMatchCallback `*.37(v  1 s 2 TMR2_PeriodMatchCallback ]
+"52 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
+[v _eusartTxHead eusartTxHead `VEuc  1 s 1 eusartTxHead ]
+"53
+[v _eusartTxTail eusartTxTail `VEuc  1 s 1 eusartTxTail ]
+"54
+[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 s 1 eusartTxBufferRemaining ]
+"55
+[v _eusartTxBuffer eusartTxBuffer `VE[64]uc  1 s 64 eusartTxBuffer ]
+"57
+[v _eusartRxHead eusartRxHead `VEuc  1 s 1 eusartRxHead ]
+"58
+[v _eusartRxTail eusartRxTail `VEuc  1 s 1 eusartRxTail ]
+"59
+[v _eusartRxCount eusartRxCount `VEuc  1 s 1 eusartRxCount ]
+"60
+[v _eusartRxBuffer eusartRxBuffer `VE[64]uc  1 s 64 eusartRxBuffer ]
+[s S1971 . 1 `uc 1 perr 1 0 :1:0 
+`uc 1 ferr 1 0 :1:1 
+`uc 1 oerr 1 0 :1:2 
+`uc 1 reserved 1 0 :5:3 
+]
+"66
+[u S1976 . 2 `S1971 1 . 1 0 `ui 1 status 2 0 ]
+[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[64]S1976  1 s 128 eusartRxStatusBuffer ]
+"73
+[v _eusartRxLastError eusartRxLastError `VES1976  1 s 2 eusartRxLastError ]
+"79
+[v _EUSART_TxInterruptHandler EUSART_TxInterruptHandler `*.37(v  1 e 2 0 ]
+"81
+[v _EUSART_TxCompleteInterruptHandler EUSART_TxCompleteInterruptHandler `*.37(v  1 s 2 EUSART_TxCompleteInterruptHandler ]
+"83
+[v _EUSART_RxInterruptHandler EUSART_RxInterruptHandler `*.37(v  1 e 2 0 ]
+"84
+[v _EUSART_RxCompleteInterruptHandler EUSART_RxCompleteInterruptHandler `*.37(v  1 s 2 EUSART_RxCompleteInterruptHandler ]
+"86
+[v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
+"87
+[v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
+"181 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"309
+[v main@rxData rxData `uc  1 a 1 36 ]
+"303
+[v main@i_697 i `uc  1 a 1 31 ]
+"287
+[v main@i_693 i `uc  1 a 1 32 ]
+"273
+[v main@i_687 i `uc  1 a 1 33 ]
+"254
+[v main@i_683 i `uc  1 a 1 37 ]
+"230
+[v main@j j `uc  1 a 1 35 ]
+[v main@i i `uc  1 a 1 34 ]
+"339
+} 0
+"156 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[v _TMR2_PeriodMatchCallbackRegister TMR2_PeriodMatchCallbackRegister `(v  1 e 1 0 ]
+{
+[v TMR2_PeriodMatchCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+"159
+} 0
+"39 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"49
+} 0
+"35 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\watchdog.c
+[v _WWDT_Initialize WWDT_Initialize `(v  1 e 1 0 ]
+{
+"44
+} 0
+"50 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"74
+} 0
+"38 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"121
+} 0
+"43 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\nvm\src\nvm.c
+[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
+{
+"46
+} 0
+"65
+[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
+{
+"68
+} 0
+"40 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\interrupt.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
+"50
+} 0
+"113
+[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"115
+} 0
+"100 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+{
+"134
+} 0
+"407
+[v _EUSART_OverrunErrorCallbackRegister EUSART_OverrunErrorCallbackRegister `(v  1 e 1 0 ]
+{
+[v EUSART_OverrunErrorCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+"413
+} 0
+"399
+[v _EUSART_FramingErrorCallbackRegister EUSART_FramingErrorCallbackRegister `(v  1 e 1 0 ]
+{
+[v EUSART_FramingErrorCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+"405
+} 0
+"39 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+{
+"55
+} 0
+"409 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _ProcessStateMachine ProcessStateMachine `(v  1 e 1 0 ]
+{
+[v ProcessStateMachine@ch ch `uc  1 p 1 wreg ]
+"575
+[v ProcessStateMachine@caller caller `uc  1 a 1 8 ]
+"429
+[v ProcessStateMachine@t_ch t_ch `uc  1 a 1 13 ]
+"535
+[v ProcessStateMachine@i i `uc  1 a 1 11 ]
+"601
+[v ProcessStateMachine@caller_748 caller `uc  1 a 1 12 ]
+"532
+[v ProcessStateMachine@target_ch target_ch `uc  1 a 1 14 ]
+"531
+[v ProcessStateMachine@dialed_val dialed_val `uc  1 a 1 10 ]
+"513
+[v ProcessStateMachine@digit digit `uc  1 a 1 9 ]
+[s S459 . 14 `E12427 1 state 1 0 `a 1 current_hook 1 1 `a 1 last_hook 1 2 `uc 1 dp_count 1 3 `uc 1 dialed_digits 1 4 `[2]uc 1 dialed_number 2 5 `VEus 1 dp_timer 2 7 `VEus 1 state_timer 2 9 `VEus 1 hangup_timer 2 11 `uc 1 target_port 1 13 ]
+"410
+[v ProcessStateMachine@line line `*.39VES459  1 a 2 16 ]
+"409
+[v ProcessStateMachine@ch ch `uc  1 p 1 wreg ]
+[v ProcessStateMachine@ch ch `uc  1 p 1 15 ]
+"631
+} 1
+"190 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _HAL_GetHook HAL_GetHook `(a  1 e 1 0 ]
+{
+[v HAL_GetHook@line line `uc  1 p 1 wreg ]
+"202
+[v HAL_GetHook@ext_idx ext_idx `uc  1 a 1 22 ]
+"215
+[v HAL_GetHook@mask mask `uc  1 a 1 21 ]
+"214
+[v HAL_GetHook@port_idx port_idx `uc  1 a 1 20 ]
+"190
+[v HAL_GetHook@line line `uc  1 p 1 wreg ]
+"192
+[v HAL_GetHook@line line `uc  1 p 1 23 ]
+"220
+} 1
+"55 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\i2c_helper.c
+[v _MCP23017_ReadData MCP23017_ReadData `(a  1 e 1 0 ]
+{
+"63
+[v MCP23017_ReadData@timeout timeout `us  1 a 2 16 ]
+"56
+[v MCP23017_ReadData@reg_addr reg_addr `uc  1 a 1 15 ]
+"55
+[v MCP23017_ReadData@target_addr target_addr `us  1 p 2 9 ]
+[v MCP23017_ReadData@start_reg start_reg `uc  1 p 1 11 ]
+[v MCP23017_ReadData@data data `*.4uc  1 p 1 12 ]
+[v MCP23017_ReadData@data_len data_len `ui  1 p 2 13 ]
+"78
+} 0
+"149 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[v _I2C1_WriteRead I2C1_WriteRead `(a  1 e 1 0 ]
+{
+"151
+[v I2C1_WriteRead@retStatus retStatus `a  1 a 1 8 ]
+"149
+[v I2C1_WriteRead@address address `us  1 p 2 0 ]
+[v I2C1_WriteRead@writeData writeData `*.4uc  1 p 1 2 ]
+[v I2C1_WriteRead@writeLength writeLength `ui  1 p 2 3 ]
+[v I2C1_WriteRead@readData readData `*.4uc  1 p 1 5 ]
+[v I2C1_WriteRead@readLength readLength `ui  1 p 2 6 ]
+"166
+} 0
+"634 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _ProcessCommandLine ProcessCommandLine `(v  1 e 1 0 ]
+{
+"777
+[v ProcessCommandLine@ext_808 ext `uc  1 a 1 13 ]
+"746
+[v ProcessCommandLine@line2_794 line2 `uc  1 a 1 19 ]
+"745
+[v ProcessCommandLine@line1_793 line1 `uc  1 a 1 18 ]
+"729
+[v ProcessCommandLine@line2 line2 `uc  1 a 1 17 ]
+"728
+[v ProcessCommandLine@line1 line1 `uc  1 a 1 16 ]
+"674
+[v ProcessCommandLine@ext ext `uc  1 a 1 12 ]
+"645
+[v ProcessCommandLine@i i `uc  1 a 1 22 ]
+"771
+[v ProcessCommandLine@port_805 port `uc  1 a 1 20 ]
+"690
+[v ProcessCommandLine@port_773 port `uc  1 a 1 21 ]
+"691
+[v ProcessCommandLine@tmp_mode tmp_mode `uc  1 a 1 15 ]
+"670
+[v ProcessCommandLine@port port `uc  1 a 1 14 ]
+"634
+[v ProcessCommandLine@str str `*.6DCuc  1 p 1 76 ]
+"813
+} 0
+"3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+{
+[v strncmp@l l `*.6DCuc  1 p 1 0 ]
+[v strncmp@r r `*.25DCuc  1 p 2 1 ]
+[v strncmp@n n `ui  1 p 2 3 ]
+"8
+} 0
+"3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strcmp.c
+[v _strcmp strcmp `(i  1 e 2 0 ]
+{
+[v strcmp@l l `*.6DCuc  1 p 1 0 ]
+[v strcmp@r r `*.25DCuc  1 p 2 1 ]
+"7
+} 0
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"8
+[v printf@ap ap `[1]*.4v  1 a 1 75 ]
+"5
+[v printf@fmt fmt `*.25DCuc  1 p 2 65 ]
+"13
+} 0
+"1817 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1820
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 63 ]
+[s S2625 _IO_FILE 0 ]
+"1817
+[v vfprintf@fp fp `*.2S2625  1 p 2 57 ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 59 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 61 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[u S2649 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+"1188
+[v vfpfcnvrt@convarg convarg `S2649  1 a 4 50 ]
+"1179
+[v vfpfcnvrt@cp cp `*.25uc  1 a 2 54 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 56 ]
+[s S2625 _IO_FILE 0 ]
+"1177
+[v vfpfcnvrt@fp fp `*.2S2625  1 p 2 41 ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 43 ]
+[v vfpfcnvrt@ap ap `*.39*.4v  1 p 2 44 ]
+"1814
+} 0
+"942
+[v _stoa stoa `(v  1 s 1 stoa ]
+{
+"945
+[v stoa@l l `i  1 a 2 24 ]
+"944
+[v stoa@cp cp `*.26uc  1 a 2 22 ]
+"947
+[v stoa@w w `i  1 a 2 20 ]
+"945
+[v stoa@p p `i  1 a 2 18 ]
+[s S2625 _IO_FILE 0 ]
+"942
+[v stoa@fp fp `*.2S2625  1 p 2 12 ]
+[v stoa@s s `*.26uc  1 p 2 14 ]
+"997
+} 0
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+{
+"1164
+[v read_prec_or_width@c c `uc  1 a 1 11 ]
+"1159
+[v read_prec_or_width@n n `i  1 a 2 12 ]
+"1158
+[v read_prec_or_width@fmt fmt `*.4*.25DCuc  1 p 1 6 ]
+[v read_prec_or_width@ap ap `*.4[1]*.4v  1 p 1 7 ]
+"1171
+} 0
+"513
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+{
+"516
+[v dtoa@i i `i  1 a 2 39 ]
+[v dtoa@w w `i  1 a 2 36 ]
+"515
+[v dtoa@s s `uc  1 a 1 38 ]
+"520
+[v dtoa@p p `a  1 a 1 35 ]
+[s S2625 _IO_FILE 0 ]
+"513
+[v dtoa@fp fp `*.2S2625  1 p 2 28 ]
+[v dtoa@d d `i  1 p 2 30 ]
+"583
+} 0
+"193
+[v _pad pad `(v  1 s 1 pad ]
+{
+"195
+[v pad@i i `i  1 a 2 26 ]
+[s S2625 _IO_FILE 0 ]
+"193
+[v pad@fp fp `*.2S2625  1 p 2 20 ]
+[v pad@buf buf `*.5uc  1 p 1 22 ]
+[v pad@p p `i  1 p 2 23 ]
+"226
+} 0
+"8 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 18 ]
+"10
+[v fputs@c c `uc  1 a 1 17 ]
+"8
+[v fputs@s s `*.5DCuc  1 p 1 12 ]
+[u S2604 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
+[s S2607 _IO_FILE 11 `S2604 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.2S2607  1 p 2 13 ]
+"19
+} 0
+"8 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 3 ]
+[u S2604 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
+[s S2607 _IO_FILE 11 `S2604 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.2S2607  1 p 2 5 ]
+"24
+} 0
+"378 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@txData txData `uc  1 p 1 wreg ]
+[v putch@txData txData `uc  1 p 1 wreg ]
+[v putch@txData txData `uc  1 p 1 2 ]
+"385
+} 1
+"322
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+{
+[v EUSART_Write@txData txData `uc  1 p 1 wreg ]
+"324
+[v EUSART_Write@tempTxHead tempTxHead `uc  1 a 1 0 ]
+"322
+[v EUSART_Write@txData txData `uc  1 p 1 wreg ]
+"326
+[v EUSART_Write@txData txData `uc  1 p 1 1 ]
+"344
+} 1
+"241
+[v _EUSART_IsTxReady EUSART_IsTxReady `(a  1 e 1 0 ]
+{
+"244
+} 0
+"1 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 6 ]
+"4
+} 0
+"4 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 p 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 1 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 p 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 p 1 2 ]
+"51
+} 1
+"354 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _SwitchControl SwitchControl `(v  1 e 1 0 ]
+{
+[v SwitchControl@control control `a  1 p 1 wreg ]
+"356
+[v SwitchControl@buf buf `[8]uc  1 a 8 13 ]
+"354
+[v SwitchControl@control control `a  1 p 1 wreg ]
+[v SwitchControl@line1 line1 `uc  1 p 1 8 ]
+[v SwitchControl@line2 line2 `uc  1 p 1 9 ]
+"358
+[v SwitchControl@control control `a  1 p 1 12 ]
+"383
+} 1
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"34
+} 0
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
+} 0
+"343 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _SoftwareUART_WriteString SoftwareUART_WriteString `(v  1 e 1 0 ]
+{
+[v SoftwareUART_WriteString@str str `*.26DCuc  1 p 2 4 ]
+"349
+} 0
+"228 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _HAL_SoftwareUART_WriteByte HAL_SoftwareUART_WriteByte `(v  1 e 1 0 ]
+{
+[v HAL_SoftwareUART_WriteByte@data data `uc  1 p 1 wreg ]
+"238
+[v HAL_SoftwareUART_WriteByte@i i `i  1 a 2 2 ]
+"228
+[v HAL_SoftwareUART_WriteByte@data data `uc  1 p 1 wreg ]
+"231
+[v HAL_SoftwareUART_WriteByte@data data `uc  1 p 1 1 ]
+"257
+} 1
+"129 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _GetStateString GetStateString `(*.25DCuc  1 e 2 0 ]
+{
+[v GetStateString@state state `E12427  1 p 1 wreg ]
+[v GetStateString@state state `E12427  1 p 1 wreg ]
+[v GetStateString@state state `E12427  1 p 1 10 ]
+"143
+} 1
+"102
+[v _LoadSettings LoadSettings `(v  1 e 1 0 ]
+{
+"118
+[v LoadSettings@i_636 i `uc  1 a 1 14 ]
+"111
+[v LoadSettings@i_621 i `uc  1 a 1 11 ]
+"106
+[v LoadSettings@i i `us  1 a 2 12 ]
+"105
+[v LoadSettings@ptr ptr `*.5uc  1 a 1 10 ]
+"126
+} 0
+"15 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"93 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _SaveSettings SaveSettings `(v  1 e 1 0 ]
+{
+"95
+[v SaveSettings@i i `us  1 a 2 1 ]
+"94
+[v SaveSettings@ptr ptr `*.5uc  1 a 1 0 ]
+"99
+} 0
+"51 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _HAL_PBX_Init HAL_PBX_Init `(v  1 e 1 0 ]
+{
+"86
+[v HAL_PBX_Init@iodir_data iodir_data `[2]uc  1 a 2 69 ]
+"81
+[v HAL_PBX_Init@gppu_data gppu_data `[2]uc  1 a 2 67 ]
+"54
+[v HAL_PBX_Init@i i `uc  1 a 1 71 ]
+"78
+[v HAL_PBX_Init@F12272 F12272 `[2]uc  1 s 2 F12272 ]
+"82
+[v HAL_PBX_Init@F12274 F12274 `[2]uc  1 s 2 F12274 ]
+"95
+} 0
+"83 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+{
+"98
+} 0
+"98 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _HAL_SetTone HAL_SetTone `(v  1 e 1 0 ]
+{
+[v HAL_SetTone@line line `uc  1 p 1 wreg ]
+"133
+[v HAL_SetTone@port_idx port_idx `uc  1 a 1 62 ]
+"134
+[v HAL_SetTone@shift shift `uc  1 a 1 61 ]
+"132
+[v HAL_SetTone@ext_idx ext_idx `uc  1 a 1 59 ]
+"144
+[v HAL_SetTone@reg reg `uc  1 a 1 58 ]
+"100
+[v HAL_SetTone@tg2 tg2 `a  1 a 1 64 ]
+"99
+[v HAL_SetTone@tg1 tg1 `a  1 a 1 63 ]
+"98
+[v HAL_SetTone@line line `uc  1 p 1 wreg ]
+[v HAL_SetTone@tone tone `E36  1 p 1 51 ]
+[v HAL_SetTone@line line `uc  1 p 1 60 ]
+"147
+} 1
+"150
+[v _HAL_SetRing HAL_SetRing `(v  1 e 1 0 ]
+{
+[v HAL_SetRing@line line `uc  1 p 1 wreg ]
+"171
+[v HAL_SetRing@port_idx port_idx `uc  1 a 1 61 ]
+"172
+[v HAL_SetRing@shift shift `uc  1 a 1 59 ]
+"170
+[v HAL_SetRing@ext_idx ext_idx `uc  1 a 1 58 ]
+"183
+[v HAL_SetRing@reg reg `uc  1 a 1 57 ]
+"150
+[v HAL_SetRing@line line `uc  1 p 1 wreg ]
+[v HAL_SetRing@enable enable `a  1 p 1 51 ]
+"152
+[v HAL_SetRing@line line `uc  1 p 1 60 ]
+"187
+} 1
+"50 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\i2c_helper.c
+[v _MCP23017_WriteReg MCP23017_WriteReg `(a  1 e 1 0 ]
+{
+[v MCP23017_WriteReg@target_addr target_addr `us  1 p 2 47 ]
+[v MCP23017_WriteReg@reg reg `uc  1 p 1 49 ]
+[v MCP23017_WriteReg@data data `uc  1 p 1 50 ]
+"52
+} 0
+"14
+[v _MCP23017_WriteData MCP23017_WriteData `(a  1 e 1 0 ]
+{
+"16
+[v MCP23017_WriteData@tx_buffer tx_buffer `[32]uc  1 a 32 13 ]
+"31
+[v MCP23017_WriteData@timeout timeout `us  1 a 2 45 ]
+"14
+[v MCP23017_WriteData@target_addr target_addr `us  1 p 2 7 ]
+[v MCP23017_WriteData@start_reg start_reg `uc  1 p 1 9 ]
+[v MCP23017_WriteData@data data `*.4uc  1 p 1 10 ]
+[v MCP23017_WriteData@data_len data_len `ui  1 p 2 11 ]
+"47
+} 0
+"4 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.4v  1 e 2 0 ]
+{
+"8
+[v memcpy@s s `*.4DCuc  1 a 1 6 ]
+"7
+[v memcpy@d d `*.4uc  1 a 1 5 ]
+"9
+[v memcpy@tmp tmp `uc  1 a 1 4 ]
+"4
+[v memcpy@d1 d1 `*.4v  1 p 1 0 ]
+[v memcpy@s1 s1 `*.4DCv  1 p 1 1 ]
+[v memcpy@n n `ui  1 p 2 2 ]
+"18
+} 0
+"111 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[v _I2C1_Write I2C1_Write `(a  1 e 1 0 ]
+{
+"113
+[v I2C1_Write@retStatus retStatus `a  1 a 1 5 ]
+"111
+[v I2C1_Write@address address `us  1 p 2 0 ]
+[v I2C1_Write@data data `*.4uc  1 p 1 2 ]
+[v I2C1_Write@dataLength dataLength `ui  1 p 2 3 ]
+"128
+} 0
+"207
+[v _I2C1_WriteStart I2C1_WriteStart `(v  1 s 1 I2C1_WriteStart ]
+{
+"211
+} 0
+"175
+[v _I2C1_IsBusy I2C1_IsBusy `(a  1 e 1 0 ]
+{
+"178
+} 0
+"168
+[v _I2C1_ErrorGet I2C1_ErrorGet `(E12069  1 e 1 0 ]
+{
+"170
+[v I2C1_ErrorGet@retErrorState retErrorState `E11643  1 a 1 0 ]
+"173
+} 0
+"223 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
+[v _HAL_GetMaxLines HAL_GetMaxLines `(uc  1 e 1 0 ]
+{
+"225
+} 0
+"257 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+{
+"259
+[v EUSART_Read@readValue readValue `uc  1 a 1 1 ]
+"260
+[v EUSART_Read@tempRxTail tempRxTail `uc  1 a 1 0 ]
+"275
+} 0
+"236
+[v _EUSART_IsRxReady EUSART_IsRxReady `(a  1 e 1 0 ]
+{
+"239
+} 0
+"59 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\system\src\interrupt.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+{
+"93
+} 0
+"146 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
+{
+"154
+} 0
+"147 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[v _PBX_SystemTick_1ms PBX_SystemTick_1ms `(v  1 e 1 0 ]
+{
+"150
+[v PBX_SystemTick_1ms@i i `uc  1 a 1 12 ]
+"162
+} 0
+"161 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
+[v _TMR2_DefaultPeriodMatchCallback TMR2_DefaultPeriodMatchCallback `(v  1 s 1 TMR2_DefaultPeriodMatchCallback ]
+{
+"164
+} 0
+"15 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul16.c
+[v i1___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v i1___wmul@product product `ui  1 a 2 4 ]
+"15
+[v i1___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v i1___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"188 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
+[v _I2C1_ISR I2C1_ISR `(v  1 e 1 0 ]
+{
+"191
+} 0
+"226
+[v _I2C1_EventHandler I2C1_EventHandler `(v  1 s 1 I2C1_EventHandler ]
+{
+"252
+} 0
+"193
+[v _I2C1_ERROR_ISR I2C1_ERROR_ISR `(v  1 e 1 0 ]
+{
+"196
+} 0
+"254
+[v _I2C1_ErrorEventHandler I2C1_ErrorEventHandler `(v  1 s 1 I2C1_ErrorEventHandler ]
+{
+"261
+} 0
+"364
+[v _I2C1_EVENT_RESET I2C1_EVENT_RESET `(E11652  1 s 1 I2C1_EVENT_RESET ]
+{
+"370
+} 0
+"357
+[v _I2C1_EVENT_STOP I2C1_EVENT_STOP `(E11652  1 s 1 I2C1_EVENT_STOP ]
+{
+"362
+} 0
+"350
+[v _I2C1_EVENT_ERROR I2C1_EVENT_ERROR `(E11652  1 s 1 I2C1_EVENT_ERROR ]
+{
+"352
+[v I2C1_EVENT_ERROR@retEventState retEventState `E11652  1 a 1 0 ]
+"355
+} 0
+"343
+[v _I2C1_EVENT_NACK I2C1_EVENT_NACK `(E11652  1 s 1 I2C1_EVENT_NACK ]
+{
+"345
+[v I2C1_EVENT_NACK@retEventState retEventState `E11652  1 a 1 0 ]
+"348
+} 0
+"308
+[v _I2C1_EVENT_RX I2C1_EVENT_RX `(E11652  1 s 1 I2C1_EVENT_RX ]
+{
+"310
+[v I2C1_EVENT_RX@retEventState retEventState `E11652  1 a 1 0 ]
+"341
+} 0
+"275
+[v _I2C1_EVENT_SEND_WR_ADDR I2C1_EVENT_SEND_WR_ADDR `(E11652  1 s 1 I2C1_EVENT_SEND_WR_ADDR ]
+{
+"279
+} 0
+"269
+[v _I2C1_EVENT_SEND_RD_ADDR I2C1_EVENT_SEND_RD_ADDR `(E11652  1 s 1 I2C1_EVENT_SEND_RD_ADDR ]
+{
+"273
+} 0
+"263
+[v _I2C1_EVENT_IDLE I2C1_EVENT_IDLE `(E11652  1 s 1 I2C1_EVENT_IDLE ]
+{
+"267
+} 0
+"281
+[v _I2C1_EVENT_TX I2C1_EVENT_TX `(E11652  1 s 1 I2C1_EVENT_TX ]
+{
+"283
+[v I2C1_EVENT_TX@retEventState retEventState `E11652  1 a 1 0 ]
+"306
+} 0
+"213
+[v _I2C1_Close I2C1_Close `(v  1 s 1 I2C1_Close ]
+{
+"224
+} 0
+"346 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
+[v _EUSART_TransmitISR EUSART_TransmitISR `(v  1 e 1 0 ]
+{
+"348
+[v EUSART_TransmitISR@tempTxTail tempTxTail `uc  1 a 1 0 ]
+"367
+} 0
+"277
+[v _EUSART_ReceiveISR EUSART_ReceiveISR `(v  1 e 1 0 ]
+{
+"280
+[v EUSART_ReceiveISR@tempRxHead tempRxHead `uc  1 a 1 5 ]
+"279
+[v EUSART_ReceiveISR@regValue regValue `uc  1 a 1 4 ]
+"320
+} 0
+"392
+[v _EUSART_DefaultOverrunErrorCallback EUSART_DefaultOverrunErrorCallback `(v  1 s 1 EUSART_DefaultOverrunErrorCallback ]
+{
+"397
+} 0
+"387
+[v _EUSART_DefaultFramingErrorCallback EUSART_DefaultFramingErrorCallback `(v  1 s 1 EUSART_DefaultFramingErrorCallback ]
+{
+"390
+} 0
