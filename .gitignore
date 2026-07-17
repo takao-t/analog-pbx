@@ -13,9 +13,6 @@ cmake/
 **/*.d
 **/*.lst
 **/*.sym
-**/*.elf
-**/*.hex
-**/*.map
 **/*.bin
 
 # === MCC Generated (一時的なものは無視) ===
