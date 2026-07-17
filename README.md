@@ -141,3 +141,11 @@ https://www.thingiverse.com/thing:7383778
 https://note.com/tsq/n/n2b38f7ed411e
 
 全般的な注意点として、ピンの"名前"による指定でI/Oを抽象化しているところが多いのでMCCが必須になるところでしょうか。加えてCIPを使っている部分が多々あるのでMCCが使えないと動きません(コード外に処理がある)。
+
+現在、開発に使っているのは以下です。
+
+- Visual Studio Code(VScode)
+- Microchip MPALB X IDE + XC8
+- Microchip MPLAB extension for VScode
+- Microchip MPLAB MCC for VSCode
+- Microchip MPLAB Snap
