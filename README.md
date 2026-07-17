@@ -1,7 +1,7 @@
 
 # アナログPBX開発環境
 
-![analog_pbx](analog_pbx.JPG)
+![analog_pbx](analog_pbx.jpg)
 
 
 ## これは何？
