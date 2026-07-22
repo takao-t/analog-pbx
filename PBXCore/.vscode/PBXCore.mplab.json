@@ -6,6 +6,7 @@
             "id": "conf1",
             "device": "PIC16F18857",
             "imagePath": "./out/PBXCore/default.elf",
+            "tool": "Snap",
             "packs": [
                 {
                     "name": "PIC16F1xxxx_DFP",

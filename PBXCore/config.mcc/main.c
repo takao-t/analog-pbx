@@ -209,15 +209,23 @@ int main(void)
     // 電源投入時の信号乱れがあるので全スイッチを初期化
     // 複数回送信することで各UARTを完全に正常化させる
     printf("PBXCore: Initializing Switchboard...");
+
     printf("1.");
     SoftwareUART_WriteString("RFFFF\r");
-    __delay_ms(1000);
+    __delay_ms(500);
     printf("2.");
     SoftwareUART_WriteString("RFFFF\r");
-    __delay_ms(1000);
+    __delay_ms(500);
     printf("3.");
     SoftwareUART_WriteString("RFFFF\r");
-    __delay_ms(1000);
+    __delay_ms(500);
+    printf("4.");
+    SoftwareUART_WriteString("RFFFF\r");
+    __delay_ms(500);
+    printf("5.");
+    SoftwareUART_WriteString("RFFFF\r");
+    __delay_ms(500);
+
     printf("done.\r\n");
     
 
