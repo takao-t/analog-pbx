@@ -3,9 +3,10 @@
     "configurations": [
         {
             "name": "default",
-            "id": "conf1",
+            "id": "",
             "device": "PIC16F18857",
             "imagePath": "./out/PBXCore/default.elf",
+            "toolProperties": "default-tool-base",
             "tool": "Snap",
             "packs": [
                 {
@@ -20,6 +21,11 @@
     ],
     "propertyGroups": [
         {
+            "name": "default-uservariables",
+            "type": "uservariables",
+            "properties": {}
+        },
+        {
             "name": "default-XC8",
             "type": "toolchain",
             "provider": "microchip.toolchains:xc8@3.10",
@@ -27,6 +33,14 @@
                 "HI-TECH-COMP.what-to-do": [
                     "require"
                 ]
+            }
+        },
+        {
+            "name": "default-tool-base",
+            "type": "tool",
+            "properties": {
+                "Freeze Peripherals": false,
+                "programoptions.pgmspeed": "Min"
             }
         }
     ],
