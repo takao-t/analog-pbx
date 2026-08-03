@@ -156,7 +156,7 @@ void ProcessCommand(char* cmd)
         SoftwareUART_WriteString(cmd, true); // true = 縦方向
         SoftwareUART_WriteString("\r", true); // true = 縦方向
      }
-    // ケースB: 縦は自分だが、横(X)が自分の範囲(2)より大きい -> 右のユニットへ
+    // ケースB: 縦は自分だが、横(X)が自分の範囲(4)より大きい -> 右のユニットへ
     else if (x > 4) {
         x -= 4; // 座標を2減らす
         // コマンド書き換え
