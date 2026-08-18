@@ -146,9 +146,9 @@ ctrl_tcp_listen         127.0.0.1:4444
 
 ```
 <sip:phone11@192.168.1.1:5070;transport=udp>;auth_pass=mypassword
-<sip:11@192.169.254.235:5070;transport-udp>;regint=0
-<sip:12@192.169.254.235:5070;transport-udp>;regint=0
-<sip:13@192.169.254.235:5070;transport-udp>;regint=0
+<sip:11@192.168.1.1:5070;transport-udp>;regint=0
+<sip:12@192.168.1.1:5070;transport-udp>;regint=0
+<sip:13@192.168.1.1:5070;transport-udp>;regint=0
 ```
 いちばん上がRegister用のアカウントでAsteriskのアドレス、192.168.1.1のポート5070に対してRegisterします。正常にRegisterされると、Asteriskのエンドポイントphone11として認識されます。
 
