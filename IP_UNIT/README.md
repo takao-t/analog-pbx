@@ -1,6 +1,16 @@
 
 # IPユニット
 
+- [これは何？](#これは何？)
+- [しくみ](#しくみ)
+- [BOM](#BOM)
+- [回路説明](#少しだけ回路説明)
+- [制御信号](#制御信号)
+- [PBXCore設定](#pbxcore設定)
+- [BareSIPの設定](#baresipの設定)
+- [Asterisk側の設定](#asterisk側の設定)
+- [オーディオ接続](#オーディオ接続)
+
 ## これは何？
 
 アナログPBXをIP接続するためのユニットです。何とAsteriskとかと接続して遊ぶことができます。
@@ -166,6 +176,8 @@ CIDをハンドリングする機能は今のところありませんので、�
 
 前にも書いてありますが、音声信号自体はオーディオインタフェースをスイッチボードに接続します。IPユニット基板上にDCのカット、Mid-Railバイアス回路が搭載してありますので、オーディオインターフェースのMICとSP/LINEをIPユニット基板を通してスイッチボードに接続すると簡単です。
 
+スイッチボードのところでも説明していますが、スイッチボード上のアナログスイッチは単電源(0～5V)で動作しているので、オーディオインタフェースからの信号にはDCバイアスが必要だったことを思い出してください。SLICユニットの場合にはSLICのDCバイアスが利用できますが、外部オーディオ信号の場合には回路を付加してMid-RailへのDCバイアスを与える必要があるので、IPユニット上でこれを実装しています。
+
 もともとのアナログPBXが呼制御と音声信号は完全に切り離されていますので、IPユニット使用時も同じことです。
 
 音量の調整はalsamixerとかで大丈夫だと思うのでテストコールを実行して音量を調整しておいてください。
@@ -175,3 +187,59 @@ CIDをハンドリングする機能は今のところありませんので、�
 IPユニットはゴーストダイヤル(起動時の制御信号の乱れ)による不用意な発信を避けるため、故意に立ち上がりを遅くしてあります。全LEDが高速点滅している状態は初期化からの立ち上がり待ちです。全LEDが消灯した時点で使用可能となります。
 
 LEDは内部ステート(ステートマシン)の状態表示です。特に気にしなくてもかまいませんが何にも付いていないと動いている状況がわからないので付けてあります。
+
+## デバッグ
+それぞれこんな感じでメッセージが出るので動作確認の参考にしてください。
+
+PBXCore
+```
+Port 2: Off-Hook -> DIALTONE
+Port 2: Dialing started -> DIALING
+Port 2: Digit 0 received
+Port 2: Prefix dialed -> External IP Call Mode
+Port 2: Digit 2 received
+Port 2: Digit 0 received
+Port 2: Digit 1 received
+Port 2: Dialing complete -> ROUTING
+Port 2: Routing to IP Unit (Port 4). Number: 201
+Port 4 (IP Unit): Sending digit [2] ...
+Port 4 (IP Unit): Sending digit [0] ...
+Port 4 (IP Unit): Sending digit [1] ...
+Port 4: IP Unit answered -> TALKING
+Port 4: Hung up during talk. Port 2 is now BUSY.
+Port 4: Hung up. -> IDLE
+Port 2: Hung up. -> IDLE
+```
+pbx_bridge.py
+```
+2026-08-18 17:04:18,386 [INFO] <- PIC: DIAL 201
+2026-08-18 17:04:18,387 [INFO] -> Baresip: {'command': 'dial', 'params': 'sip:201@192.168.254.235'}
+2026-08-18 17:04:20,193 [INFO] <- Baresip ESTABLISHED
+2026-08-18 17:04:20,194 [INFO] -> PIC: ANS
+2026-08-18 17:04:23,504 [INFO] <- Baresip CLOSED
+2026-08-18 17:04:23,505 [INFO] -> PIC: DROP
+```
+BareSIP
+```
+phone11@192.168.254.235: selected for request
+call: connecting to 'sip:201@192.168.254.235;transport=udp'..
+call: SIP Progress: 183 Session Progress (application/sdp)
+phone11@192.168.254.235: Call in-progress: sip:201@192.168.254.235;transport=udp
+stream: update 'audio'
+audio_recv: Set audio decoder: PCMU 8000Hz 1ch
+audio_recv: player started with sample format S16LE
+audio: Set audio encoder: PCMU 8000Hz 1ch
+audio: source started with sample format S16LE
+audio tx pipeline:        alsa ---> aubuf ---> auconv ---> auresamp ---> PCMU
+audio rx pipeline:        alsa <--- aubuf <--- auconv <--- auresamp <--- PCMU
+call: SIP Progress: 183 Session Progress (application/sdp)
+phone11@192.168.254.235: Call in-progress: sip:201@192.168.254.235;transport=udp
+stream: update 'audio'
+audio_recv: Set audio decoder: PCMU 8000Hz 1ch
+phone11@192.168.254.235: Call answered: sip:201@192.168.254.235;transport=udp
+stream: update 'audio'
+audio_recv: Set audio decoder: PCMU 8000Hz 1ch
+phone11@192.168.254.235: Call established: sip:201@192.168.254.235;transport=udp
+sip:201@192.168.254.235;transport=udp: session closed: Connection reset by peer [104]
+sip:phone11@192.168.254.235:5070: Call with sip:201@192.168.254.235;transport=udp terminated (duration: 3 secs)
+```
