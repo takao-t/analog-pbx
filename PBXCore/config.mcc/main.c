@@ -32,10 +32,20 @@
 
 
 // 内線番号の最大桁数
-#define MAX_DIGITS 2
+#define MAX_EXT_DIGITS 2
+#define MAX_IP_DIGITS 16
+
+//プレフィクス(0-9,0xffは無効)
+uint8_t global_prefix = 0xFF;
 
 // 接続されている回線数
 uint8_t current_max_lines = 8;
+
+// ポート種別定義
+typedef enum {
+    PORT_TYPE_SLIC = 0,
+    PORT_TYPE_IP = 1
+} PortType;
 
 // 各ポート毎の設定保持構造体
 // 内線番号と物理ラインの紐付けもここで行う
@@ -43,6 +53,7 @@ typedef struct {
     uint8_t extension;     // 内線番号 (例: 11～)
     uint8_t initial_state; // 初期ステート (STATE_AUTOANSなど)
     uint8_t hotline_ext;   // ホットラインの発信先内線番号 (0xFFの場合は無効)
+    uint8_t port_type;     // 0=SLIC,1=IPUnit
     uint8_t reserved;      // 予約(将来の拡張用・4バイト境界合わせ)
 } PortConfig;
 
@@ -60,7 +71,10 @@ typedef enum {
     STATE_TALKING,      // 通話中
     STATE_BUSY,         // 話中（ビジートーン送出中）
     STATE_UNAVAIL,      // 回線使用不可(SLIC未接続など)
-    STATE_AUTOANS       // オートアンサ設定
+    STATE_AUTOANS,      // オートアンサ設定
+    STATE_IP_SENDING_DIGITS, // IPユニットへRIパルス送出中
+    STATE_IP_WAITING_ANS,    // IPユニットからの応答待ち
+    STATE_IP_ABORTING        // 発信キャンセル時にIP側へ通知
 } PBX_State;
 
 typedef struct {
@@ -71,7 +85,7 @@ typedef struct {
     // ダイヤル処理用
     uint8_t dp_count;       // 現在カウント中のパルス数
     uint8_t dialed_digits;  // 受信完了した桁数
-    uint8_t dialed_number[MAX_DIGITS]; // 受信した番号を格納
+    uint8_t dialed_number[MAX_IP_DIGITS]; // 受信した番号を格納
     
     // タイマー（1msTickで減算）
     volatile uint16_t dp_timer;    
@@ -79,18 +93,26 @@ typedef struct {
     volatile uint16_t hangup_timer;
 
     // 通話相手の物理ポート番号 (0-3)、未接続時は 0xFF などを入れる
-    uint8_t target_port;    
+    uint8_t target_port;
+    
+    // IPルーティング・送出用
+    bool is_external_call;
+    uint8_t send_dp_idx;
+    uint8_t send_dp_count;
+    uint8_t send_dp_phase;
 } LineContext;
 
 LineContext lines[TOTAL_MAX_LINES];
 
 // EEPROM保存関連
-#define EEPROM_MAGIC_ADDR 0x01 // マジックナンバーの保存先
+#define EEPROM_GLOBAL_PFX_ADDR 0x01 //プレフィクス保存
+#define EEPROM_MAGIC_ADDR 0x02 // マジックナンバーの保存先
 #define EEPROM_MAGIC_VAL  0x5A // 適当な固定値（0xFFや0x00以外）
-#define EEPROM_CFG_START  0x02 // 内線番号データの開始アドレス
+#define EEPROM_CFG_START  0x03 // 内線番号データの開始アドレス
 
 // EEPROMへの保存 (SAVE_TO_EEPROMコマンド等から呼ぶ)
 void SaveSettings(void) {
+    EEPROM_WRITE(EEPROM_GLOBAL_PFX_ADDR, global_prefix);
     uint8_t *ptr = (uint8_t *)port_configs;
     for (uint16_t i = 0; i < sizeof(port_configs); i++) {
         EEPROM_WRITE(EEPROM_CFG_START + i, ptr[i]);
@@ -101,6 +123,7 @@ void SaveSettings(void) {
 // EEPROMからの設定取得
 void LoadSettings(void) {
     if (EEPROM_READ(EEPROM_MAGIC_ADDR) == EEPROM_MAGIC_VAL) {
+        global_prefix = EEPROM_READ(EEPROM_GLOBAL_PFX_ADDR);
         // 構造体サイズ分、バイト単位で一括読み込み
         uint8_t *ptr = (uint8_t *)port_configs;
         for (uint16_t i = 0; i < sizeof(port_configs); i++) {
@@ -115,13 +138,15 @@ void LoadSettings(void) {
         }
     } else {
         // 初回起動時：デフォルト値を設定してEEPROMに保存
+        global_prefix = 0xFF;
         for(uint8_t i = 0; i < TOTAL_MAX_LINES; i++){
             port_configs[i].extension = 11 + i;
             port_configs[i].initial_state = 0;
             port_configs[i].hotline_ext = 0xFF; // 0xFFで無効化
+            port_configs[i].port_type = 0; //デフォルトはSLIC
             port_configs[i].reserved = 0;
         }
-        SaveSettings(); // 下記の保存関数を呼ぶ
+        SaveSettings(); // 保存関数を呼ぶ
     }
 }
 
@@ -138,6 +163,9 @@ const char* GetStateString(PBX_State state) {
         case STATE_BUSY:     return "BUSY";
         case STATE_UNAVAIL:  return "UNAVAIL";
         case STATE_AUTOANS:  return "AUTOANS";
+        case STATE_IP_SENDING_DIGITS: return "IPSENDING";
+        case STATE_IP_WAITING_ANS: return "IPWAITING";
+        case STATE_IP_ABORTING: return "IPABORTING";
         default:             return "UNKNOWN";
     }
 }
@@ -234,10 +262,10 @@ int main(void)
     // 異常がある場合にはスイッチボードのLEDを確認する
     printf("PBXCore: Testing Switchs.\r\n");
 
-    
+    // スイッチボードのLEDを点灯させる.時間短縮で"左上"のみ
     uint8_t i,j;
     for(i = 1; i <= current_max_lines; i++){
-        for(j = 1; j <= current_max_lines; j++){
+        for(j = 1; j <= current_max_lines; j+=2){
             CLRWDT();
             SwitchControl(true, i, j);
             printf(" ON:%d-%d\r\n",i,j);
@@ -246,7 +274,7 @@ int main(void)
 
     }
     for(i = 1; i <= current_max_lines; i++){
-        for(j = 1; j <= current_max_lines; j++){
+        for(j = 1; j <= current_max_lines; j+=2){
             CLRWDT();
             SwitchControl(false, i, j);
             printf(" OFF:%d-%d\r\n",i,j);
@@ -294,6 +322,19 @@ int main(void)
     LoadSettings();
     for(uint8_t i = 0; i < current_max_lines; i++){
         printf(" Port %2d : Ext %d\r\n", i + 1, port_configs[i].extension);
+    }
+
+    // IPユニットが先に立ち上がっており、PBXが後から立ち上がった場合に
+    // ゴーストダイヤルが発生するのでIPユニットをリセット(BUSY)する
+    // IPユニットが遅い場合にはIPユニットがオフフック->オンフックでIDLEに戻す
+    printf("PBXCore: Reset IP Unit.\r\n");
+    for(uint8_t i = 0; i < current_max_lines; i++){
+        if(port_configs[i].port_type == PORT_TYPE_IP){
+            printf(" Reset Port %d\r\n", i+1);
+            HAL_SetTone(i, TONE_BUSY);
+            __delay_ms(500);
+            HAL_SetTone(i, TONE_OFF);
+        }
     }
 
 
@@ -429,8 +470,12 @@ void ProcessStateMachine(uint8_t ch) {
         }
         
         if (line->hangup_timer == 0) {
-            // 着信中（RINGING）はオンフックが正常なのでハングアップから除外する
-            if (line->state != STATE_IDLE && line->state != STATE_RINGING) {
+            // 以下の状態でははオンフックが正常なのでハングアップから除外する
+            if (line->state != STATE_IDLE &&
+                line->state != STATE_RINGING &&
+                line->state != STATE_IP_SENDING_DIGITS &&
+                line->state != STATE_IP_WAITING_ANS &&
+                line->state != STATE_IP_ABORTING ) {
                 
                 // --- 相手がいる場合の連動処理 ---
                 if (line->target_port != 0xFF) {
@@ -439,7 +484,13 @@ void ProcessStateMachine(uint8_t ch) {
                     // 発信者が呼び出し中(CALLING)に諦めて切った場合、相手のベルを止める
                     if (line->state == STATE_CALLING) {
                         HAL_SetRing(t_ch, false);
-                        lines[t_ch].state = STATE_IDLE;
+                        if (port_configs[t_ch].port_type == PORT_TYPE_IP) { //IPの場合にはキャンセル(BUSYを送る)
+                            HAL_SetTone(t_ch, TONE_BUSY);
+                            lines[t_ch].state_timer = 500; // 500ms維持
+                            lines[t_ch].state = STATE_IP_ABORTING;
+                        } else {
+                            lines[t_ch].state = STATE_IDLE;
+                        }
                         lines[t_ch].target_port = 0xFF;
                         printf("Port %d: Caller aborted. Port %d stopped ringing.\r\n", ch + 1, t_ch + 1);
                     }
@@ -480,11 +531,12 @@ void ProcessStateMachine(uint8_t ch) {
         case STATE_IDLE:
             // オフフックされたらダイヤルトーンへ遷移
             if (line->last_hook == false && line->current_hook == true) {
+                line->is_external_call = false;
                 if (port_configs[ch].hotline_ext != 0xFF) {
-                    // ダイアルされた番号としてバッファにセットする (2桁前提)
+                    // ホットライン処理:ダイアルされた番号としてバッファにセットする (2桁前提)
                     line->dialed_number[0] = port_configs[ch].hotline_ext / 10;
                     line->dialed_number[1] = port_configs[ch].hotline_ext % 10;
-                    line->dialed_digits = MAX_DIGITS;
+                    line->dialed_digits = MAX_IP_DIGITS;
                     line->state = STATE_ROUTING; // そのままルーティングへ直行
                     printf("Port %d: Off-Hook -> HOTLINE to Ext %d -> ROUTING\r\n", ch + 1, port_configs[ch].hotline_ext);
                 } 
@@ -513,7 +565,8 @@ void ProcessStateMachine(uint8_t ch) {
             // パルスカウント処理
             if (line->last_hook == true && line->current_hook == false) {
                 line->dp_count++;
-                line->dp_timer = 600; // パルスが来るたびにタイマーをリセット
+                //line->dp_timer = 600; // パルスが来るたびにタイマーをリセット
+                line->dp_timer = 600;
             }
             
             // 桁確定のタイムアウト判定 (H状態が続いてタイマーが0になったら)
@@ -525,16 +578,80 @@ void ProcessStateMachine(uint8_t ch) {
                 
                 printf("Port %d: Digit %d received\r\n", ch + 1, digit);
 
-                // 全桁（MAX_DIGITSで定義）受信完了したらルーティング処理へ
-                if (line->dialed_digits >= MAX_DIGITS) {
+                // 1桁目がプレフィクスと一致するかチェック
+                if (line->dialed_digits == 1 && global_prefix != 0xFF && digit == global_prefix) {
+                    line->is_external_call = true;
+                    printf("Port %d: Prefix dialed -> External IP Call Mode\r\n", ch + 1);
+                }
+
+                // 桁数によるルーティング遷移判定
+                if (line->is_external_call) {
+                    // IP発信: バッファ上限に達したら強制ルーティング
+                    if (line->dialed_digits >= MAX_IP_DIGITS) {
+                        line->state = STATE_ROUTING;
+                    }
+                    else {
+                        // 次桁用ロングタイマーをセット
+                        line->state_timer = 3000;
+                    }
+                } else {
+                    // 内線発信: MAX_EXT_DIGITS(2桁)で確定
+                    if (line->dialed_digits >= MAX_EXT_DIGITS) {
+                        line->state = STATE_ROUTING;
+                    }
+                }
+            }
+
+            // IP発信モードで、桁と桁の間のロングタイムアウト（3秒 state_timer=0)が来たらダイヤル完了とみなす
+            if (line->current_hook == true && line->dp_timer == 0 && line->dp_count == 0 
+                && line->is_external_call && line->dialed_digits > 1) {
+                if(line->state_timer == 0){ //3秒間パルスがこなかった
+                    printf("Port %d: Dialing complete -> ROUTING\r\n", ch + 1);
                     line->state = STATE_ROUTING;
-                    printf("Port %d: Number complete -> ROUTING\r\n", ch + 1);
                 }
             }
             break;
 
         case STATE_ROUTING:
         {
+            if (line->is_external_call) {
+                // IPユニットの空きポートを探す
+                uint8_t ip_ch = 0xFF;
+                for (uint8_t i = 0; i < current_max_lines; i++) {
+                    if (port_configs[i].port_type == PORT_TYPE_IP && lines[i].state == STATE_IDLE) {
+                        ip_ch = i;
+                        break;
+                    }
+                }
+
+                if (ip_ch != 0xFF) {
+                    // お互いを紐づける
+                    line->target_port = ip_ch;
+                    lines[ip_ch].target_port = ch;
+
+                    // 発信側は一旦トーンを消して待機
+                    HAL_SetTone(ch, TONE_OFF); 
+                    line->state = STATE_CALLING;
+
+                    // IPユニット側を「番号送出ステート」へ
+                    lines[ip_ch].send_dp_idx = 1;     // プレフィクス(0桁目)はスキップ
+                    lines[ip_ch].send_dp_count = 0;
+                    lines[ip_ch].send_dp_phase = 0;   // 0:準備, 1:PulseON, 2:PulseOFF
+                    lines[ip_ch].state_timer = 100;   // 初期ディレイ
+                    lines[ip_ch].state = STATE_IP_SENDING_DIGITS;
+
+                    printf("Port %d: Routing to IP Unit (Port %d). Number: ", ch + 1, ip_ch + 1);
+                    for (uint8_t d = 1; d < line->dialed_digits; d++) {
+                        printf("%d", line->dialed_number[d]);
+                    }
+                    printf("\r\n");
+                } else {
+                    HAL_SetTone(ch, TONE_BUSY);
+                    line->state = STATE_BUSY;
+                    printf("Port %d: All IP Units BUSY\r\n", ch + 1);
+                }
+                break;
+            }
             // ダイヤルされた2桁の配列を数値に変換 (例: [1][2] -> 12)
             uint8_t dialed_val = (line->dialed_number[0] * 10) + line->dialed_number[1];
             uint8_t target_ch = 0xFF; // 見つからなかった場合の初期値
@@ -548,10 +665,10 @@ void ProcessStateMachine(uint8_t ch) {
             }
 
             // 存在しない番号、または自分自身にかけた場合
-            if (target_ch == 0xFF || target_ch == ch) {
+            if (target_ch == 0xFF || target_ch == ch || port_configs[target_ch].port_type == PORT_TYPE_IP) {
                 HAL_SetTone(ch, TONE_BUSY); // ビジートーン
                 line->state = STATE_BUSY;
-                printf("Port %d: Invalid number %d -> BUSY\r\n", ch + 1, dialed_val);
+                printf("Port %d: Invalid number or IP Unit %d -> BUSY\r\n", ch + 1, dialed_val);
             } 
             else {
                 // 相手の状態を確認 (STATE_IDLEなら呼び出し可能)
@@ -632,6 +749,74 @@ void ProcessStateMachine(uint8_t ch) {
             break;
         case STATE_AUTOANS:
             break;
+
+        case STATE_IP_SENDING_DIGITS:
+            if (line->state_timer == 0) {
+                uint8_t caller = line->target_port;
+                // 発信者が途中で切った場合のガード
+                if (caller == 0xFF || lines[caller].state != STATE_CALLING) {
+                    HAL_SetRing(ch, false);
+                    line->state = STATE_IDLE;
+                    break;
+                }
+
+                if (line->send_dp_phase == 0) {
+                    // 次の送信桁をセット
+                    if (line->send_dp_idx < lines[caller].dialed_digits) {
+                        uint8_t digit = lines[caller].dialed_number[line->send_dp_idx];
+                        line->send_dp_count = (digit == 0) ? 10 : digit; // '0'は10パルス
+                        line->send_dp_phase = 1;
+                        printf("Port %d (IP Unit): Sending digit [%d] ...\r\n", ch + 1, digit);
+                    } else {
+                        // 全桁送信完了 -> IP PIC側からの応答（オフフック）を待つ
+                        line->state = STATE_IP_WAITING_ANS;
+                        HAL_SetRing(ch, false); // 確実にOFF
+                        HAL_SetTone(caller, TONE_RINGBACK); // 送信完了したので発信者にRBTを聞かせる
+                        break;
+                    }
+                }
+
+                if (line->send_dp_phase == 1) { // Pulse ON
+                    HAL_SetRing(ch, true); 
+                    line->state_timer = 20; // 20ms
+                    line->send_dp_phase = 2;
+                } else if (line->send_dp_phase == 2) { // Pulse OFF
+                    HAL_SetRing(ch, false);
+                    line->send_dp_count--;
+                    if (line->send_dp_count > 0) {
+                        line->state_timer = 20; // 20ms
+                        line->send_dp_phase = 1; 
+                    } else {
+                        line->state_timer = 300; // 桁間のポーズ(300ms)
+                        line->send_dp_phase = 0;
+                        line->send_dp_idx++;
+                    }
+                }
+            }
+            break;
+
+        case STATE_IP_WAITING_ANS:
+            // IP接続ユニット(PIC)が SIP接続完了 してHOOKピンをH(オフフック)にしたら通話開始
+            if (line->last_hook == false && line->current_hook == true) {
+                uint8_t caller = line->target_port;
+                HAL_SetTone(caller, TONE_OFF); // 発信者のRBT停止
+                
+                SwitchControl(true, ch + 1, caller + 1); // 4066音声パス接続
+                line->state = STATE_TALKING;
+                lines[caller].state = STATE_TALKING;
+                
+                printf("Port %d: IP Unit answered -> TALKING\r\n", ch + 1);
+            }
+            break;
+
+        case STATE_IP_ABORTING:
+            // 500ms間BUSYトーンを出し終えたら完全にIDLEに戻す
+            if (line->state_timer == 0) {
+                HAL_SetTone(ch, TONE_OFF);
+                line->state = STATE_IDLE;
+            }
+            break;
+       
     }
 
     // フック状態を履歴に保存
@@ -649,11 +834,25 @@ void ProcessCommandLine(const char* str){
     //       コマンド等の「見た目」は1-の番号としているので-1,+1で表示さ
     //       せているので注意
     if (strcmp(str, "STAT") == 0) {
+        if(global_prefix == 0xff){
+            printf("Prefix(IP) not set\r\n");
+        }
+        else {
+            printf("Current Prefix : %d\r\n", global_prefix);
+        }
         printf("--- Line Status -------\r\n");
         for (uint8_t i = 0; i < current_max_lines; i++) {
-            printf("Port %d [Ext:%d] : %-8s", 
+            char port_type[4];
+            if(port_configs[i].port_type == 1){
+                strcpy(port_type, "IP-U");
+            }
+            else{
+                strcpy(port_type, "SLIC");
+            }
+            printf("Port %d [Ext:%d] (%-4s) : %-8s", 
                    i + 1, 
-                   port_configs[i].extension, 
+                   port_configs[i].extension,
+                   port_type,
                    GetStateString(lines[i].state));
             
             // 誰かと接続・呼び出し中であれば相手のポートも表示
@@ -794,6 +993,36 @@ void ProcessCommandLine(const char* str){
         SaveSettings();
         printf("Success: Settings saved to EEPROM.\r\n");
     }
+    // SET PFX コマンド (例: "SET PFX 0", "SET PFX OFF")
+    else if (strncmp(str, "SET PFX ", 8) == 0) {
+        if (strncmp(str + 8, "OFF", 3) == 0) {
+            global_prefix = 0xFF;
+            printf("Success: Prefix disabled\r\n");
+        } else if (str[8] >= '0' && str[8] <= '9') {
+            global_prefix = str[8] - '0';
+            printf("Success: External Prefix set to '%d'\r\n", global_prefix);
+        } else {
+            printf("Usage: SET PFX <0-9 or OFF>\r\n");
+        }
+    }
+    // SET TYPE コマンド (例: "SET TYPE 1 IP")
+    else if (strncmp(str, "SET TYPE ", 9) == 0) {
+        uint8_t port = str[9] - '1';
+        if (port < current_max_lines && str[10] == ' ') {
+            if (strncmp(str + 11, "SLIC", 4) == 0) {
+                port_configs[port].port_type = PORT_TYPE_SLIC;
+                printf("Success: Port %d type set to SLIC\r\n", port + 1);
+            } else if (strncmp(str + 11, "IP", 2) == 0) {
+                port_configs[port].port_type = PORT_TYPE_IP;
+                printf("Success: Port %d type set to IP Unit\r\n", port + 1);
+            } else {
+                goto type_error;
+            }
+        } else {
+type_error:
+            printf("Usage: SET TYPE <port:1-%d> <SLIC or IP>\r\n", current_max_lines);
+        }
+    }
     else if(strcmp(str, "HELP") == 0){ //ヘルプコマンド
         printf("---Commands---\r\n");
         printf("STAT    : Display current Status.\r\n");
@@ -803,6 +1032,10 @@ void ProcessCommandLine(const char* str){
         printf("          Usage: SET AA  <port:1-%d> <ON/OFF>\r\n", current_max_lines);
         printf("SET HL  : Set port HOTLINE number\r\n");
         printf("          Usage: SET HL <port:1-%d> <ext:10-99 or OFF>\r\n", current_max_lines);
+        printf("SET PFX : Set prefix for IP Dialing\r\n");
+        printf("          Usage: SET PFX <0-9>\r\n");
+        printf("SET TYPE: Set Port hardware type\r\n");
+        printf("          Usage: SET TYPE <port> <SLIC/IP>\r\n");
         printf("SBCTL   : Manually ON/OFF/FULL_RESET Switchboard.\r\n");
         printf("          Usage : SBCTL CON/REL <port1> <port2>\r\n");
         printf("          Example: SBCTL CON 1 2   - Connect 1 and 2 Switch.\r\n");
