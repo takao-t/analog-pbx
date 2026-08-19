@@ -17,6 +17,10 @@
   - [ホットライン機能](#ホットライン機能)
 - [回線拡張](#回線拡張)
 
+## Update Info
+
+IP接続ユニットに対応しました
+
 ## ライセンス
 大元のプロジェクトライセンスに準じます。好きに使ってかまいませんが、改変する場合には継承表示をしてください。ただし商用利用(製品化、キット化、講習会を含む)は禁止です。商用利用したい場合には別途ご相談ください。
 
@@ -90,7 +94,7 @@ https://github.com/takao-t/phone_use_slic
 
 設定や動作確認はシリアルコンソールで行えます。UARTのピンにUSBシリアル等を接続すると使えます。
 
-<pre>
+```
 PBX> help
 ---Commands---
 STAT    : Display current Status.
@@ -100,6 +104,10 @@ SET AA  : Set port to AUTO ANSWER mode.
           Usage: SET AA  <port:1-4> <ON/OFF>
 SET HL  : Set port HOTLINE number
           Usage: SET HL <port:1-4> <ext:10-99 or OFF>
+SET PFX : Set prefix for IP Dialing
+          Usage: SET PFX <0-9>
+SET TYPE: Set Port hardware type
+          Usage: SET TYPE <port> <SLIC/IP>
 SBCTL   : Manually ON/OFF/FULL_RESET Switchboard.
           Usage : SBCTL CON/REL <port1> <port2>
           Example: SBCTL CON 1 2   - Connect 1 and 2 Switch.
@@ -108,10 +116,7 @@ SBCTL   : Manually ON/OFF/FULL_RESET Switchboard.
 
 SAVE_TO_EEPROM : Save current settings to EEPROM.
 DO_FULL_RESET  : Reset PBXCore program.
---------------
-
-PBX>
-</pre>
+```
 
 SLICユニットの接続先は外部的には"LINE"ですが、PBXのプログラムは"Port"で呼称しています。LINEとPortはほぼ同じ意味なので、LINE1ならPort1とそのまま読み替えてください。
 
