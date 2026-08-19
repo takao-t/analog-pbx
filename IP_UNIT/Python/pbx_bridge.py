@@ -35,6 +35,21 @@ logger = logging.getLogger(__name__)
 # ==========================================
 baresip_writer = None
 serial_writer = None
+last_pong_time = 0
+
+# ==========================================
+# PING-PONG ハートビート送信処理
+# ==========================================
+async def heartbeat_task():
+    global serial_writer
+    while True:
+        await asyncio.sleep(5)
+        if serial_writer:
+            try:
+                serial_writer.write(b"PING\n")
+                # logger.info("-> PIC: PING")
+            except Exception as e:
+                logger.error(f"Failed to send PING: {e}")
 
 # ==========================================
 # Baresip (TCP/Netstring) 処理
@@ -181,6 +196,15 @@ class SerialProtocol(asyncio.Protocol):
 
     async def handle_serial_cmd(self, cmd):
         """PICから受信したテキストを処理してBaresipへ転送"""
+
+	# ログ溜まり防止のためPONGだけ別処理
+        if cmd == "PONG":
+            global last_pong_time
+            last_pong_time = asyncio.get_event_loop().time()
+            # logger.info(f"<- PIC: {cmd}")
+            return	
+
+	# 通常処理
         logger.info(f"<- PIC: {cmd}")
         
         # 1. 発信要求 (DIAL 123)
@@ -208,7 +232,8 @@ async def main():
     # TCPクライアント(Baresip連携)と並行実行
     await asyncio.gather(
         serial_coro,
-        baresip_tcp_client()
+        baresip_tcp_client(),
+	heartbeat_task()
     )
 
 if __name__ == '__main__':

@@ -49,6 +49,10 @@ UnitState current_state = STATE_IDLE;
 volatile uint16_t state_timer = 0;
 volatile uint16_t pulse_timeout = 0;
 volatile uint16_t pbx_busy_timer = 0;
+// ハートビート用変数
+volatile uint16_t sbc_link_timer = 0;
+uint16_t led_blink_timer = 500;  // LEDは1tick(1ms)x500で点滅
+bool is_link_up = false;
 
 // PBX(RI_IN)からのパルス受信関連
 uint8_t rx_pulse_count = 0;
@@ -74,43 +78,46 @@ void StatusLEDControl(uint8_t num);
 
 //LEDによるステータス表示
 void StatusLEDControl(uint8_t num){
-    LED1_SetLow();
-    LED2_SetLow();
-    LED3_SetLow();
+    // ハートビートでリンクが確認できた場合だけLEDを更新
+    if(is_link_up){
+        LED1_SetLow();
+        LED2_SetLow();
+        LED3_SetLow();
     
-    switch(num){
-        case 0x00:
-            break;
-        case 0x01:
-            LED1_SetHigh();
-            break;
-        case 0x02:
-            LED2_SetHigh();
-            break;
-        case 0x03:
-            LED1_SetHigh();
-            LED2_SetHigh();
-            break;
-        case 0x04:
-            LED3_SetHigh();
-            break;
-        case 0x05:
-            LED1_SetHigh();
-            LED3_SetHigh();
-            break;
-        case 0x06:
-            LED2_SetHigh();
-            LED3_SetHigh();
-            break;
-        case 0x07:
-            LED1_SetHigh();
-            LED2_SetHigh();
-            LED3_SetHigh();
-            break;
-        default:
-            LED1_SetLow();
-            LED2_SetLow();
-            LED3_SetLow();
+        switch(num){
+            case 0x00:
+                break;
+            case 0x01:
+                LED1_SetHigh();
+                break;
+            case 0x02:
+                LED2_SetHigh();
+                break;
+            case 0x03:
+                LED1_SetHigh();
+                LED2_SetHigh();
+                break;
+            case 0x04:
+                LED3_SetHigh();
+                break;
+            case 0x05:
+                LED1_SetHigh();
+                LED3_SetHigh();
+                break;
+            case 0x06:
+                LED2_SetHigh();
+                LED3_SetHigh();
+                break;
+            case 0x07:
+                LED1_SetHigh();
+                LED2_SetHigh();
+                LED3_SetHigh();
+                break;
+            default:
+                LED1_SetLow();
+                LED2_SetLow();
+                LED3_SetLow();
+        }
     }
 }
 
@@ -119,6 +126,23 @@ void SystemTick_1ms(void) {
     if (state_timer > 0) state_timer--;
     if (pulse_timeout > 0) pulse_timeout--;
     
+    // ハートビート・タイムアウト処理
+    if (sbc_link_timer > 0) {
+        sbc_link_timer--;
+        if (sbc_link_timer == 0) {
+            is_link_up = false; // 15秒間PINGが来なければリンクダウン
+        }
+    }
+
+    // リンクダウン中のLED点滅
+    if(!is_link_up){
+        led_blink_timer--;
+        if(led_blink_timer == 0){
+            LED3_Toggle();
+            led_blink_timer = 500;
+        }
+    }
+
     // PBXがビジートーン(T1=L, T2=H)を出しているかの検知
     // PBX側の HAL_SetTone(ch, TONE_BUSY) は TG1=L, TG2=H になる
     if (T1_IN_GetValue() == 0 && T2_IN_GetValue() == 1) {
@@ -248,8 +272,17 @@ void ProcessStateMachine(void) {
             // 桁間ポーズがタイムアウトしたら全桁受信完了とみなしてSBCへ送信
             if (current_ri == true && pulse_timeout == 0 && rx_pulse_count == 0) {
                 if (state_timer == 0 && rx_digit_count > 0) {
-                    printf("DIAL %s\r\n", rx_number);
-                    current_state = STATE_WAIT_IP_ANS;
+                    if (is_link_up) { // ハートビートでリンクupの状態ならDIAL送出
+                        printf("DIAL %s\r\n", rx_number);
+                        current_state = STATE_WAIT_IP_ANS;
+                    } else {
+                        // リンクダウン時は一瞬応答してすぐ切る(BUSYにする)
+                        // printf("Link DOWN! Rejecting call from PBX.\r\n");
+                        HO_OUT_SetHigh();
+                        __delay_ms(100);
+                        HO_OUT_SetLow();
+                        current_state = STATE_IDLE;
+                    }
                 }
             }
             break;
@@ -257,6 +290,13 @@ void ProcessStateMachine(void) {
         case STATE_WAIT_IP_ANS:
             // SBCからの "ANS" コマンド待ち。
             // ProcessUARTCommand内で処理するため、ここではタイムアウトなどのみ監視
+            if (!is_link_up) { // 待っている間にダウンした場合の処理
+                // printf("Link DOWN during WAIT_ANS! Aborting.\r\n");
+                HO_OUT_SetHigh();
+                __delay_ms(100);
+                HO_OUT_SetLow();
+                current_state = STATE_IDLE;
+            }
             break;
 
         case STATE_TX_PULSE_SETUP:
@@ -313,6 +353,14 @@ void ProcessStateMachine(void) {
 
 // SBC(Python)からのコマンド処理
 void ProcessUARTCommand(char *cmd) {
+    // PING-PONGハートビートの応答
+    if (strcmp(cmd, "PING") == 0) {
+        sbc_link_timer = 15000; // タイマーを15秒にリセット
+        is_link_up = true;
+        printf("PONG\r\n");     // PONGを即座に返す
+        return;
+    }
+
     if (strncmp(cmd, "RING ", 5) == 0) {
         if (current_state == STATE_IDLE) {
             strncpy(tx_number, cmd + 5, sizeof(tx_number) - 1);
