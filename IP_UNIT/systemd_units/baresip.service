@@ -1,0 +1,15 @@
+[Unit]
+Description=Baresip SIP User-Agent
+After=network.target sound.target
+
+[Service]
+Type=simple
+User=pbxbridge
+Group=pbxbridge
+ExecStart=/usr/local/bin/baresip -f /home/pbxbridge/.baresip
+Restart=always
+RestartSec=3
+SupplementaryGroups=audio
+
+[Install]
+WantedBy=multi-user.target

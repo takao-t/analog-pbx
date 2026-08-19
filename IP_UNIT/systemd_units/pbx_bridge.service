@@ -1,0 +1,17 @@
+[Unit]
+Description=PBX to Baresip Bridge (Python)
+After=network.target baresip.service
+Requires=baresip.service
+
+[Service]
+Type=simple
+User=pbxbridge
+Group=pbxbridge
+WorkingDirectory=/home/pbxbridge
+ExecStart=/usr/bin/python3 /home/pbxbridge/pbx_bridge.py
+Restart=always
+RestartSec=5
+SupplementaryGroups=dialout
+
+[Install]
+WantedBy=multi-user.target
