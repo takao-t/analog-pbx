@@ -130,6 +130,11 @@ audio_alert             alsa,plughw:1
 
 上記の例ではALSAデバイス、plughw:1 を使っています。
 
+1通話しかハンドリグできないのでcall_max_callsを絞っておきます(デフォルト 4)。
+```
+call_max_calls          1
+```
+
 PythonでAPIを使って制御しますので以下の設定が必要です。
 
 ```
