@@ -60,7 +60,9 @@ IPユニットを複数枚使用することはできますが、その分、SLI
 
 ## 少しだけ回路説明
 
-![IP-UNIT.jpg](IP-UNIT.jpg)
+![IP-UNIT](IP-UNIT.jpg)
+![IP-UNIT_PCB](IP-UNIT_PCB.png)
+
 
 例によって回路図、基板データも同じディレクトリに置いてあります。
 
