@@ -97,6 +97,8 @@ IPユニットを複数枚使用することはできますが、その分、SLI
 |RING|BRIDGE->IPU|内線番号|BareSIPが着信した際にPBX内線にダイヤル|例: RING 21|
 |ANS|双方あり|-|通話成立時||
 |DROP|双方あり|-|通話切断時||
+|PING|BRIDGE->IPU|-|疎通確認|
+|PONG|IPU->BRIDGE|-|疎通確認|
 
 ## PBXCore設定
 
@@ -180,6 +182,12 @@ CIDをハンドリングする機能は今のところありませんので、�
 ## システム(Linux)の設定
 
 systemd_units ディレクトリの下にUnitファイルを置いてあります。サンプルではユーザ名をpbxbridgeとし、ディレクトリ /home/pbxbridge を使う前提としています。BareSIPの設定ファイルは /home/pbxbridge/.baresip ディレクトリに置き、ユーザ pbxbridge はdialoutとaudioグループに所属させてください。
+
+## 疎通確認(ハートビート)
+
+PING-PONGでのハートビートによるUART上での疎通確認を行います。PythonのブリッジがPINGを送信し、PICがPONGで応答します。これによりIP側への接続可否を判断しています。
+
+LED3(左端:ICSPコネクタに近い側)が定期点滅している状態は疎通が取れていない状態で発着信不可の状態です。IPユニットの状態表示では点滅することはありませんので、点滅状態で判断してください。
 
 ## オーディオ接続
 
