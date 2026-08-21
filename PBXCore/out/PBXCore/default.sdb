@@ -17,8 +17,8 @@ I2C_ERROR_ADDR_NACK 1
 I2C_ERROR_DATA_NACK 2
 I2C_ERROR_BUS_COLLISION 3
 ]
-"105 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
-[e E12433 . `uc
+"107 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+[e E12434 . `uc
 STATE_IDLE 0
 STATE_DIALTONE 1
 STATE_DIALING 2
@@ -33,12 +33,12 @@ STATE_IP_SENDING_DIGITS 10
 STATE_IP_WAITING_ANS 11
 STATE_IP_ABORTING 12
 ]
-"331
-[e E12421 . `uc
+"338
+[e E12422 . `uc
 PORT_TYPE_SLIC 0
 PORT_TYPE_IP 1
 ]
-"333
+"340
 [e E12234 . `uc
 TONE_OFF 0
 TONE_DIAL 1
@@ -144,7 +144,9 @@ TMR2_LC4_OUT 17
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strcpy.c
-[v _strcpy strcpy `(*.4uc  1 e 2 0 ]
+[v _strcpy strcpy `(*.39uc  1 e 2 0 ]
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strncmp.c
 [v _strncmp strncmp `(i  1 e 2 0 ]
 "15 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul16.c
@@ -175,23 +177,23 @@ TMR2_LC4_OUT 17
 [v _MCP23017_WriteReg MCP23017_WriteReg `(a  1 e 1 0 ]
 "55
 [v _MCP23017_ReadData MCP23017_ReadData `(a  1 e 1 0 ]
-"114 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"116 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _SaveSettings SaveSettings `(v  1 e 1 0 ]
-"124
+"126
 [v _LoadSettings LoadSettings `(v  1 e 1 0 ]
-"154
+"156
 [v _GetStateString GetStateString `(*.25DCuc  1 e 2 0 ]
-"175
+"177
 [v _PBX_SystemTick_1ms PBX_SystemTick_1ms `(v  1 e 1 0 ]
-"209
+"215
 [v _main main `(i  1 e 2 0 ]
-"391
+"437
 [v _SoftwareUART_WriteString SoftwareUART_WriteString `(v  1 e 1 0 ]
-"402
+"448
 [v _SwitchControl SwitchControl `(v  1 e 1 0 ]
-"457
+"503
 [v _ProcessStateMachine ProcessStateMachine `(v  1 e 1 0 ]
-"826
+"872
 [v _ProcessCommandLine ProcessCommandLine `(v  1 e 1 0 ]
 "83 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
@@ -410,7 +412,7 @@ TMR2_LC4_OUT 17
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "3709
 [v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S2104 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S2118 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -420,11 +422,11 @@ TMR2_LC4_OUT 17
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3735
-[u S2113 . 1 `S2104 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES2113  1 e 1 @285 ]
+[u S2127 . 1 `S2118 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES2127  1 e 1 @285 ]
 "3889
 [v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S2125 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S2139 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -434,11 +436,11 @@ TMR2_LC4_OUT 17
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3915
-[u S2134 . 1 `S2125 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES2134  1 e 1 @286 ]
+[u S2148 . 1 `S2139 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES2148  1 e 1 @286 ]
 "4069
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
-[s S2146 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S2160 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -448,15 +450,15 @@ TMR2_LC4_OUT 17
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4103
-[u S2155 . 1 `S2146 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES2155  1 e 1 @287 ]
+[u S2169 . 1 `S2160 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES2169  1 e 1 @287 ]
 "4315
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "4335
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @397 ]
 "4525
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @399 ]
-[s S1190 . 1 `uc 1 BF 1 0 :1:0 
+[s S1204 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -466,33 +468,33 @@ TMR2_LC4_OUT 17
 `uc 1 SMP 1 0 :1:7 
 ]
 "4634
-[s S1199 . 1 `uc 1 . 1 0 :2:0 
+[s S1213 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S1204 . 1 `uc 1 . 1 0 :2:0 
+[s S1218 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S1209 . 1 `uc 1 . 1 0 :2:0 
+[s S1223 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S1214 . 1 `uc 1 . 1 0 :2:0 
+[s S1228 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S1219 . 1 `uc 1 . 1 0 :2:0 
+[s S1233 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S1225 . 1 `uc 1 BF1 1 0 :1:0 
+[s S1239 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -501,66 +503,66 @@ TMR2_LC4_OUT 17
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S1234 . 1 `uc 1 . 1 0 :2:0 
+[s S1248 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S1240 . 1 `uc 1 . 1 0 :2:0 
+[s S1254 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 I2C_START1 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S1246 . 1 `uc 1 . 1 0 :2:0 
+[s S1260 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ1 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS1 1 0 :1:5 
 ]
-[s S1252 . 1 `uc 1 . 1 0 :2:0 
+[s S1266 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A1 1 0 :1:5 
 ]
-[s S1257 . 1 `uc 1 . 1 0 :2:0 
+[s S1271 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA1 1 0 :1:5 
 ]
-[s S1262 . 1 `uc 1 . 1 0 :2:0 
+[s S1276 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT1 1 0 :1:5 
 ]
-[s S1267 . 1 `uc 1 . 1 0 :2:0 
+[s S1281 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S1272 . 1 `uc 1 . 1 0 :2:0 
+[s S1286 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS1 1 0 :1:5 
 ]
-[u S1277 . 1 `S1190 1 . 1 0 `S1199 1 . 1 0 `S1204 1 . 1 0 `S1209 1 . 1 0 `S1214 1 . 1 0 `S1219 1 . 1 0 `S1225 1 . 1 0 `S1234 1 . 1 0 `S1240 1 . 1 0 `S1246 1 . 1 0 `S1252 1 . 1 0 `S1257 1 . 1 0 `S1262 1 . 1 0 `S1267 1 . 1 0 `S1272 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES1277  1 e 1 @399 ]
+[u S1291 . 1 `S1204 1 . 1 0 `S1213 1 . 1 0 `S1218 1 . 1 0 `S1223 1 . 1 0 `S1228 1 . 1 0 `S1233 1 . 1 0 `S1239 1 . 1 0 `S1248 1 . 1 0 `S1254 1 . 1 0 `S1260 1 . 1 0 `S1266 1 . 1 0 `S1271 1 . 1 0 `S1276 1 . 1 0 `S1281 1 . 1 0 `S1286 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES1291  1 e 1 @399 ]
 "4889
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @400 ]
-[s S1067 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S1081 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4919
-[s S1073 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1087 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S1078 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S1092 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -569,8 +571,8 @@ TMR2_LC4_OUT 17
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S1087 . 1 `S1067 1 . 1 0 `S1073 1 . 1 0 `S1078 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES1087  1 e 1 @400 ]
+[u S1101 . 1 `S1081 1 . 1 0 `S1087 1 . 1 0 `S1092 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES1101  1 e 1 @400 ]
 "5009
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @401 ]
 [s S322 . 1 `uc 1 SEN 1 0 :1:0 
@@ -619,16 +621,16 @@ TMR2_LC4_OUT 17
 [v _T2PR T2PR `VEuc  1 e 1 @653 ]
 "9126
 [v _T2CON T2CON `VEuc  1 e 1 @654 ]
-[s S1820 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S1834 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 CKPS 1 0 :3:4 
 `uc 1 ON 1 0 :1:7 
 ]
 "9162
-[s S1824 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+[s S1838 . 1 `uc 1 T2OUTPS 1 0 :4:0 
 `uc 1 T2CKPS 1 0 :3:4 
 `uc 1 T2ON 1 0 :1:7 
 ]
-[s S1828 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+[s S1842 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
 `uc 1 T2OUTPS1 1 0 :1:1 
 `uc 1 T2OUTPS2 1 0 :1:2 
 `uc 1 T2OUTPS3 1 0 :1:3 
@@ -636,7 +638,7 @@ TMR2_LC4_OUT 17
 `uc 1 T2CKPS1 1 0 :1:5 
 `uc 1 T2CKPS2 1 0 :1:6 
 ]
-[s S1836 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S1850 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
@@ -645,67 +647,67 @@ TMR2_LC4_OUT 17
 `uc 1 CKPS2 1 0 :1:6 
 `uc 1 TMR2ON 1 0 :1:7 
 ]
-[u S1845 . 1 `S1820 1 . 1 0 `S1824 1 . 1 0 `S1828 1 . 1 0 `S1836 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1845  1 e 1 @654 ]
+[u S1859 . 1 `S1834 1 . 1 0 `S1838 1 . 1 0 `S1842 1 . 1 0 `S1850 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1859  1 e 1 @654 ]
 "9272
 [v _T2HLT T2HLT `VEuc  1 e 1 @655 ]
-[s S1898 . 1 `uc 1 MODE 1 0 :5:0 
+[s S1912 . 1 `uc 1 MODE 1 0 :5:0 
 `uc 1 CKSYNC 1 0 :1:5 
 `uc 1 CKPOL 1 0 :1:6 
 `uc 1 PSYNC 1 0 :1:7 
 ]
 "9305
-[s S1903 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S1917 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 MODE3 1 0 :1:3 
 `uc 1 MODE4 1 0 :1:4 
 ]
-[s S1909 . 1 `uc 1 T2MODE 1 0 :5:0 
+[s S1923 . 1 `uc 1 T2MODE 1 0 :5:0 
 `uc 1 T2CKSYNC 1 0 :1:5 
 `uc 1 T2CKPOL 1 0 :1:6 
 `uc 1 T2PSYNC 1 0 :1:7 
 ]
-[s S1914 . 1 `uc 1 T2MODE0 1 0 :1:0 
+[s S1928 . 1 `uc 1 T2MODE0 1 0 :1:0 
 `uc 1 T2MODE1 1 0 :1:1 
 `uc 1 T2MODE2 1 0 :1:2 
 `uc 1 T2MODE3 1 0 :1:3 
 `uc 1 T2MODE4 1 0 :1:4 
 ]
-[u S1920 . 1 `S1898 1 . 1 0 `S1903 1 . 1 0 `S1909 1 . 1 0 `S1914 1 . 1 0 ]
-[v _T2HLTbits T2HLTbits `VES1920  1 e 1 @655 ]
+[u S1934 . 1 `S1912 1 . 1 0 `S1917 1 . 1 0 `S1923 1 . 1 0 `S1928 1 . 1 0 ]
+[v _T2HLTbits T2HLTbits `VES1934  1 e 1 @655 ]
 "9400
 [v _T2CLKCON T2CLKCON `VEuc  1 e 1 @656 ]
 "9558
 [v _T2RST T2RST `VEuc  1 e 1 @657 ]
-[s S1966 . 1 `uc 1 RSEL 1 0 :5:0 
+[s S1980 . 1 `uc 1 RSEL 1 0 :5:0 
 ]
 "9585
-[s S1968 . 1 `uc 1 RSEL0 1 0 :1:0 
+[s S1982 . 1 `uc 1 RSEL0 1 0 :1:0 
 `uc 1 RSEL1 1 0 :1:1 
 `uc 1 RSEL2 1 0 :1:2 
 `uc 1 RSEL3 1 0 :1:3 
 `uc 1 RSEL4 1 0 :1:4 
 ]
-[s S1974 . 1 `uc 1 T2RSEL 1 0 :5:0 
+[s S1988 . 1 `uc 1 T2RSEL 1 0 :5:0 
 ]
-[s S1976 . 1 `uc 1 T2RSEL0 1 0 :1:0 
+[s S1990 . 1 `uc 1 T2RSEL0 1 0 :1:0 
 `uc 1 T2RSEL1 1 0 :1:1 
 `uc 1 T2RSEL2 1 0 :1:2 
 `uc 1 T2RSEL3 1 0 :1:3 
 `uc 1 T2RSEL4 1 0 :1:4 
 ]
-[u S1982 . 1 `S1966 1 . 1 0 `S1968 1 . 1 0 `S1974 1 . 1 0 `S1976 1 . 1 0 ]
-[v _T2RSTbits T2RSTbits `VES1982  1 e 1 @657 ]
-[s S1557 . 1 `uc 1 INTF 1 0 :1:0 
+[u S1996 . 1 `S1980 1 . 1 0 `S1982 1 . 1 0 `S1988 1 . 1 0 `S1990 1 . 1 0 ]
+[v _T2RSTbits T2RSTbits `VES1996  1 e 1 @657 ]
+[s S1571 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "20980
-[u S1562 . 1 `S1557 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES1562  1 e 1 @1804 ]
-[s S1173 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[u S1576 . 1 `S1571 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES1576  1 e 1 @1804 ]
+[s S1187 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -713,9 +715,9 @@ TMR2_LC4_OUT 17
 `uc 1 RCIF 1 0 :1:5 
 ]
 "21087
-[u S1180 . 1 `S1173 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES1180  1 e 1 @1807 ]
-[s S1631 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S1194 . 1 `S1187 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES1194  1 e 1 @1807 ]
+[s S1645 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 TMR3IF 1 0 :1:2 
 `uc 1 TMR4IF 1 0 :1:3 
@@ -723,9 +725,9 @@ TMR2_LC4_OUT 17
 `uc 1 TMR6IF 1 0 :1:5 
 ]
 "21137
-[u S1638 . 1 `S1631 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES1638  1 e 1 @1808 ]
-[s S1050 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[u S1652 . 1 `S1645 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1652  1 e 1 @1808 ]
+[s S1064 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -733,9 +735,9 @@ TMR2_LC4_OUT 17
 `uc 1 RCIE 1 0 :1:5 
 ]
 "21509
-[u S1057 . 1 `S1050 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES1057  1 e 1 @1817 ]
-[s S1614 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S1071 . 1 `S1064 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1071  1 e 1 @1817 ]
+[s S1628 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 TMR3IE 1 0 :1:2 
 `uc 1 TMR4IE 1 0 :1:3 
@@ -743,13 +745,13 @@ TMR2_LC4_OUT 17
 `uc 1 TMR6IE 1 0 :1:5 
 ]
 "21559
-[u S1621 . 1 `S1614 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES1621  1 e 1 @1818 ]
+[u S1635 . 1 `S1628 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1635  1 e 1 @1818 ]
 "22148
 [v _WDTCON0 WDTCON0 `VEuc  1 e 1 @2060 ]
 "22223
 [v _WDTCON1 WDTCON1 `VEuc  1 e 1 @2061 ]
-[s S1759 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1773 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nRI 1 0 :1:2 
 `uc 1 nRMCLR 1 0 :1:3 
@@ -759,8 +761,8 @@ TMR2_LC4_OUT 17
 `uc 1 STKOVF 1 0 :1:7 
 ]
 "22720
-[u S1768 . 1 `S1759 1 . 1 0 ]
-[v _PCON0bits PCON0bits `VES1768  1 e 1 @2067 ]
+[u S1782 . 1 `S1773 1 . 1 0 ]
+[v _PCON0bits PCON0bits `VES1782  1 e 1 @2067 ]
 "22798
 [v _NVMADRL NVMADRL `VEuc  1 e 1 @2074 ]
 "22860
@@ -875,25 +877,29 @@ TMR2_LC4_OUT 17
 [v _mcp_olat mcp_olat `[2]uc  1 s 2 mcp_olat ]
 "46
 [v _mcp_gpio_cache mcp_gpio_cache `[2]uc  1 s 2 mcp_gpio_cache ]
-"39 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"41 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _global_prefix global_prefix `uc  1 e 1 0 ]
-"42
+"44
 [v _current_max_lines current_max_lines `uc  1 e 1 0 ]
 [s S443 . 5 `uc 1 extension 1 0 `uc 1 initial_state 1 1 `uc 1 hotline_ext 1 2 `uc 1 port_type 1 3 `uc 1 reserved 1 4 ]
-"61
+"63
 [v _port_configs port_configs `[8]S443  1 e 40 0 ]
-[s S463 . 32 `E12433 1 state 1 0 `a 1 current_hook 1 1 `a 1 last_hook 1 2 `uc 1 dp_count 1 3 `uc 1 dialed_digits 1 4 `[16]uc 1 dialed_number 16 5 `VEus 1 dp_timer 2 21 `VEus 1 state_timer 2 23 `VEus 1 hangup_timer 2 25 `uc 1 target_port 1 27 `a 1 is_external_call 1 28 `uc 1 send_dp_idx 1 29 `uc 1 send_dp_count 1 30 `uc 1 send_dp_phase 1 31 ]
-"105
+[s S463 . 32 `E12434 1 state 1 0 `a 1 current_hook 1 1 `a 1 last_hook 1 2 `uc 1 dp_count 1 3 `uc 1 dialed_digits 1 4 `[16]uc 1 dialed_number 16 5 `VEus 1 dp_timer 2 21 `VEus 1 state_timer 2 23 `VEus 1 hangup_timer 2 25 `uc 1 target_port 1 27 `a 1 is_external_call 1 28 `uc 1 send_dp_idx 1 29 `uc 1 send_dp_count 1 30 `uc 1 send_dp_phase 1 31 ]
+"107
 [v _lines lines `VE[8]S463  1 e 256 @11888 ]
-"194
+"196
 [v _rxBuffer rxBuffer `[64]uc  1 e 64 0 ]
-"195
+"197
 [v _rxIndex rxIndex `uc  1 e 1 0 ]
+"200
+[v _lastCmdBuffer lastCmdBuffer `[64]uc  1 e 64 0 ]
+"201
+[v _escState escState `uc  1 e 1 0 ]
 "68 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\i2c_host\src\mssp1.c
 [v _I2C1_Callback I2C1_Callback `*.37(v  1 s 2 I2C1_Callback ]
-[s S998 . 14 `a 1 busy 1 0 `us 1 address 2 1 `*.39uc 1 writePtr 2 3 `ui 1 writeLength 2 5 `*.39uc 1 readPtr 2 7 `ui 1 readLength 2 9 `a 1 switchToRead 1 11 `E11643 1 errorState 1 12 `E11652 1 state 1 13 ]
+[s S1012 . 14 `a 1 busy 1 0 `us 1 address 2 1 `*.39uc 1 writePtr 2 3 `ui 1 writeLength 2 5 `*.39uc 1 readPtr 2 7 `ui 1 readLength 2 9 `a 1 switchToRead 1 11 `E11643 1 errorState 1 12 `E11652 1 state 1 13 ]
 "69
-[v _i2c1Status i2c1Status `VES998  1 e 14 0 ]
+[v _i2c1Status i2c1Status `VES1012  1 e 14 0 ]
 "71
 [v _i2c1_eventTable i2c1_eventTable `DC[9]*.37(E11652  1 e 18 0 ]
 "40 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\nvm\src\nvm.c
@@ -920,16 +926,16 @@ TMR2_LC4_OUT 17
 [v _eusartRxCount eusartRxCount `VEuc  1 s 1 eusartRxCount ]
 "60
 [v _eusartRxBuffer eusartRxBuffer `VE[64]uc  1 s 64 eusartRxBuffer ]
-[s S2043 . 1 `uc 1 perr 1 0 :1:0 
+[s S2057 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
 "66
-[u S2048 . 2 `S2043 1 . 1 0 `ui 1 status 2 0 ]
-[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[64]S2048  1 s 128 eusartRxStatusBuffer ]
+[u S2062 . 2 `S2057 1 . 1 0 `ui 1 status 2 0 ]
+[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[64]S2062  1 s 128 eusartRxStatusBuffer ]
 "73
-[v _eusartRxLastError eusartRxLastError `VES2048  1 s 2 eusartRxLastError ]
+[v _eusartRxLastError eusartRxLastError `VES2062  1 s 2 eusartRxLastError ]
 "79
 [v _EUSART_TxInterruptHandler EUSART_TxInterruptHandler `*.37(v  1 e 2 0 ]
 "81
@@ -942,25 +948,36 @@ TMR2_LC4_OUT 17
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
 "87
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
-"209 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"215 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"357
-[v main@rxData rxData `uc  1 a 1 40 ]
-"351
-[v main@i_730 i `uc  1 a 1 34 ]
-"330
+"380
+[v main@i_741 i `uc  1 a 1 34 ]
+"364
+[v main@rxData rxData `uc  1 a 1 42 ]
+"358
+[v main@i_739 i `uc  1 a 1 35 ]
+"337
+[v main@i_735 i `uc  1 a 1 38 ]
+"329
+[v main@i_732 i `uc  1 a 1 36 ]
+"315
 [v main@i_726 i `uc  1 a 1 37 ]
-"323
-[v main@i_723 i `uc  1 a 1 35 ]
-"309
-[v main@i_717 i `uc  1 a 1 36 ]
-"290
-[v main@i_713 i `uc  1 a 1 41 ]
-"266
-[v main@j j `uc  1 a 1 39 ]
-[v main@i i `uc  1 a 1 38 ]
-"387
+"296
+[v main@i_722 i `uc  1 a 1 41 ]
+"272
+[v main@j j `uc  1 a 1 40 ]
+[v main@i i `uc  1 a 1 39 ]
+"433
+} 0
+"5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"7
+[v strlen@a a `*.6DCuc  1 a 1 2 ]
+"5
+[v strlen@s s `*.6DCuc  1 p 1 0 ]
+"12
 } 0
 "156 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
 [v _TMR2_PeriodMatchCallbackRegister TMR2_PeriodMatchCallbackRegister `(v  1 e 1 0 ]
@@ -1031,43 +1048,43 @@ TMR2_LC4_OUT 17
 {
 "55
 } 0
-"457 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"503 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _ProcessStateMachine ProcessStateMachine `(v  1 e 1 0 ]
 {
 [v ProcessStateMachine@ch ch `uc  1 p 1 wreg ]
-"643
+"689
 [v ProcessStateMachine@d d `uc  1 a 1 12 ]
-"765
-[v ProcessStateMachine@digit_796 digit `uc  1 a 1 14 ]
-"699
+"811
+[v ProcessStateMachine@digit_808 digit `uc  1 a 1 14 ]
+"745
 [v ProcessStateMachine@caller caller `uc  1 a 1 6 ]
-"619
+"665
 [v ProcessStateMachine@i i `uc  1 a 1 18 ]
-"481
+"527
 [v ProcessStateMachine@t_ch t_ch `uc  1 a 1 22 ]
-"659
-[v ProcessStateMachine@i_787 i `uc  1 a 1 16 ]
-"618
+"705
+[v ProcessStateMachine@i_799 i `uc  1 a 1 16 ]
+"664
 [v ProcessStateMachine@ip_ch ip_ch `uc  1 a 1 20 ]
+"846
+[v ProcessStateMachine@caller_811 caller `uc  1 a 1 15 ]
 "800
-[v ProcessStateMachine@caller_799 caller `uc  1 a 1 15 ]
-"754
-[v ProcessStateMachine@caller_795 caller `uc  1 a 1 19 ]
-"725
-[v ProcessStateMachine@caller_793 caller `uc  1 a 1 17 ]
-"656
+[v ProcessStateMachine@caller_807 caller `uc  1 a 1 19 ]
+"771
+[v ProcessStateMachine@caller_805 caller `uc  1 a 1 17 ]
+"702
 [v ProcessStateMachine@target_ch target_ch `uc  1 a 1 21 ]
-"655
+"701
 [v ProcessStateMachine@dialed_val dialed_val `uc  1 a 1 11 ]
-"573
+"619
 [v ProcessStateMachine@digit digit `uc  1 a 1 13 ]
-[s S463 . 32 `E12433 1 state 1 0 `a 1 current_hook 1 1 `a 1 last_hook 1 2 `uc 1 dp_count 1 3 `uc 1 dialed_digits 1 4 `[16]uc 1 dialed_number 16 5 `VEus 1 dp_timer 2 21 `VEus 1 state_timer 2 23 `VEus 1 hangup_timer 2 25 `uc 1 target_port 1 27 `a 1 is_external_call 1 28 `uc 1 send_dp_idx 1 29 `uc 1 send_dp_count 1 30 `uc 1 send_dp_phase 1 31 ]
-"458
+[s S463 . 32 `E12434 1 state 1 0 `a 1 current_hook 1 1 `a 1 last_hook 1 2 `uc 1 dp_count 1 3 `uc 1 dialed_digits 1 4 `[16]uc 1 dialed_number 16 5 `VEus 1 dp_timer 2 21 `VEus 1 state_timer 2 23 `VEus 1 hangup_timer 2 25 `uc 1 target_port 1 27 `a 1 is_external_call 1 28 `uc 1 send_dp_idx 1 29 `uc 1 send_dp_count 1 30 `uc 1 send_dp_phase 1 31 ]
+"504
 [v ProcessStateMachine@line line `*.39VES463  1 a 2 24 ]
-"457
+"503
 [v ProcessStateMachine@ch ch `uc  1 p 1 wreg ]
 [v ProcessStateMachine@ch ch `uc  1 p 1 23 ]
-"823
+"869
 } 1
 "190 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
 [v _HAL_GetHook HAL_GetHook `(a  1 e 1 0 ]
@@ -1112,61 +1129,61 @@ TMR2_LC4_OUT 17
 [v I2C1_WriteRead@readLength readLength `ui  1 p 2 6 ]
 "166
 } 0
-"826 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"872 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _ProcessCommandLine ProcessCommandLine `(v  1 e 1 0 ]
 {
-"983
-[v ProcessCommandLine@ext_864 ext `uc  1 a 1 15 ]
-"844
+"1030
+[v ProcessCommandLine@ext_877 ext `uc  1 a 1 15 ]
+"891
 [v ProcessCommandLine@port_type port_type `[4]uc  1 a 4 8 ]
-"952
-[v ProcessCommandLine@line2_850 line2 `uc  1 a 1 21 ]
-"951
-[v ProcessCommandLine@line1_849 line1 `uc  1 a 1 20 ]
-"935
+"999
+[v ProcessCommandLine@line2_863 line2 `uc  1 a 1 21 ]
+"998
+[v ProcessCommandLine@line1_862 line1 `uc  1 a 1 20 ]
+"982
 [v ProcessCommandLine@line2 line2 `uc  1 a 1 19 ]
-"934
+"981
 [v ProcessCommandLine@line1 line1 `uc  1 a 1 18 ]
-"880
+"927
 [v ProcessCommandLine@ext ext `uc  1 a 1 14 ]
-"843
+"890
 [v ProcessCommandLine@i i `uc  1 a 1 25 ]
-"1009
-[v ProcessCommandLine@port_875 port `uc  1 a 1 23 ]
-"977
-[v ProcessCommandLine@port_861 port `uc  1 a 1 22 ]
-"896
-[v ProcessCommandLine@port_829 port `uc  1 a 1 24 ]
-"897
+"1056
+[v ProcessCommandLine@port_888 port `uc  1 a 1 23 ]
+"1024
+[v ProcessCommandLine@port_874 port `uc  1 a 1 22 ]
+"943
+[v ProcessCommandLine@port_842 port `uc  1 a 1 24 ]
+"944
 [v ProcessCommandLine@tmp_mode tmp_mode `uc  1 a 1 17 ]
-"876
+"923
 [v ProcessCommandLine@port port `uc  1 a 1 16 ]
-"826
-[v ProcessCommandLine@str str `*.7DCuc  1 p 1 76 ]
-"1053
+"872
+[v ProcessCommandLine@str str `*.6DCuc  1 p 1 76 ]
+"1100
 } 0
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strncmp.c
 [v _strncmp strncmp `(i  1 e 2 0 ]
 {
-[v strncmp@l l `*.7DCuc  1 p 1 0 ]
+[v strncmp@l l `*.6DCuc  1 p 1 0 ]
 [v strncmp@r r `*.25DCuc  1 p 2 1 ]
 [v strncmp@n n `ui  1 p 2 3 ]
 "8
 } 0
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strcpy.c
-[v _strcpy strcpy `(*.4uc  1 e 2 0 ]
+[v _strcpy strcpy `(*.39uc  1 e 2 0 ]
 {
 "5
-[v strcpy@d d `*.4uc  1 a 1 5 ]
+[v strcpy@d d `*.39uc  1 a 2 6 ]
 "3
-[v strcpy@dest dest `*.4uc  1 p 1 0 ]
-[v strcpy@src src `*.25DCuc  1 p 2 1 ]
+[v strcpy@dest dest `*.39uc  1 p 2 0 ]
+[v strcpy@src src `*.26DCuc  1 p 2 2 ]
 "8
 } 0
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
 {
-[v strcmp@l l `*.7DCuc  1 p 1 0 ]
+[v strcmp@l l `*.6DCuc  1 p 1 0 ]
 [v strcmp@r r `*.25DCuc  1 p 2 1 ]
 "7
 } 0
@@ -1184,9 +1201,9 @@ TMR2_LC4_OUT 17
 {
 "1820
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 63 ]
-[s S2697 _IO_FILE 0 ]
+[s S2711 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.2S2697  1 p 2 57 ]
+[v vfprintf@fp fp `*.2S2711  1 p 2 57 ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 59 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 61 ]
 "1840
@@ -1194,16 +1211,16 @@ TMR2_LC4_OUT 17
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S2721 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S2735 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S2721  1 a 4 50 ]
+[v vfpfcnvrt@convarg convarg `S2735  1 a 4 50 ]
 "1179
 [v vfpfcnvrt@cp cp `*.25uc  1 a 2 54 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 56 ]
-[s S2697 _IO_FILE 0 ]
+[s S2711 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.2S2697  1 p 2 41 ]
+[v vfpfcnvrt@fp fp `*.2S2711  1 p 2 41 ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 43 ]
 [v vfpfcnvrt@ap ap `*.39*.4v  1 p 2 44 ]
 "1814
@@ -1219,9 +1236,9 @@ TMR2_LC4_OUT 17
 [v stoa@w w `i  1 a 2 20 ]
 "945
 [v stoa@p p `i  1 a 2 18 ]
-[s S2697 _IO_FILE 0 ]
+[s S2711 _IO_FILE 0 ]
 "942
-[v stoa@fp fp `*.2S2697  1 p 2 12 ]
+[v stoa@fp fp `*.2S2711  1 p 2 12 ]
 [v stoa@s s `*.26uc  1 p 2 14 ]
 "997
 } 0
@@ -1257,9 +1274,9 @@ TMR2_LC4_OUT 17
 [v dtoa@s s `uc  1 a 1 38 ]
 "520
 [v dtoa@p p `a  1 a 1 35 ]
-[s S2697 _IO_FILE 0 ]
+[s S2711 _IO_FILE 0 ]
 "513
-[v dtoa@fp fp `*.2S2697  1 p 2 28 ]
+[v dtoa@fp fp `*.2S2711  1 p 2 28 ]
 [v dtoa@d d `i  1 p 2 30 ]
 "583
 } 0
@@ -1268,9 +1285,9 @@ TMR2_LC4_OUT 17
 {
 "195
 [v pad@i i `i  1 a 2 26 ]
-[s S2697 _IO_FILE 0 ]
+[s S2711 _IO_FILE 0 ]
 "193
-[v pad@fp fp `*.2S2697  1 p 2 20 ]
+[v pad@fp fp `*.2S2711  1 p 2 20 ]
 [v pad@buf buf `*.5uc  1 p 1 22 ]
 [v pad@p p `i  1 p 2 23 ]
 "226
@@ -1284,18 +1301,18 @@ TMR2_LC4_OUT 17
 [v fputs@c c `uc  1 a 1 17 ]
 "8
 [v fputs@s s `*.5DCuc  1 p 1 12 ]
-[u S2676 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
-[s S2679 _IO_FILE 11 `S2676 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.2S2679  1 p 2 13 ]
+[u S2690 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
+[s S2693 _IO_FILE 11 `S2690 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.2S2693  1 p 2 13 ]
 "19
 } 0
 "8 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 3 ]
-[u S2676 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
-[s S2679 _IO_FILE 11 `S2676 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.2S2679  1 p 2 5 ]
+[u S2690 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
+[s S2693 _IO_FILE 11 `S2690 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.2S2693  1 p 2 5 ]
 "24
 } 0
 "378 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\uart\src\eusart.c
@@ -1329,19 +1346,19 @@ TMR2_LC4_OUT 17
 [v abs@a a `i  1 p 2 9 ]
 "4
 } 0
-"402 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"448 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _SwitchControl SwitchControl `(v  1 e 1 0 ]
 {
 [v SwitchControl@control control `a  1 p 1 wreg ]
-"404
+"450
 [v SwitchControl@buf buf `[8]uc  1 a 8 16 ]
-"402
+"448
 [v SwitchControl@control control `a  1 p 1 wreg ]
 [v SwitchControl@line1 line1 `uc  1 p 1 11 ]
 [v SwitchControl@line2 line2 `uc  1 p 1 12 ]
-"406
+"452
 [v SwitchControl@control control `a  1 p 1 15 ]
-"431
+"477
 } 1
 "5 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -1367,11 +1384,11 @@ TMR2_LC4_OUT 17
 [v ___awdiv@dividend dividend `i  1 p 2 5 ]
 "41
 } 0
-"391 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"437 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _SoftwareUART_WriteString SoftwareUART_WriteString `(v  1 e 1 0 ]
 {
 [v SoftwareUART_WriteString@str str `*.26DCuc  1 p 2 4 ]
-"397
+"443
 } 0
 "228 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
 [v _HAL_SoftwareUART_WriteByte HAL_SoftwareUART_WriteByte `(v  1 e 1 0 ]
@@ -1385,26 +1402,26 @@ TMR2_LC4_OUT 17
 [v HAL_SoftwareUART_WriteByte@data data `uc  1 p 1 1 ]
 "257
 } 1
-"154 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"156 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _GetStateString GetStateString `(*.25DCuc  1 e 2 0 ]
 {
-[v GetStateString@state state `E12433  1 p 1 wreg ]
-[v GetStateString@state state `E12433  1 p 1 wreg ]
-[v GetStateString@state state `E12433  1 p 1 4 ]
-"171
+[v GetStateString@state state `E12434  1 p 1 wreg ]
+[v GetStateString@state state `E12434  1 p 1 wreg ]
+[v GetStateString@state state `E12434  1 p 1 4 ]
+"173
 } 1
-"124
+"126
 [v _LoadSettings LoadSettings `(v  1 e 1 0 ]
 {
-"142
-[v LoadSettings@i_659 i `uc  1 a 1 11 ]
-"134
-[v LoadSettings@i_639 i `uc  1 a 1 8 ]
-"129
+"144
+[v LoadSettings@i_666 i `uc  1 a 1 11 ]
+"136
+[v LoadSettings@i_646 i `uc  1 a 1 8 ]
+"131
 [v LoadSettings@i i `us  1 a 2 9 ]
-"128
+"130
 [v LoadSettings@ptr ptr `*.5uc  1 a 1 7 ]
-"151
+"153
 } 0
 "4 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -1419,14 +1436,14 @@ TMR2_LC4_OUT 17
 [v ___bmul@multiplier multiplier `uc  1 p 1 2 ]
 "51
 } 1
-"114 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"116 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _SaveSettings SaveSettings `(v  1 e 1 0 ]
 {
-"117
+"119
 [v SaveSettings@i i `us  1 a 2 1 ]
-"116
+"118
 [v SaveSettings@ptr ptr `*.5uc  1 a 1 0 ]
-"121
+"123
 } 0
 "51 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\hal_pbx.c
 [v _HAL_PBX_Init HAL_PBX_Init `(v  1 e 1 0 ]
@@ -1583,12 +1600,12 @@ TMR2_LC4_OUT 17
 {
 "154
 } 0
-"175 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
+"177 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\main.c
 [v _PBX_SystemTick_1ms PBX_SystemTick_1ms `(v  1 e 1 0 ]
 {
-"178
+"180
 [v PBX_SystemTick_1ms@i i `uc  1 a 1 6 ]
-"190
+"192
 } 0
 "161 C:\Users\tsq\MPLABProjects\Analog_PBX\PBXCore\config.mcc\mcc_generated_files\timer\src\tmr2.c
 [v _TMR2_DefaultPeriodMatchCallback TMR2_DefaultPeriodMatchCallback `(v  1 s 1 TMR2_DefaultPeriodMatchCallback ]

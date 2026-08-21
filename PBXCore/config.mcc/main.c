@@ -30,6 +30,8 @@
 // このmain.c自体はHALで定義した回線数に対応可能になっている
 // このコード自体は回線数に依存しない(はず)
 
+// バージョン番号
+char* version_string = "1.2";
 
 // 内線番号の最大桁数
 #define MAX_EXT_DIGITS 2
@@ -194,6 +196,10 @@ void PBX_SystemTick_1ms(void)
 char rxBuffer[CMDBUFSIZE];
 uint8_t rxIndex = 0;
 
+// ヒストリ機能用の変数 ===
+char lastCmdBuffer[CMDBUFSIZE] = {0}; // 直前のコマンドを保存するバッファ
+uint8_t escState = 0;                 // エスケープシーケンス解析用ステート
+
 // プロトタイプ宣言
 void SoftwareUART_WriteString(const char* str);
 void SwitchControl(bool control, uint8_t line1, uint8_t line2);
@@ -357,28 +363,67 @@ int main(void)
         if(EUSART_IsRxReady()){
             uint8_t rxData = EUSART_Read();
             
+            // === エスケープシーケンス (矢印キー等) の検出処理 ===
+            if (escState == 0 && rxData == 0x1B) { // ESC
+                escState = 1;
+                continue; // 次の文字を待つ
+            } else if (escState == 1) {
+                if (rxData == '[') {
+                    escState = 2;
+                } else {
+                    escState = 0; // 該当しない場合はリセット
+                }
+                continue;
+            } else if (escState == 2) {
+                if (rxData == 'A') { // 'A' = 上矢印キー
+                    // 現在入力中の文字をターミナル上から消去する (バックスペースで上書き)
+                    for (uint8_t i = 0; i < rxIndex; i++) {
+                        printf("\b \b");
+                    }
+                    
+                    // 履歴バッファから現在のバッファへコピー
+                    strcpy(rxBuffer, lastCmdBuffer);
+                    rxIndex = strlen(rxBuffer);
+                    
+                    // 呼び出したコマンドをターミナルに表示
+                    printf("%s", rxBuffer);
+                }
+                // 上矢印以外の矢印キー(B,C,D)等は無視してステートをリセット
+                escState = 0;
+                continue;
+            }
+            // ====================================================
+
             // 改行コードでコマンド処理へ
             if(rxData == '\r' || rxData == '\n'){
                 EUSART_Write(rxData); // 改行のエコーバック
                 rxBuffer[rxIndex] = '\0';
+                
+                // 実行したコマンドが空でなければ履歴に保存 ===
+                if (rxIndex > 0) {
+                    strcpy(lastCmdBuffer, rxBuffer);
+                }
+                // ====================================================
+
                 ProcessCommandLine(rxBuffer);
                 printf("\r\n");
                 printf("PBX> ");
                 rxIndex = 0;
             }
             else { // 通常文字または制御文字
+                // バックスペース
                 if(rxData == '\b' || rxData == 0x7f){
                     if(rxIndex > 0){
                         rxIndex--;
                         printf("\b \b"); 
                     }
-                }
-                // バックスペースの時は以下を実行させない
+                }//
+                // バックスペースの時は以下を実行させない(通常文字の場合)
                 else if(rxIndex < CMDBUFSIZE -1 ){ 
                     EUSART_Write(rxData); // 通常文字のエコーバック
                     
                     if(rxData >= 'a' && rxData <='z'){
-                        rxData -= 0x20;
+                        rxData -= 0x20; // 大文字へ変換
                     }
                     rxBuffer[rxIndex++] = (char)rxData;
                 }
@@ -834,6 +879,7 @@ void ProcessCommandLine(const char* str){
     //       コマンド等の「見た目」は1-の番号としているので-1,+1で表示さ
     //       せているので注意
     if (strcmp(str, "STAT") == 0) {
+        printf("** PBX Core Ver. %s\r\n",version_string);
         if(global_prefix == 0xff){
             printf("Prefix(IP) not set\r\n");
         }
@@ -1023,7 +1069,7 @@ type_error:
             printf("Usage: SET TYPE <port:1-%d> <SLIC or IP>\r\n", current_max_lines);
         }
     }
-    else if(strcmp(str, "HELP") == 0){ //ヘルプコマンド
+    else if(strcmp(str, "HELP") == 0 || strcmp(str, "?") == 0){ //ヘルプコマンド
         printf("---Commands---\r\n");
         printf("STAT    : Display current Status.\r\n");
         printf("SET EXT : Set extension(number) for each port.\r\n");
