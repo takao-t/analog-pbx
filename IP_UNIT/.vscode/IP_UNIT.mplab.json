@@ -49,7 +49,8 @@
                 "config.mcc/main.c",
                 "config.mcc/mcc_generated_files/system/src/pins.c",
                 "config.mcc/mcc_generated_files/uart/src/eusart.c",
-                "config.mcc/mcc_generated_files/timer/src/tmr2.c"
+                "config.mcc/mcc_generated_files/timer/src/tmr2.c",
+                "config.mcc/mcc_generated_files/system/src/watchdog.c"
             ]
         }
     ]
