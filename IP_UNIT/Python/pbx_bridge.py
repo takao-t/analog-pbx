@@ -8,7 +8,7 @@ import re
 # PIC PBX IPユニット-BareSIPブリッジプログラム
 # 
 # 設定項目
-# 注意: Raspberry PiのGPIO上UARYならば/dev/ttyS0だがUSBシリアルを
+# 注意: Raspberry PiのGPIO上UARTならば/dev/ttyS0だがUSBシリアルを
 #       使って接続する場合はデバイス名を変更のこと
 #       ttyS0を使用する場合にはRaspberry Piのコンソールとして使用
 #       されるgettyを無効化すること
@@ -161,8 +161,6 @@ async def handle_baresip_event(event):
             serial_writer.write(f"RING {ext_num}\n".encode('ascii'))
             logger.info(f"-> PIC: RING {ext_num}")
             
-        # 音声パスを開いてPBXの呼び出し音をSIP側へ流すため、即座にBaresipに応答(オフフック)させる
-        baresip_send_cmd({"command": "accept"})
 
     # 2. 発信または着信の通話が確立（相手が応答）した場合
     elif evt_type == 'CALL_ESTABLISHED':
@@ -216,6 +214,11 @@ class SerialProtocol(asyncio.Protocol):
         # 通常処理
         logger.info(f"<- PIC: {cmd}")
         
+	# PIC側から応答が来たら着信させる 
+        if cmd == "ANS":
+            baresip_send_cmd({"command": "accept"})
+            return
+
         # 1. 発信要求 (DIAL 123)
         if cmd.startswith("DIAL "):
             number = cmd[5:].strip()

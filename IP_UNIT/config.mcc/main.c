@@ -39,7 +39,8 @@ typedef enum {
     STATE_WAIT_IP_ANS,     // SBCへDIALを送り、ANS(応答)を待っている状態
     STATE_TX_PULSE_SETUP,  // SBCからRINGを受け、PBXへ発信(オフフック)した直後
     STATE_TX_PULSES,       // PBXへHOピン経由でパルス送信中
-    STATE_TALKING          // 通話中
+    STATE_TALKING,         // 通話中
+    STATE_WAIT_PBX_ANS     // PBX内線の応答待ち
 } UnitState;
 
 
@@ -319,7 +320,7 @@ void ProcessStateMachine(void) {
                     } else {
                         // 全桁送信完了 -> PBXが呼び出しを開始するのでTALKINGへ
                         HO_OUT_SetHigh(); // 確実にオフフック維持
-                        current_state = STATE_TALKING;
+                        current_state = STATE_WAIT_PBX_ANS;
                     }
                 }
                 
@@ -339,6 +340,18 @@ void ProcessStateMachine(void) {
                         tx_pulse_phase = 0;
                         tx_digit_idx++;
                     }
+                }
+            }
+            break;
+        
+        case STATE_WAIT_PBX_ANS:
+            // 500msの安全マージン経過後、PBXのトーン出力を監視
+            // 呼び出し中 (TONE_RINGBACK) は T1=H, T2=L。
+            // 応答完了 (TONE_OFF) になると T1=H, T2=H に変化する。
+            if (state_timer == 0) {
+                if (T1_IN_GetValue() == 1 && T2_IN_GetValue() == 1) {
+                    printf("ANS\r\n"); // Pythonへ応答を通知して accept させる
+                    current_state = STATE_TALKING;
                 }
             }
             break;
