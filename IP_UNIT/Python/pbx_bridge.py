@@ -26,6 +26,10 @@ BARESIP_PORT = 4444
 # ダイヤル発信時のデフォルトSIPドメイン (AsteriskなどのIP)
 SIP_DOMAIN = '192.168.254.235'  # 自環境に合わせて要変更
 
+# 内線番号なし、またはパースできなかった場合のデフォルト着信先(フォールバック)
+# PBXの内線番号を設定する
+FALLBACK_EXTENSION = '11' 
+
 # ロギング設定
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 logger = logging.getLogger(__name__)
@@ -142,18 +146,23 @@ async def handle_baresip_event(event):
     # 1. 着信 (INVITE) を受けた場合
     if evt_type == 'CALL_INCOMING':
         uri = event.get('localuri', '') 
+        # sip:の直後に数字(1桁以上)があり、その後に@が続くパターンを検索
         match = re.search(r'sip:(\d+)@', uri)
+        
+        # パターンにマッチしなかった場合はFALLBACK_EXTENSIONを使用する
         if match:
             ext_num = match.group(1)
-            logger.info(f"<- Baresip INCOMING to EXT: {ext_num}")
-            if serial_writer:
-                serial_writer.write(f"RING {ext_num}\n".encode('ascii'))
-                logger.info(f"-> PIC: RING {ext_num}")
-                
-            # ★追加: 音声パスを開いてPBXの呼び出し音をSIP側へ流すため、即座にBaresipに応答(オフフック)させる
-            baresip_send_cmd({"command": "accept"})
+            logger.info(f"<- Baresip INCOMING to parsed EXT: {ext_num} (from URI: {uri})")
         else:
-            logger.warning(f"Could not parse extension from URI: {uri}")
+            ext_num = FALLBACK_EXTENSION
+            logger.info(f"<- Baresip INCOMING to FALLBACK EXT: {ext_num} (URI '{uri}' did not contain a numeric extension)")
+
+        if serial_writer:
+            serial_writer.write(f"RING {ext_num}\n".encode('ascii'))
+            logger.info(f"-> PIC: RING {ext_num}")
+            
+        # 音声パスを開いてPBXの呼び出し音をSIP側へ流すため、即座にBaresipに応答(オフフック)させる
+        baresip_send_cmd({"command": "accept"})
 
     # 2. 発信または着信の通話が確立（相手が応答）した場合
     elif evt_type == 'CALL_ESTABLISHED':
@@ -197,14 +206,14 @@ class SerialProtocol(asyncio.Protocol):
     async def handle_serial_cmd(self, cmd):
         """PICから受信したテキストを処理してBaresipへ転送"""
 
-	# ログ溜まり防止のためPONGだけ別処理
+        # ログ溜まり防止のためPONGだけ別処理
         if cmd == "PONG":
             global last_pong_time
             last_pong_time = asyncio.get_event_loop().time()
             # logger.info(f"<- PIC: {cmd}")
-            return	
+            return    
 
-	# 通常処理
+        # 通常処理
         logger.info(f"<- PIC: {cmd}")
         
         # 1. 発信要求 (DIAL 123)
@@ -233,7 +242,7 @@ async def main():
     await asyncio.gather(
         serial_coro,
         baresip_tcp_client(),
-	heartbeat_task()
+        heartbeat_task()
     )
 
 if __name__ == '__main__':
