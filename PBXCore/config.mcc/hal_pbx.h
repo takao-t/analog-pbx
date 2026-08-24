@@ -11,6 +11,21 @@ MCCでピン名を設定しhal_pbx.hとhal_pbx.cで設定すること
 #include <stdint.h>
 #include <stdbool.h>
 
+// ==========================================================
+// Flash (NVM) 保存領域の設定
+// ==========================================================
+// プログラムの最後尾付近から8ページ(256ワード)分をデータ領域として確保
+// 将来別のPICに変更した場合でも、PROGMEM_SIZE をもとに自動で最後尾に配置
+// このHALでは最大8回線まで対応
+#ifndef HAL_STORAGE_SIZE
+#define HAL_STORAGE_SIZE (PROGMEM_PAGE_SIZE * 8)
+#endif
+#ifndef HAL_STORAGE_START_ADDR
+#define HAL_STORAGE_START_ADDR (PROGMEM_SIZE - HAL_STORAGE_SIZE)
+#endif
+
+#define NVM_MAGIC_VAL  0x5A
+
 // トーンの種類定義
 typedef enum {
     TONE_OFF,      // TG1=H, TG2=H (トーン停止)

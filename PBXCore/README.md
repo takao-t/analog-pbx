@@ -19,7 +19,13 @@
 
 ## Update Info
 
-IP接続ユニットに対応しました
+- IP接続ユニットに対応しました
+- 設定情報の保存先をEEPROMからプログラムメモリ(NVM)に変更しました。これによりXC8のC Compiler OptimizationでAddress Qualifyを"Required"に設定する必要があります。
+- NVMに変更したことで、ホットライン時に設定できるダイヤル桁数が2桁から16桁に増えました。これによりホットライン接続先としてIP側の番号を指定することができるようになります。
+- HALに確保すべきプログラムメモリのサイズを記述しています。
+- 設定保存のコマンドをSAVE_SETTINGSに変更しました。
+
+要するにホットライン先の番号を増やすために保存されるデータの容量を増やしました。8回線までならEEPROMでも足りるのですが、将来的な拡張を考えての対処です。
 
 ## ライセンス
 大元のプロジェクトライセンスに準じます。好きに使ってかまいませんが、改変する場合には継承表示をしてください。ただし商用利用(製品化、キット化、講習会を含む)は禁止です。商用利用したい場合には別途ご相談ください。
@@ -102,8 +108,8 @@ SET EXT : Set extension(number) for each port.
           Usage: SET EXT <port:1-4> <ext:10-99>
 SET AA  : Set port to AUTO ANSWER mode.
           Usage: SET AA  <port:1-4> <ON/OFF>
-SET HL  : Set port HOTLINE number
-          Usage: SET HL <port:1-4> <ext:10-99 or OFF>
+SET HL  : Set port HOTLINE number (up to 16 digits)
+          Usage: SET HL <port:1-4> <number or OFF>
 SET PFX : Set prefix for IP Dialing
           Usage: SET PFX <0-9>
 SET TYPE: Set Port hardware type
@@ -114,8 +120,9 @@ SBCTL   : Manually ON/OFF/FULL_RESET Switchboard.
           Example: SBCTL REL 1 2   - Release 1 and 2 Switch.
           Example: SBCTL FULL_RESET  - Reset Switchboard.
 
-SAVE_TO_EEPROM : Save current settings to EEPROM.
+SAVE_SETTINGS  : Save current settings to NVM Storage.
 DO_FULL_RESET  : Reset PBXCore program.
+--------------
 ```
 
 SLICユニットの接続先は外部的には"LINE"ですが、PBXのプログラムは"Port"で呼称しています。LINEとPortはほぼ同じ意味なので、LINE1ならPort1とそのまま読み替えてください。
@@ -134,7 +141,7 @@ PBX> SBCTL CON 1 3
 </pre>
 のようにすると、1と3の音声を相互に繋ぎます。
 
-設定値をEEPROMに保存する場合にはSAVE_TO_EEPROMコマンドを実行してください。DO_FULL_RESETコマンドはPBXコアを再起動します。EEPROMの初期化は行いません。
+設定値をNVMに保存する場合にはSAVE_SETTINGSコマンドを実行してください。DO_FULL_RESETコマンドはPBXコアを再起動します。NVMの初期化は行いません。
 
 シリアルコンソールを繋いでおくと動作状態も確認できます。どう動いているかを確認するのに使ってください。
 <pre>
