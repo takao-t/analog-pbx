@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
+#include <xc.h>
 
 /*
     PBXメイン(core)プログラム
@@ -20,8 +21,16 @@
      WWDT : HFINTOSCで1:522499
 */
 
+// XC8コンパイラのバージョン取得（整数値で返る 例: 2310 = v2.31）
+// ※XC8のバージョンによっては __XC8_VERSION または __XC8_VERSION__
+#ifdef __XC8_VERSION
+    #define COMPILER_VER __XC8_VERSION
+#else
+    #define COMPILER_VER 0
+#endif
+
 // バージョン番号
-char* version_string = "1.3_NVM_Storage";
+char* version_string = "1.3.1_NVM_Storage";
 
 // 内線番号の最大桁数
 #define MAX_EXT_DIGITS 2
@@ -95,6 +104,24 @@ typedef struct {
 } LineContext;
 
 LineContext lines[TOTAL_MAX_LINES];
+
+// Configレジスタ読み出し
+uint16_t read_configuration_space(uint16_t address) {
+    // 1. Load the target address into the NVM Address registers
+    NVMADRH = (uint8_t)((address >> 8) & 0xFF);
+    NVMADRL = (uint8_t)(address & 0xFF);
+    
+    // 2. Configure NVMREG access for Configuration/Device ID space
+    NVMCON1bits.NVMREGS = 1; // Access Configuration, User ID, Device ID, or EEPROM
+
+    // 3. Initiate the read operation
+    NVMCON1bits.RD = 1;     // Setting this bit initiates a hardware read cycle
+    NOP();                  // Required NOP execution directly after read flag
+    NOP();                  // Required NOP execution directly after read flag
+    
+    // 4. Combine the High and Low result registers into a 14-bit word
+    return ((uint16_t)NVMDATH << 8) | NVMDATL;
+}
 
 // Flash(NVM)への設定保存
 void SaveSettings(void) {
@@ -235,19 +262,25 @@ int main(void)
 {
     __delay_ms(500);
 
-    // MCC初期化
+    // システム初期化
     SYSTEM_Initialize();
+    uint16_t device_id = read_configuration_space(0x8006);
+    uint16_t revision_id = read_configuration_space(0x8007);
+ 
     TMR2_PeriodMatchCallbackRegister(PBX_SystemTick_1ms);
     INTERRUPT_GlobalInterruptEnable(); 
     INTERRUPT_PeripheralInterruptEnable(); 
 
     printf("\r\n\r\n");
     printf("PBXCore: Starting (%s)\r\n",version_string);
+    printf(" PIC DeviceID: %x(%x)\r\n",device_id,revision_id);
+    printf(" Built at: %s %s (XC8 v%d)\r\n", __DATE__, __TIME__, COMPILER_VER);
+    printf(" Flash Size: %u Words\r\n", PROGMEM_SIZE);
 
     uint16_t tmp_st_size = HAL_STORAGE_SIZE;
     uint16_t tmp_st_addr = HAL_STORAGE_START_ADDR;
-    printf("PBXCore: Storage start address = %0x\r\n",tmp_st_addr);
-    printf("PBXCore: Storage size %d words.\r\n",tmp_st_size);
+    printf(" Storage start address = %0x\r\n",tmp_st_addr);
+    printf(" Storage size %d words.\r\n",tmp_st_size);
 
     HAL_PBX_Init();
     current_max_lines = HAL_GetMaxLines();
@@ -285,7 +318,7 @@ int main(void)
     printf("\r\n");
     printf("PBXCore: Switch test done.\r\n");
     
-    printf("PBXCore: Reseting All States");
+    printf("PBXCore: Resetting All States");
     for (uint8_t i = 0; i < current_max_lines; i++) {
         lines[i].state = STATE_IDLE;
         lines[i].current_hook = HAL_GetHook(i);
