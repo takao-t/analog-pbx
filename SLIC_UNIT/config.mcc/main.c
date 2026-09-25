@@ -108,6 +108,15 @@ uint16_t dp_frame_timer = 0;
 // DP送出中フラグ
 volatile bool is_dp_active = false;
 
+// DPバッファリング処理
+#define DTMF_BUFFER_SIZE 16
+#define DTMF_TIMEOUT_FRAMES 80 // 25ms x 80 = 2秒 (入力途切れ判定時間)
+
+char dtmf_buffer[DTMF_BUFFER_SIZE];
+uint8_t dtmf_buf_count = 0;
+uint8_t dtmf_read_idx = 0;
+uint16_t dtmf_pause_timer = 0;
+
 // パルス設定用のグローバル変数 (単位: ms)
 uint16_t dp_time_break;
 uint16_t dp_time_make;
@@ -252,31 +261,56 @@ void Set_DialPulse_PPS(uint8_t pps) {
 }
 
 // ==========================================
-// パルス送出開始関数 (DTMFデコード確定時に呼ぶ)
+// パルス送出開始関数 (DTMFデコード確定時に呼ぶ) : 1桁送信は廃止予定
 // ==========================================
-void Start_DialPulse(char digit) {
+//void Start_DialPulse(char digit) {
+//
+//    // ダイアルパルス出力無効なら何もしない
+//    if(dp_out_enable == false) return;
+//
+//    // 数字チェック
+//    if (digit >= '1' && digit <= '9') {
+//        dp_pulses_remaining = digit - '0';
+//    } else if (digit == '0') {
+//        dp_pulses_remaining = 10;
+//    } else {
+//        return; 
+//    }
+//
+//    // 割り込み競合を防ぐため、is_dp_activeがfalseであることを確認
+//    if (is_dp_active) return; 
+//
+//    // 変数の初期化
+//    dp_state = DP_BREAK;
+//    dp_frame_timer = dp_time_break; // 変数からロード
+//    DP_SET_BREAK();
+//
+//    // 準備が全て整ってから最後にフラグを立てる！
+//    is_dp_active = true;
+//}
 
-    // ダイアルパルス出力無効なら何もしない
-    if(dp_out_enable == false) return;
+// ==========================================
+// パルス送出開始関数 (バッファから送出)
+// ==========================================
+void Start_Buffered_DialPulse(void) {
+    if (dp_out_enable == false || is_dp_active || dtmf_buf_count == 0) return;
 
-    // 数字チェック
+    dtmf_read_idx = 0;
+    char digit = dtmf_buffer[dtmf_read_idx];
+
     if (digit >= '1' && digit <= '9') {
         dp_pulses_remaining = digit - '0';
     } else if (digit == '0') {
         dp_pulses_remaining = 10;
     } else {
+        // 万が一不正な文字が含まれていた場合はバッファをクリアして中断
+        dtmf_buf_count = 0;
         return; 
     }
 
-    // 割り込み競合を防ぐため、is_dp_activeがfalseであることを確認
-    if (is_dp_active) return; 
-
-    // 変数の初期化
     dp_state = DP_BREAK;
-    dp_frame_timer = dp_time_break; // 変数からロード
+    dp_frame_timer = dp_time_break;
     DP_SET_BREAK();
-
-    // 準備が全て整ってから最後にフラグを立てる！
     is_dp_active = true;
 }
 
@@ -314,15 +348,29 @@ void Process_DialPulse_StateMachine(void) {
         case DP_PAUSE:
             dp_frame_timer--;
             if (dp_frame_timer == 0) {
+                // 次の桁があるか確認
+                dtmf_read_idx++;
+                if (dtmf_read_idx < dtmf_buf_count) {
+                    char digit = dtmf_buffer[dtmf_read_idx];
+                    if (digit >= '1' && digit <= '9') {
+                        dp_pulses_remaining = digit - '0';
+                    } else if (digit == '0') {
+                        dp_pulses_remaining = 10;
+                    } else {
+                        dp_pulses_remaining = 0; // 不正文字スキップ用
+                    }
+                    
+                    if (dp_pulses_remaining > 0) {
+                        dp_state = DP_BREAK;
+                        dp_frame_timer = dp_time_break;
+                        DP_SET_BREAK();
+                        break; // 次の桁の送出へ
+                    }
+                }
+                
+                // すべての桁を送出完了した場合
                 is_dp_active = false;
-                //パルス送出完了確認音
-                TONE_PIN_OUTPUT();
-                __delay_ms(50);
-                TONE_PIN_HIZ();
-                __delay_ms(20);
-                TONE_PIN_OUTPUT();
-                __delay_ms(50);
-                TONE_PIN_HIZ();
+                dtmf_buf_count = 0; // バッファをリセット               
                 dp_state = DP_IDLE;
             }
             break;
@@ -641,6 +689,17 @@ int main(void)
             CLRWDT();
 
             // ==============================================
+            // DTMF入力のタイムアウト監視とDP送出トリガー
+            // ==============================================
+            if (dtmf_pause_timer > 0 && is_dp_active == false) {
+                dtmf_pause_timer--;
+                if (dtmf_pause_timer == 0 && dtmf_buf_count > 0) {
+                    // 一定時間入力が途切れたのでバッファ分をまとめて送出
+                    Start_Buffered_DialPulse();
+                }
+            }
+
+            // ==============================================
             // 受信ダイヤルパルス(DP)のデコードとタイムアウト処理
             // シリアルモード時にシリアルでダイヤルした番号を送出
             // ==============================================
@@ -711,6 +770,9 @@ int main(void)
                         // 通話中タイマリセット
                         offhook_timer = 0;
                         is_talking = false;
+                        // オンフックでDTMFバッファをクリア
+                        dtmf_buf_count = 0;
+                        dtmf_pause_timer = 0;
                     }
                 }
             } else {
@@ -823,10 +885,22 @@ int main(void)
                                     }
 
                                     // 通話中であればパルス出力させない
-                                    if(is_talking == false){
-                                        // DP出力を開始させる
-                                        Start_DialPulse(current_char);
+                                    if (is_talking == false && dp_out_enable == true) {
+                                        // 0-9の数字のみバッファリングする (*, #, A-Dは除外)
+                                        if (current_char >= '0' && current_char <= '9') {
+                                            if (dtmf_buf_count < DTMF_BUFFER_SIZE) {
+                                                dtmf_buffer[dtmf_buf_count++] = current_char;
+                                                dtmf_pause_timer = DTMF_TIMEOUT_FRAMES; // タイマーリセット
+                                            }
+                                            
+                                            // 16桁すべて埋まったら即座に送出開始
+                                            if (dtmf_buf_count >= DTMF_BUFFER_SIZE) {
+                                                Start_Buffered_DialPulse();
+                                                dtmf_pause_timer = 0;
+                                            }
+                                        }
                                     }
+
                                 }
                             }
                         } else {
@@ -959,6 +1033,9 @@ int main(void)
             else if (tg1 == 0 && tg2 == 1) tone_mode = 1; 
             else if (tg1 == 1 && tg2 == 0) tone_mode = 2; 
             else                           tone_mode = 3; 
+
+            // DTMF読み込み中(DTMFダイヤル中はトーン停止)
+            if(dtmf_buf_count != 0) tone_mode = 3;
 
             // ピン制御されていない(HH=Open)場合にはシリアルのモードを採用
             if(tone_mode == 3){

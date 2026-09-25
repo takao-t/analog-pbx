@@ -3,5 +3,14 @@
         "--header-insertion=never"
     ],
     "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\SLIC_UNIT\\default",
-    "mplab.clangd.path": "c:\\Program Files\\Microchip\\xc8\\v3.10\\bin\\xc8-clangd.exe"
+    "mplab.clangd.path": "c:\\Program Files\\Microchip\\xc8\\v3.10\\bin\\xc8-clangd.exe",
+    "cmake.sourceDirectory": "C:/Users/tsq/MPLABProjects/Analog_PBX/SLIC_UNIT/cmake/SLIC_UNIT/default",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "memory-inspector.debugTypes": [
+        "arm-debugger",
+        "embedded-debug",
+        "gdb",
+        "gdbtarget",
+        "mplab-core-da"
+    ]
 }
