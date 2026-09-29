@@ -695,6 +695,9 @@ int main(void)
                 dtmf_pause_timer--;
                 if (dtmf_pause_timer == 0 && dtmf_buf_count > 0) {
                     // 一定時間入力が途切れたのでバッファ分をまとめて送出
+                    // DTMFバッファリング終了のトーンを生成してからダイヤル開始 
+                    TONE_PIN_OUTPUT();
+                    __delay_ms(10);
                     Start_Buffered_DialPulse();
                 }
             }
@@ -1034,7 +1037,9 @@ int main(void)
             else if (tg1 == 1 && tg2 == 0) tone_mode = 2; 
             else                           tone_mode = 3; 
 
-            // DTMF読み込み中(DTMFダイヤル中はトーン停止)
+            // DTMF読み込み中(DTMFバッファリング中はトーン停止)
+            // DTMFバッファリング処理はSLICユニット内で完結しているため
+            // PBXCoreからトーン制御が来ないためローカルで強制停止させる
             if(dtmf_buf_count != 0) tone_mode = 3;
 
             // ピン制御されていない(HH=Open)場合にはシリアルのモードを採用
