@@ -243,6 +243,27 @@ void Custom_ADC_Interrupt_Handler(void) {
     }
 }
 
+// NCOをインディケーショントーンにも使用するための周波数変更関数類
+// 32MHzクロック時の定数定義
+// 注:NCOでは400Hzに設定しておくこと(INCLレジスタ以外はMCCに依存)
+#define NCO1_INC_400HZ   0x1a  // 400Hz
+#define NCO1_INC_800HZ   0x34  // 800Hz   
+#define NCO1_INC_1KHZ    0x41  // 1000Hz (1kHz)
+
+// 400Hz
+void NCO1_Set400Hz(void) {
+    NCO1INC = NCO1_INC_400HZ;
+}
+
+void NCO1_Set800Hz(void) {
+    NCO1INC = NCO1_INC_800HZ;
+}
+
+// 1kHz
+void NCO1_Set1kHz(void) {
+    NCO1INC = NCO1_INC_1KHZ;
+}
+
 // ========================
 // ダイヤルパルス生成関連処理
 // ========================
@@ -673,6 +694,9 @@ int main(void)
     // ================================================
     DAC1_SetOutput(16);
 
+    // トーンのデフォルトは400Hz
+    NCO1_Set400Hz();
+
     // =====================================
     // メインループ(25msフレーム)
     // 25msはTMR3で生成
@@ -695,9 +719,11 @@ int main(void)
                 dtmf_pause_timer--;
                 if (dtmf_pause_timer == 0 && dtmf_buf_count > 0) {
                     // 一定時間入力が途切れたのでバッファ分をまとめて送出
-                    // DTMFバッファリング終了のトーンを生成してからダイヤル開始 
+                    // DTMFバッファリング終了のトーンを生成してからダイヤル開始
+                    NCO1_Set800Hz();
                     TONE_PIN_OUTPUT();
                     __delay_ms(10);
+                    NCO1_Set400Hz();
                     Start_Buffered_DialPulse();
                 }
             }
