@@ -1,0 +1,3054 @@
+
+default.elf:	file format elf32-pic
+
+Sections:
+Idx Name                       Size     VMA      Type
+  0                            00000000 00000000 
+  1 text1                      0000000c 00000fd8 TEXT
+  2 text2                      000000a2 0000077f TEXT
+  3 text3                      00000008 00000fce TEXT
+  4 text7                      0000000c 00000fd2 TEXT
+  5 text9                      00000046 000007dd TEXT
+  6 text11                     00000014 00000ff6 TEXT
+  7 text18                     000000d8 000006fe TEXT
+  8 text23                     00000012 00000fed TEXT
+  9 text27                     00000012 00000fe4 TEXT
+ 10 text31                     00000002 00000003 TEXT
+ 11 text34                     00000008 00000fca TEXT
+ 12 cstackCOMMON               0000000c 00000070 BSS
+ 13 cstackBANK0                0000004f 00000020 BSS
+ 14 stringtext1                00000046 000006db DATA
+ 15 stringtext2                0000002a 0000076a DATA
+ 16 stringtext3                0000001a 000007d0 DATA
+ 17 stringtext4                00000014 00000800 DATA
+ 18 stringtext5                00000054 00001000 DATA
+ 19 intentry                   00000076 00000004 TEXT
+ 20 end_init                   00000004 0000003f DATA
+ 21 cinit                      00000d34 00000041 TEXT
+ 22 reset_vec                  00000004 00000000 DATA
+ 23 text35                     00000002 00000002 TEXT
+ 24 bssBANK1                   00000049 000000a0 BSS
+ 25 bssBANK2                   00000040 00000120 BSS
+ 26 bssBANK3                   00000040 000001a0 BSS
+ 27 bssBANK4                   00000020 00000220 BSS
+ 28 idataBANK0                 00000006 00000fc7 DATA
+ 29 clrtext                    0000000c 00000fde TEXT
+ 30 dabs$0                     00000002 0000007e BSS
+ 31 _stray_data_0_             00000008 00008007 DATA
+ 32 .strtab                    000012d4 00000000 
+ 33 .symtab                    000013f0 00000000 
+ 34 .debug_abbrev              0000018a 00000000 DEBUG
+ 35 .debug_info                000025ea 00000000 DEBUG
+ 36 .debug_line                00000c39 00000000 DEBUG
+ 37 .debug_ranges              0000007c 00000000 DEBUG
+ 38 .debug_pubnames            00000771 00000000 DEBUG
+ 39 .debug_aranges             00000318 00000000 DEBUG
+ 40 .note.microchip.deviceinfo 00000024 00000000 
+ 41 .shstrtab                  0000019c 00000000 
+
+Disassembly of section text1:
+
+00000fd8 <__ptext1>:
+; __ptext1():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:126
+;    TMR2_PeriodMatchCallback = CallbackHandler;
+     fd8: 73 08        	movf	0x73, w
+     fd9: 21 00        	movlb	0x1
+     fda: e1 00        	movwf	0x61
+     fdb: 72 08        	movf	0x72, w
+     fdc: e0 00        	movwf	0x60
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:127
+; }
+     fdd: 08 00        	return
+
+Disassembly of section text2:
+
+0000077f <__ptext2>:
+; __ptext2():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:41
+;     CLOCK_Initialize();
+     77f: 8f 31        	movlp	0xf
+     780: f6 27        	call	0x7f6
+     781: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:42
+;     PIN_MANAGER_Initialize();
+     782: 86 31        	movlp	0x6
+     783: 8b 26        	call	0x68b
+     784: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:43
+;     TMR2_Initialize();
+     785: 87 31        	movlp	0x7
+     786: 92 27        	call	0x792
+     787: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:44
+;     EUSART_Initialize();
+     788: 86 31        	movlp	0x6
+     789: 2b 26        	call	0x62b
+     78a: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:45
+;     WDT_Initialize();
+     78b: 8f 31        	movlp	0xf
+     78c: ce 27        	call	0x7ce
+     78d: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:46
+;     INTERRUPT_Initialize();
+     78e: 87 31        	movlp	0x7
+     78f: f5 27        	call	0x7f5
+     790: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/system.c:47
+; }
+     791: 08 00        	return
+
+00000792 <__ptext4>:
+; __ptext4():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:48
+;     PR2 = 0x7C;            // Period 0.001; Frequency 125000Hz; Count 124
+     792: 7c 30        	movlw	0x7c
+     793: 20 00        	movlb	0x0
+     794: 9e 00        	movwf	0x1e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:49
+;     TMR2 = 0x0;
+     795: 9d 01        	clrf	0x1d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:50
+;     TMR2_PeriodMatchCallback = TMR2_DefaultPeriodMatchCallback;
+     796: 03 30        	movlw	0x3
+     797: 21 00        	movlb	0x1
+     798: e0 00        	movwf	0x60
+     799: 00 30        	movlw	0x0
+     79a: e1 00        	movwf	0x61
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:52
+;     PIR1bits.TMR2IF = 0;   
+     79b: 20 00        	movlb	0x0
+     79c: 91 10        	bcf	0x11, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:53
+;     PIE1bits.TMR2IE = 1;
+     79d: 21 00        	movlb	0x1
+     79e: 91 14        	bsf	0x11, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:54
+;     T2CON = (3 << _T2CON_T2CKPS_POSN)   // T2CKPS 1:64
+     79f: 07 30        	movlw	0x7
+     7a0: 20 00        	movlb	0x0
+     7a1: 9f 00        	movwf	0x1f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:57
+; }
+     7a2: 08 00        	return
+
+000007a3 <_printf>:
+; __end_of_TMR2_Initialize():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/printf.c:9
+; 	va_start(ap, fmt);
+     7a3: 39 30        	movlw	0x39
+     7a4: 20 00        	movlb	0x0
+     7a5: bb 00        	movwf	0x3b
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/printf.c:10
+; 	ret = vfprintf(stdout, fmt, ap);
+     7a6: 00 30        	movlw	0x0
+     7a7: b0 00        	movwf	0x30
+     7a8: b1 00        	movwf	0x31
+     7a9: 38 08        	movf	0x38, w
+     7aa: b3 00        	movwf	0x33
+     7ab: 37 08        	movf	0x37, w
+     7ac: b2 00        	movwf	0x32
+     7ad: 3b 30        	movlw	0x3b
+     7ae: b4 00        	movwf	0x34
+     7af: 86 31        	movlp	0x6
+     7b0: fe 26        	call	0x6fe
+     7b1: 87 31        	movlp	0x7
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/printf.c:13
+; }
+     7b2: 08 00        	return
+
+000007b3 <__ptext29>:
+; __ptext29():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:117
+;     if(NULL != TMR2_PeriodMatchCallback)
+     7b3: 21 00        	movlb	0x1
+     7b4: 60 08        	movf	0x60, w
+     7b5: 61 04        	iorwf	0x61, w
+     7b6: 03 19        	btfsc	0x3, 0x2
+     7b7: b9 2f        	goto	0x7b9
+     7b8: ba 2f        	goto	0x7ba
+     7b9: bf 2f        	goto	0x7bf
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:119
+;         TMR2_PeriodMatchCallback();
+     7ba: 61 08        	movf	0x61, w
+     7bb: 8a 00        	movwf	0xa
+     7bc: 60 08        	movf	0x60, w
+     7bd: 0a 00        	callw
+     7be: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:121
+;     PIR1bits.TMR2IF = 0;
+     7bf: 20 00        	movlb	0x0
+     7c0: 91 10        	bcf	0x11, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:122
+; }
+     7c1: 08 00        	return
+
+000007c2 <_putch>:
+; _putch():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:378
+; void putch(char txData)
+     7c2: f4 00        	movwf	0x74
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:380
+;     while(!(EUSART_IsTxReady()))
+     7c3: 8f 31        	movlp	0xf
+     7c4: ed 27        	call	0x7ed
+     7c5: 87 31        	movlp	0x7
+     7c6: 00 3a        	xorlw	0x0
+     7c7: 03 19        	btfsc	0x3, 0x2
+     7c8: ca 2f        	goto	0x7ca
+     7c9: cb 2f        	goto	0x7cb
+     7ca: c3 2f        	goto	0x7c3
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:384
+;     return EUSART_Write(txData);   
+     7cb: 74 08        	movf	0x74, w
+     7cc: 86 31        	movlp	0x6
+     7cd: b7 26        	call	0x6b7
+     7ce: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:385
+; }
+     7cf: 08 00        	return
+
+Disassembly of section text3:
+
+00000fce <__ptext3>:
+; _WDT_Initialize():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/watchdog.c:39
+;     WDTCON = 0x1D;
+     fce: 1d 30        	movlw	0x1d
+     fcf: 21 00        	movlb	0x1
+     fd0: 97 00        	movwf	0x17
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/watchdog.c:40
+; }
+     fd1: 08 00        	return
+
+Disassembly of section text7:
+
+00000fd2 <__ptext7>:
+; __ptext7():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:106
+;     INT_InterruptHandler = InterruptHandler;
+     fd2: 73 08        	movf	0x73, w
+     fd3: 20 00        	movlb	0x0
+     fd4: d6 00        	movwf	0x56
+     fd5: 72 08        	movf	0x72, w
+     fd6: d5 00        	movwf	0x55
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:107
+; }
+     fd7: 08 00        	return
+
+Disassembly of section text9:
+
+000007dd <__ptext9>:
+; __ptext9():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:409
+;     if(NULL != callbackHandler)
+     7dd: 72 08        	movf	0x72, w
+     7de: 73 04        	iorwf	0x73, w
+     7df: 03 19        	btfsc	0x3, 0x2
+     7e0: e2 2f        	goto	0x7e2
+     7e1: e3 2f        	goto	0x7e3
+     7e2: e8 2f        	goto	0x7e8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:411
+;         EUSART_OverrunErrorHandler = callbackHandler;
+     7e3: 73 08        	movf	0x73, w
+     7e4: 20 00        	movlb	0x0
+     7e5: cc 00        	movwf	0x4c
+     7e6: 72 08        	movf	0x72, w
+     7e7: cb 00        	movwf	0x4b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:413
+; }
+     7e8: 08 00        	return
+
+000007e9 <__ptext10>:
+; _EUSART_FramingErrorCallbackRegister():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:401
+;     if(NULL != callbackHandler)
+     7e9: 72 08        	movf	0x72, w
+     7ea: 73 04        	iorwf	0x73, w
+     7eb: 03 19        	btfsc	0x3, 0x2
+     7ec: ee 2f        	goto	0x7ee
+     7ed: ef 2f        	goto	0x7ef
+     7ee: f4 2f        	goto	0x7f4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:403
+;         EUSART_FramingErrorHandler = callbackHandler;
+     7ef: 73 08        	movf	0x73, w
+     7f0: 20 00        	movlb	0x0
+     7f1: ce 00        	movwf	0x4e
+     7f2: 72 08        	movf	0x72, w
+     7f3: cd 00        	movwf	0x4d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:405
+; }
+     7f4: 08 00        	return
+
+000007f5 <__ptext6>:
+; __ptext6():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:44
+;     EXT_INT_InterruptFlagClear();   
+     7f5: 20 00        	movlb	0x0
+     7f6: 10 10        	bcf	0x10, 0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:45
+;     EXT_INT_risingEdgeSet();
+     7f7: 0b 14        	bsf	0xb, 0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:47
+;     INT_SetInterruptHandler(INT_DefaultInterruptHandler);
+     7f8: 00 30        	movlw	0x0
+     7f9: f2 00        	movwf	0x72
+     7fa: 00 30        	movlw	0x0
+     7fb: f3 00        	movwf	0x73
+     7fc: 8f 31        	movlp	0xf
+     7fd: d2 27        	call	0x7d2
+     7fe: 87 31        	movlp	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:50
+; }
+     7ff: 08 00        	return
+
+Disassembly of section text11:
+
+00000ff6 <__ptext11>:
+; __end_of_EUSART_IsTxReady():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/clock.c:42
+;     OSCCON1 = (0 << _OSCCON1_NDIV_POSN)   // NDIV 1
+     ff6: 60 30        	movlw	0x60
+     ff7: 32 00        	movlb	0x12
+     ff8: 99 00        	movwf	0x19
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/clock.c:44
+;     OSCCON3 = (0 << _OSCCON3_SOSCPWR_POSN)   // SOSCPWR Low power
+     ff9: 9b 01        	clrf	0x1b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/clock.c:46
+;     OSCEN = (0 << _OSCEN_EXTOEN_POSN)   // EXTOEN disabled
+     ffa: 9d 01        	clrf	0x1d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/clock.c:51
+;     OSCFRQ = (7 << _OSCFRQ_HFFRQ_POSN);  // HFFRQ 32_MHz
+     ffb: 07 30        	movlw	0x7
+     ffc: 9f 00        	movwf	0x1f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/clock.c:52
+;     OSCSTAT1 = 
+     ffd: 9e 01        	clrf	0x1e
+     ffe: 9c 01        	clrf	0x1c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/clock.c:55
+; }
+     fff: 08 00        	return
+
+Disassembly of section text18:
+
+000006fe <_vfprintf>:
+; _vfprintf():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1822
+;     cfmt = (char *)fmt;
+     6fe: 20 00        	movlb	0x0
+     6ff: 33 08        	movf	0x33, w
+     700: b6 00        	movwf	0x36
+     701: 32 08        	movf	0x32, w
+     702: b5 00        	movwf	0x35
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1826
+;     while (*cfmt) {
+     703: 10 2f        	goto	0x710
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1830
+; 			vfpfcnvrt(fp, &cfmt, ap);
+     704: 31 08        	movf	0x31, w
+     705: a6 00        	movwf	0x26
+     706: 30 08        	movf	0x30, w
+     707: a5 00        	movwf	0x25
+     708: 35 30        	movlw	0x35
+     709: a7 00        	movwf	0x27
+     70a: 34 08        	movf	0x34, w
+     70b: a8 00        	movwf	0x28
+     70c: a9 01        	clrf	0x29
+     70d: 82 31        	movlp	0x2
+     70e: f6 22        	call	0x2f6
+     70f: 86 31        	movlp	0x6
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1826
+;     while (*cfmt) {
+     710: 20 00        	movlb	0x0
+     711: 35 08        	movf	0x35, w
+     712: 84 00        	movwf	0x4
+     713: 36 08        	movf	0x36, w
+     714: 85 00        	movwf	0x5
+     715: 12 00        	moviw	FSR0++
+     716: 03 1d        	btfss	0x3, 0x2
+     717: 19 2f        	goto	0x719
+     718: 1a 2f        	goto	0x71a
+     719: 04 2f        	goto	0x704
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1835
+; 	return 0;
+     71a: b0 01        	clrf	0x30
+     71b: b1 01        	clrf	0x31
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1840
+; }
+     71c: 08 00        	return
+
+0000071d <__ptext26>:
+; __end_of_vfprintf():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:262
+;     readValue = eusartRxBuffer[eusartRxTail];
+     71d: 7a 08        	movf	0x7a, w
+     71e: a0 3e        	addlw	0x20, f
+     71f: 86 00        	movwf	0x6
+     720: 01 30        	movlw	0x1
+     721: 87 00        	movwf	0x7
+     722: 01 08        	movf	0x1, w
+     723: f3 00        	movwf	0x73
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:264
+;     tempRxTail = (eusartRxTail + 1U) & EUSART_RX_BUFFER_MASK; // Buffer size of RX should be in the 2^n
+     724: 7a 08        	movf	0x7a, w
+     725: 01 3e        	addlw	0x1, w
+     726: 1f 39        	andlw	0x1f
+     727: f2 00        	movwf	0x72
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:266
+;     eusartRxTail = tempRxTail;
+     728: 72 08        	movf	0x72, w
+     729: fa 00        	movwf	0x7a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:268
+;     PIE1bits.RCIE = 0; 
+     72a: 21 00        	movlb	0x1
+     72b: 91 12        	bcf	0x11, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:269
+;     if(0U != eusartRxCount)
+     72c: 20 00        	movlb	0x0
+     72d: 60 08        	movf	0x60, w
+     72e: 03 19        	btfsc	0x3, 0x2
+     72f: 31 2f        	goto	0x731
+     730: 32 2f        	goto	0x732
+     731: 34 2f        	goto	0x734
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:271
+;         eusartRxCount--;
+     732: 01 30        	movlw	0x1
+     733: e0 02        	subwf	0x60, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:273
+;     PIE1bits.RCIE = 1;
+     734: 21 00        	movlb	0x1
+     735: 91 16        	bsf	0x11, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:274
+;     return readValue;
+     736: 73 08        	movf	0x73, w
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:275
+; }
+     737: 08 00        	return
+
+00000738 <__ptext32>:
+; __ptext32():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:350
+;     if(sizeof(eusartTxBuffer) > eusartTxBufferRemaining) // check if all data is transmitted
+     738: 20 30        	movlw	0x20
+     739: 20 00        	movlb	0x0
+     73a: 61 02        	subwf	0x61, w
+     73b: 03 18        	btfsc	0x3, 0x0
+     73c: 3e 2f        	goto	0x73e
+     73d: 3f 2f        	goto	0x73f
+     73e: 50 2f        	goto	0x750
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:352
+;        TX1REG = eusartTxBuffer[eusartTxTail];
+     73f: 62 08        	movf	0x62, w
+     740: a0 3e        	addlw	0x20, f
+     741: 86 00        	movwf	0x6
+     742: 87 01        	clrf	0x7
+     743: 01 08        	movf	0x1, w
+     744: 23 00        	movlb	0x3
+     745: 9a 00        	movwf	0x1a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:353
+;        tempTxTail = (eusartTxTail + 1U) & EUSART_TX_BUFFER_MASK;
+     746: 20 00        	movlb	0x0
+     747: 62 08        	movf	0x62, w
+     748: 01 3e        	addlw	0x1, w
+     749: 1f 39        	andlw	0x1f
+     74a: f0 00        	movwf	0x70
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:355
+;        eusartTxTail = tempTxTail;
+     74b: 70 08        	movf	0x70, w
+     74c: e2 00        	movwf	0x62
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:356
+;        eusartTxBufferRemaining++; // one byte sent, so 1 more byte place is available in TX buffer
+     74d: 01 30        	movlw	0x1
+     74e: e1 07        	addwf	0x61, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:357
+;     }
+     74f: 52 2f        	goto	0x752
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:360
+;         PIE1bits.TXIE = 0;
+     750: 21 00        	movlb	0x1
+     751: 11 12        	bcf	0x11, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:367
+; }
+     752: 08 00        	return
+
+00000753 <_memset>:
+; __ptext24():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/memset.c:5
+; 	unsigned char * p = dest;
+     753: 72 08        	movf	0x72, w
+     754: f7 00        	movwf	0x77
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/memset.c:6
+; 	while (n--) {
+     755: 5d 2f        	goto	0x75d
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/memset.c:7
+; 		*p++ = (unsigned char)c;
+     756: 77 08        	movf	0x77, w
+     757: 86 00        	movwf	0x6
+     758: 87 01        	clrf	0x7
+     759: 73 08        	movf	0x73, w
+     75a: 81 00        	movwf	0x1
+     75b: 01 30        	movlw	0x1
+     75c: f7 07        	addwf	0x77, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/memset.c:6
+; 	while (n--) {
+     75d: 01 30        	movlw	0x1
+     75e: f5 02        	subwf	0x75, f
+     75f: 00 30        	movlw	0x0
+     760: f6 3b        	<unknown>
+     761: 75 0a        	incf	0x75, w
+     762: 03 1d        	btfss	0x3, 0x2
+     763: 68 2f        	goto	0x768
+     764: 76 0a        	incf	0x76, w
+     765: 03 1d        	btfss	0x3, 0x2
+     766: 68 2f        	goto	0x768
+     767: 69 2f        	goto	0x769
+     768: 56 2f        	goto	0x756
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/memset.c:10
+; }
+     769: 08 00        	return
+
+Disassembly of section text23:
+
+00000fed <__ptext23>:
+; __ptext23():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:243
+;     return (eusartTxBufferRemaining ? true : false);
+     fed: 20 00        	movlb	0x0
+     fee: 61 08        	movf	0x61, w
+     fef: 03 1d        	btfss	0x3, 0x2
+     ff0: f2 2f        	goto	0x7f2
+     ff1: f4 2f        	goto	0x7f4
+     ff2: 01 30        	movlw	0x1
+     ff3: f5 2f        	goto	0x7f5
+     ff4: 00 30        	movlw	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:244
+; }
+     ff5: 08 00        	return
+
+Disassembly of section text27:
+
+00000fe4 <__ptext27>:
+; _EUSART_IsRxReady():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:238
+;     return (eusartRxCount ? true : false);
+     fe4: 20 00        	movlb	0x0
+     fe5: 60 08        	movf	0x60, w
+     fe6: 03 1d        	btfss	0x3, 0x2
+     fe7: e9 2f        	goto	0x7e9
+     fe8: eb 2f        	goto	0x7eb
+     fe9: 01 30        	movlw	0x1
+     fea: ec 2f        	goto	0x7ec
+     feb: 00 30        	movlw	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:239
+; }
+     fec: 08 00        	return
+
+Disassembly of section text31:
+
+00000003 <__ptext31>:
+; __end_of_EUSART_DefaultFramingErrorCallback():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\timer\src/tmr2.c:132
+; }
+       3: 08 00        	return
+
+Disassembly of section text34:
+
+00000fca <__ptext34>:
+; __ptext34():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:395
+;     RC1STAbits.CREN = 0;
+     fca: 23 00        	movlb	0x3
+     fcb: 1d 12        	bcf	0x1d, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:396
+;     RC1STAbits.CREN = 1;
+     fcc: 1d 16        	bsf	0x1d, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:397
+; }
+     fcd: 08 00        	return
+
+Disassembly of section intentry:
+
+00000004 <__pintentry>:
+; __end_of_TMR2_DefaultPeriodMatchCallback():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:59
+; void __interrupt() INTERRUPT_InterruptManager (void)
+       4: 7e 14        	bsf	0x7e, 0x0
+       5: 80 31        	movlp	0x0
+       6: 00 30        	movlw	0x0
+       7: 86 00        	movwf	0x6
+       8: 00 30        	movlw	0x0
+       9: 87 00        	movwf	0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:62
+;     if(INTCONbits.PEIE == 1)
+       a: 0b 1f        	btfss	0xb, 0x6
+       b: 0d 28        	goto	0xd
+       c: 0e 28        	goto	0xe
+       d: 3d 28        	goto	0x3d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:64
+;         if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
+       e: 21 00        	movlb	0x1
+       f: 11 1e        	btfss	0x11, 0x4
+      10: 12 28        	goto	0x12
+      11: 13 28        	goto	0x13
+      12: 1f 28        	goto	0x1f
+      13: 20 00        	movlb	0x0
+      14: 11 1e        	btfss	0x11, 0x4
+      15: 17 28        	goto	0x17
+      16: 18 28        	goto	0x18
+      17: 1f 28        	goto	0x1f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:66
+;             EUSART_TxInterruptHandler();
+      18: 21 00        	movlb	0x1
+      19: 65 08        	movf	0x65, w
+      1a: 8a 00        	movwf	0xa
+      1b: 64 08        	movf	0x64, w
+      1c: 0a 00        	callw
+      1d: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:67
+;         } 
+      1e: 3d 28        	goto	0x3d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:68
+;         else if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
+      1f: 21 00        	movlb	0x1
+; __pcstackBANK0():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:68
+      20: 91 1e        	btfss	0x11, 0x5
+      21: 23 28        	goto	0x23
+      22: 24 28        	goto	0x24
+      23: 30 28        	goto	0x30
+      24: 20 00        	movlb	0x0
+; vfpfcnvrt@fp():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:68
+      25: 91 1e        	btfss	0x11, 0x5
+      26: 28 28        	goto	0x28
+; vfpfcnvrt@fmt():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:68
+      27: 29 28        	goto	0x29
+; vfpfcnvrt@ap():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:68
+      28: 30 28        	goto	0x30
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:70
+;             EUSART_RxInterruptHandler();
+      29: 21 00        	movlb	0x1
+      2a: 63 08        	movf	0x63, w
+      2b: 8a 00        	movwf	0xa
+      2c: 62 08        	movf	0x62, w
+      2d: 0a 00        	callw
+; vfpfcnvrt@done():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:70
+      2e: 80 31        	movlp	0x0
+; vfpfcnvrt@cp_1241():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:71
+;         } 
+      2f: 3d 28        	goto	0x3d
+; vfprintf@fp():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:72
+;         else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
+      30: 21 00        	movlb	0x1
+      31: 91 1c        	btfss	0x11, 0x1
+; vfprintf@fmt():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:72
+      32: 34 28        	goto	0x34
+      33: 35 28        	goto	0x35
+; vfprintf@ap():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:72
+      34: 3d 28        	goto	0x3d
+; vfprintf@cfmt():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:72
+      35: 20 00        	movlb	0x0
+      36: 91 1c        	btfss	0x11, 0x1
+; printf@fmt():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:72
+      37: 39 28        	goto	0x39
+      38: 3a 28        	goto	0x3a
+      39: 3d 28        	goto	0x3d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:74
+;             TMR2_ISR();
+      3a: 87 31        	movlp	0x7
+; printf@ap():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:74
+      3b: b3 27        	call	0x7b3
+; ProcessUARTCommand@cmd():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:74
+      3c: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:85
+; }
+      3d: 7e 10        	bcf	0x7e, 0x0
+; ProcessStateMachine@digit():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/interrupt.c:85
+      3e: 09 00        	retfie
+
+Disassembly of section cinit:
+
+00000041 <start_initialization>:
+; __initialization():
+      41: 8f 31        	movlp	0xf
+      42: c7 27        	call	0x7c7
+; ProcessStateMachine@d():
+      43: 80 31        	movlp	0x0
+; ProcessStateMachine@current_ri():
+      44: ec 00        	movwf	0x6c
+      45: 8f 31        	movlp	0xf
+      46: c8 27        	call	0x7c8
+; __pbssBANK0():
+      47: 80 31        	movlp	0x0
+      48: ed 00        	movwf	0x6d
+; _prec():
+      49: 8f 31        	movlp	0xf
+      4a: c9 27        	call	0x7c9
+; _EUSART_OverrunErrorHandler():
+      4b: 80 31        	movlp	0x0
+      4c: ee 00        	movwf	0x6e
+; _EUSART_FramingErrorHandler():
+      4d: fa 01        	clrf	0x7a
+      4e: fb 01        	clrf	0x7b
+; _EUSART_RxCompleteInterruptHandler():
+      4f: 47 30        	movlw	0x47
+      50: 84 00        	movwf	0x4
+; _EUSART_TxCompleteInterruptHandler():
+      51: 00 30        	movlw	0x0
+      52: 85 00        	movwf	0x5
+; _eusartRxLastError():
+      53: 25 30        	movlw	0x25
+      54: 8f 31        	movlp	0xf
+; _INT_InterruptHandler():
+      55: de 27        	call	0x7de
+      56: 80 31        	movlp	0x0
+; _sbc_link_timer():
+      57: a0 30        	movlw	0xa0
+      58: 84 00        	movwf	0x4
+; _pbx_busy_timer():
+      59: 00 30        	movlw	0x0
+      5a: 85 00        	movwf	0x5
+; _pulse_timeout():
+      5b: 40 30        	movlw	0x40
+      5c: 8f 31        	movlp	0xf
+; _state_timer():
+      5d: de 27        	call	0x7de
+      5e: 80 31        	movlp	0x0
+; _flags():
+      5f: 20 30        	movlw	0x20
+; _eusartRxCount():
+      60: 84 00        	movwf	0x4
+; _eusartTxBufferRemaining():
+      61: 01 30        	movlw	0x1
+; _eusartTxTail():
+      62: 85 00        	movwf	0x5
+; _eusartTxHead():
+      63: 40 30        	movlw	0x40
+; _uart_rx_idx():
+      64: 8f 31        	movlp	0xf
+; _tx_pulse_phase():
+      65: de 27        	call	0x7de
+; _tx_pulse_count():
+      66: 80 31        	movlp	0x0
+; _tx_digit_idx():
+      67: a0 30        	movlw	0xa0
+; _rx_digit_count():
+      68: 84 00        	movwf	0x4
+; _rx_pulse_count():
+      69: 01 30        	movlw	0x1
+; _is_link_up():
+      6a: 85 00        	movwf	0x5
+; _current_state():
+      6b: 40 30        	movlw	0x40
+; _led_blink_timer():
+      6c: 8f 31        	movlp	0xf
+      6d: de 27        	call	0x7de
+; _last_ri_state():
+      6e: 80 31        	movlp	0x0
+      6f: 20 30        	movlw	0x20
+; __pcstackCOMMON():
+      70: 84 00        	movwf	0x4
+; EUSART_ReceiveISR@tempRxHead():
+      71: 02 30        	movlw	0x2
+; ?_strncmp():
+      72: 85 00        	movwf	0x5
+; EUSART_Write@txData():
+      73: 20 30        	movlw	0x20
+; putch@txData():
+      74: 8f 31        	movlp	0xf
+; fputc@c():
+      75: de 27        	call	0x7de
+; strncpy@cp():
+      76: 80 31        	movlp	0x0
+
+00000077 <end_of_initialization>:
+; __end_of__initialization():
+      77: 7e 10        	bcf	0x7e, 0x0
+      78: 20 00        	movlb	0x0
+      79: 82 31        	movlp	0x2
+; _eusartRxTail():
+      7a: 0b 2a        	goto	0x20b
+
+0000007b <__ptext16>:
+; _ProcessStateMachine():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:231
+;     bool current_ri = T1_IN_GetValue(); // ※PBXからのRI信号(要結線確認)
+      7b: 20 00        	movlb	0x0
+      7c: 0c 0c        	rrf	0xc, w
+      7d: 89 0c        	rrf	0x9, f
+      7e: 01 39        	andlw	0x1
+      7f: c4 00        	movwf	0x44
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:232
+;     current_ri = RI_IN_GetValue();      // 正しくはRIピン
+      80: 0e 0c        	rrf	0xe, w
+      81: 89 0c        	rrf	0x9, f
+      82: 01 39        	andlw	0x1
+      83: c4 00        	movwf	0x44
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:235
+;     if (current_state != STATE_IDLE && pbx_busy_timer > 100) {
+      84: 6b 08        	movf	0x6b, w
+      85: 03 19        	btfsc	0x3, 0x2
+      86: 88 28        	goto	0x88
+      87: 89 28        	goto	0x89
+      88: 9e 28        	goto	0x9e
+      89: 00 30        	movlw	0x0
+      8a: 5a 02        	subwf	0x5a, w
+      8b: 65 30        	movlw	0x65
+      8c: 03 19        	btfsc	0x3, 0x2
+      8d: 59 02        	subwf	0x59, w
+      8e: 03 1c        	btfss	0x3, 0x0
+      8f: 91 28        	goto	0x91
+      90: 92 28        	goto	0x92
+      91: 9e 28        	goto	0x9e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:236
+;         printf("DROP (Reason: PBX BUSY detected)\r\n"); // SBCに切断を通知
+      92: db 30        	movlw	0xdb
+      93: b7 00        	movwf	0x37
+      94: 86 30        	movlw	0x86
+      95: b8 00        	movwf	0x38
+      96: 87 31        	movlp	0x7
+      97: a3 27        	call	0x7a3
+      98: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:237
+;         HO_OUT_SetLow();    // オンフック
+      99: 22 00        	movlb	0x2
+      9a: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:238
+;         current_state = STATE_IDLE;
+      9b: 20 00        	movlb	0x0
+      9c: eb 01        	clrf	0x6b
+      9d: 0a 2a        	goto	0x20a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:242
+;     StatusLEDControl(current_state);
+      9e: 6b 08        	movf	0x6b, w
+      9f: 85 31        	movlp	0x5
+; __pbssBANK1():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:242
+      a0: bb 25        	call	0x5bb
+      a1: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:244
+;     switch (current_state) {
+      a2: e8 29        	goto	0x1e8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:247
+;             if (last_ri_state == true && current_ri == false) {
+      a3: 6e 03        	decf	0x6e, w
+      a4: 03 1d        	btfss	0x3, 0x2
+      a5: a7 28        	goto	0xa7
+      a6: a8 28        	goto	0xa8
+      a7: 08 2a        	goto	0x208
+      a8: 44 08        	movf	0x44, w
+      a9: 03 1d        	btfss	0x3, 0x2
+      aa: ac 28        	goto	0xac
+      ab: ad 28        	goto	0xad
+      ac: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:248
+;                 rx_pulse_count = 1;
+      ad: 01 30        	movlw	0x1
+      ae: e9 00        	movwf	0x69
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:249
+;                 rx_digit_count = 0;
+      af: e8 01        	clrf	0x68
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:250
+;                 memset(rx_number, 0, sizeof(rx_number));
+      b0: d0 30        	movlw	0xd0
+      b1: f2 00        	movwf	0x72
+      b2: 00 30        	movlw	0x0
+      b3: f3 00        	movwf	0x73
+      b4: f4 00        	movwf	0x74
+      b5: 10 30        	movlw	0x10
+      b6: f5 00        	movwf	0x75
+      b7: 00 30        	movlw	0x0
+      b8: f6 00        	movwf	0x76
+      b9: 87 31        	movlp	0x7
+      ba: 53 27        	call	0x753
+      bb: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:251
+;                 pulse_timeout = 100; // 桁確定タイマー
+      bc: 64 30        	movlw	0x64
+      bd: 20 00        	movlb	0x0
+      be: db 00        	movwf	0x5b
+      bf: 00 30        	movlw	0x0
+; _tx_number():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:251
+      c0: dc 00        	movwf	0x5c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:252
+;                 current_state = STATE_RX_PULSES;
+      c1: 01 30        	movlw	0x1
+      c2: eb 00        	movwf	0x6b
+      c3: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:258
+;             if (last_ri_state == true && current_ri == false) {
+      c4: 6e 03        	decf	0x6e, w
+      c5: 03 1d        	btfss	0x3, 0x2
+      c6: c8 28        	goto	0xc8
+      c7: c9 28        	goto	0xc9
+      c8: d4 28        	goto	0xd4
+      c9: 44 08        	movf	0x44, w
+      ca: 03 1d        	btfss	0x3, 0x2
+      cb: cd 28        	goto	0xcd
+      cc: ce 28        	goto	0xce
+      cd: d4 28        	goto	0xd4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:259
+;                 rx_pulse_count++;
+      ce: 01 30        	movlw	0x1
+      cf: e9 07        	addwf	0x69, f
+; _rx_number():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:260
+;                 pulse_timeout = 100; // パルスが来るたびにリセット
+      d0: 64 30        	movlw	0x64
+      d1: db 00        	movwf	0x5b
+      d2: 00 30        	movlw	0x0
+      d3: dc 00        	movwf	0x5c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:264
+;             if (current_ri == true && pulse_timeout == 0 && rx_pulse_count > 0) {
+      d4: 44 03        	decf	0x44, w
+      d5: 03 1d        	btfss	0x3, 0x2
+      d6: d8 28        	goto	0xd8
+      d7: d9 28        	goto	0xd9
+      d8: 04 29        	goto	0x104
+      d9: 5b 08        	movf	0x5b, w
+      da: 5c 04        	iorwf	0x5c, w
+      db: 03 1d        	btfss	0x3, 0x2
+      dc: de 28        	goto	0xde
+      dd: df 28        	goto	0xdf
+      de: 04 29        	goto	0x104
+      df: 69 08        	movf	0x69, w
+; __pnvBANK1():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:264
+      e0: 03 19        	btfsc	0x3, 0x2
+      e1: e3 28        	goto	0xe3
+; _EUSART_RxInterruptHandler():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:264
+      e2: e4 28        	goto	0xe4
+      e3: 04 29        	goto	0x104
+; _EUSART_TxInterruptHandler():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:265
+;                 uint8_t digit = (rx_pulse_count == 10) ? 0 : rx_pulse_count;
+      e4: 0a 30        	movlw	0xa
+      e5: 69 06        	xorwf	0x69, w
+; __pcstackBANK1():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:265
+      e6: 03 19        	btfsc	0x3, 0x2
+      e7: e9 28        	goto	0xe9
+; main@c():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:265
+      e8: ea 28        	goto	0xea
+      e9: f2 28        	goto	0xf2
+      ea: 69 08        	movf	0x69, w
+      eb: bc 00        	movwf	0x3c
+      ec: bd 01        	clrf	0x3d
+      ed: 3c 08        	movf	0x3c, w
+      ee: bf 00        	movwf	0x3f
+      ef: 3d 08        	movf	0x3d, w
+      f0: c0 00        	movwf	0x40
+      f1: f4 28        	goto	0xf4
+      f2: bf 01        	clrf	0x3f
+      f3: c0 01        	clrf	0x40
+      f4: 3f 08        	movf	0x3f, w
+      f5: be 00        	movwf	0x3e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:266
+;                 rx_number[rx_digit_count++] = digit + '0';
+      f6: 68 08        	movf	0x68, w
+      f7: d0 3e        	addlw	0x50, f
+      f8: 86 00        	movwf	0x6
+      f9: 87 01        	clrf	0x7
+      fa: 3e 08        	movf	0x3e, w
+      fb: 30 3e        	addlw	0x30, w
+      fc: 81 00        	movwf	0x1
+      fd: 01 30        	movlw	0x1
+      fe: e8 07        	addwf	0x68, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:267
+;                 rx_pulse_count = 0;
+      ff: e9 01        	clrf	0x69
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:270
+;                 state_timer = 500; 
+     100: f4 30        	movlw	0xf4
+     101: dd 00        	movwf	0x5d
+     102: 01 30        	movlw	0x1
+     103: de 00        	movwf	0x5e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:274
+;             if (current_ri == true && pulse_timeout == 0 && rx_pulse_count == 0) {
+     104: 44 03        	decf	0x44, w
+     105: 03 1d        	btfss	0x3, 0x2
+     106: 08 29        	goto	0x108
+     107: 09 29        	goto	0x109
+     108: 08 2a        	goto	0x208
+     109: 5b 08        	movf	0x5b, w
+     10a: 5c 04        	iorwf	0x5c, w
+     10b: 03 1d        	btfss	0x3, 0x2
+     10c: 0e 29        	goto	0x10e
+     10d: 0f 29        	goto	0x10f
+     10e: 08 2a        	goto	0x208
+     10f: 69 08        	movf	0x69, w
+     110: 03 1d        	btfss	0x3, 0x2
+     111: 13 29        	goto	0x113
+     112: 14 29        	goto	0x114
+     113: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:275
+;                 if (state_timer == 0 && rx_digit_count > 0) {
+     114: 5d 08        	movf	0x5d, w
+     115: 5e 04        	iorwf	0x5e, w
+     116: 03 1d        	btfss	0x3, 0x2
+     117: 19 29        	goto	0x119
+     118: 1a 29        	goto	0x11a
+     119: 08 2a        	goto	0x208
+     11a: 68 08        	movf	0x68, w
+     11b: 03 19        	btfsc	0x3, 0x2
+     11c: 1e 29        	goto	0x11e
+     11d: 1f 29        	goto	0x11f
+     11e: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:276
+;                     if (is_link_up) { // ハートビートでリンクupの状態ならDIAL送出
+     11f: 6a 08        	movf	0x6a, w
+; __pbssBANK2():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:276
+     120: 03 19        	btfsc	0x3, 0x2
+     121: 23 29        	goto	0x123
+     122: 24 29        	goto	0x124
+     123: 33 29        	goto	0x133
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:277
+;                         printf("DIAL %s\r\n", rx_number);
+     124: 00 30        	movlw	0x0
+     125: b7 00        	movwf	0x37
+     126: 88 30        	movlw	0x88
+     127: b8 00        	movwf	0x38
+     128: d0 30        	movlw	0xd0
+     129: b9 00        	movwf	0x39
+     12a: 00 30        	movlw	0x0
+     12b: ba 00        	movwf	0x3a
+     12c: 87 31        	movlp	0x7
+     12d: a3 27        	call	0x7a3
+     12e: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:278
+;                         current_state = STATE_WAIT_IP_ANS;
+     12f: 02 30        	movlw	0x2
+     130: 20 00        	movlb	0x0
+     131: eb 00        	movwf	0x6b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:279
+;                     } else {
+     132: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:282
+;                         HO_OUT_SetHigh();
+     133: 22 00        	movlb	0x2
+     134: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:283
+;                         __delay_ms(100);
+     135: 05 30        	movlw	0x5
+     136: 20 00        	movlb	0x0
+     137: bd 00        	movwf	0x3d
+     138: 0f 30        	movlw	0xf
+     139: bc 00        	movwf	0x3c
+     13a: f1 30        	movlw	0xf1
+     13b: 89 0b        	decfsz	0x9, f
+     13c: 3b 29        	goto	0x13b
+     13d: bc 0b        	decfsz	0x3c, f
+     13e: 3b 29        	goto	0x13b
+     13f: bd 0b        	decfsz	0x3d, f
+     140: 3b 29        	goto	0x13b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:284
+;                         HO_OUT_SetLow();
+     141: 22 00        	movlb	0x2
+     142: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:285
+;                         current_state = STATE_IDLE;
+     143: 20 00        	movlb	0x0
+     144: eb 01        	clrf	0x6b
+     145: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:294
+;             if (!is_link_up) { // 待っている間にダウンした場合の処理
+     146: 6a 08        	movf	0x6a, w
+     147: 03 1d        	btfss	0x3, 0x2
+     148: 4a 29        	goto	0x14a
+     149: 4b 29        	goto	0x14b
+     14a: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:296
+;                 HO_OUT_SetHigh();
+     14b: 22 00        	movlb	0x2
+     14c: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:297
+;                 __delay_ms(100);
+     14d: 05 30        	movlw	0x5
+     14e: 20 00        	movlb	0x0
+     14f: bd 00        	movwf	0x3d
+     150: 0f 30        	movlw	0xf
+     151: bc 00        	movwf	0x3c
+     152: f1 30        	movlw	0xf1
+     153: 89 0b        	decfsz	0x9, f
+     154: 53 29        	goto	0x153
+     155: bc 0b        	decfsz	0x3c, f
+     156: 53 29        	goto	0x153
+     157: bd 0b        	decfsz	0x3d, f
+     158: 53 29        	goto	0x153
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:298
+;                 HO_OUT_SetLow();
+     159: 22 00        	movlb	0x2
+     15a: 8e 10        	bcf	0xe, 0x1
+     15b: 43 29        	goto	0x143
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:305
+;             if (state_timer == 0) {
+     15c: 5d 08        	movf	0x5d, w
+     15d: 5e 04        	iorwf	0x5e, w
+     15e: 03 1d        	btfss	0x3, 0x2
+     15f: 61 29        	goto	0x161
+     160: 62 29        	goto	0x162
+     161: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:306
+;                 tx_digit_idx = 0;
+     162: e7 01        	clrf	0x67
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:307
+;                 tx_pulse_phase = 0;
+     163: e5 01        	clrf	0x65
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:308
+;                 state_timer = 100; // 最初だけ少しディレイ
+     164: 64 30        	movlw	0x64
+     165: dd 00        	movwf	0x5d
+     166: 00 30        	movlw	0x0
+     167: de 00        	movwf	0x5e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:309
+;                 current_state = STATE_TX_PULSES;
+     168: 04 30        	movlw	0x4
+     169: eb 00        	movwf	0x6b
+     16a: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:314
+;             if (state_timer == 0) {
+     16b: 5d 08        	movf	0x5d, w
+     16c: 5e 04        	iorwf	0x5e, w
+     16d: 03 1d        	btfss	0x3, 0x2
+     16e: 70 29        	goto	0x170
+     16f: 71 29        	goto	0x171
+     170: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:315
+;                 if (tx_pulse_phase == 0) { // 次の桁の準備
+     171: 65 08        	movf	0x65, w
+     172: 03 1d        	btfss	0x3, 0x2
+     173: 75 29        	goto	0x175
+     174: 76 29        	goto	0x176
+     175: a1 29        	goto	0x1a1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:316
+;                     if (tx_number[tx_digit_idx] != '\0') {
+     176: 67 08        	movf	0x67, w
+     177: c0 3e        	addlw	0x40, f
+     178: 86 00        	movwf	0x6
+     179: 87 01        	clrf	0x7
+     17a: 01 08        	movf	0x1, w
+     17b: 03 19        	btfsc	0x3, 0x2
+     17c: 7e 29        	goto	0x17e
+     17d: 7f 29        	goto	0x17f
+     17e: 9c 29        	goto	0x19c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:317
+;                         uint8_t d = tx_number[tx_digit_idx] - '0';
+     17f: 67 08        	movf	0x67, w
+     180: c0 3e        	addlw	0x40, f
+     181: 86 00        	movwf	0x6
+     182: 87 01        	clrf	0x7
+     183: 01 08        	movf	0x1, w
+     184: d0 3e        	addlw	0x50, f
+     185: c3 00        	movwf	0x43
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:318
+;                         tx_pulse_count = (d == 0) ? 10 : d;
+     186: 43 08        	movf	0x43, w
+     187: 03 19        	btfsc	0x3, 0x2
+     188: 8a 29        	goto	0x18a
+     189: 8b 29        	goto	0x18b
+     18a: 93 29        	goto	0x193
+     18b: 43 08        	movf	0x43, w
+     18c: bc 00        	movwf	0x3c
+     18d: bd 01        	clrf	0x3d
+     18e: 3c 08        	movf	0x3c, w
+     18f: c1 00        	movwf	0x41
+     190: 3d 08        	movf	0x3d, w
+     191: c2 00        	movwf	0x42
+     192: 97 29        	goto	0x197
+     193: 0a 30        	movlw	0xa
+     194: c1 00        	movwf	0x41
+     195: 00 30        	movlw	0x0
+     196: c2 00        	movwf	0x42
+     197: 41 08        	movf	0x41, w
+     198: e6 00        	movwf	0x66
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:319
+;                         tx_pulse_phase = 1;
+     199: 01 30        	movlw	0x1
+     19a: e5 00        	movwf	0x65
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:320
+;                     } else {
+     19b: a1 29        	goto	0x1a1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:322
+;                         HO_OUT_SetHigh(); // 確実にオフフック維持
+     19c: 22 00        	movlb	0x2
+     19d: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:323
+;                         current_state = STATE_WAIT_PBX_ANS;
+     19e: 06 30        	movlw	0x6
+     19f: 20 00        	movlb	0x0
+; __pbssBANK3():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:323
+     1a0: eb 00        	movwf	0x6b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:327
+;                 if (tx_pulse_phase == 1) { // Pulse LOW (Break: 33ms)
+     1a1: 65 03        	decf	0x65, w
+     1a2: 03 1d        	btfss	0x3, 0x2
+     1a3: a5 29        	goto	0x1a5
+     1a4: a6 29        	goto	0x1a6
+     1a5: b0 29        	goto	0x1b0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:328
+;                     HO_OUT_SetLow();
+     1a6: 22 00        	movlb	0x2
+     1a7: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:329
+;                     state_timer = 33;
+     1a8: 21 30        	movlw	0x21
+     1a9: 20 00        	movlb	0x0
+     1aa: dd 00        	movwf	0x5d
+     1ab: 00 30        	movlw	0x0
+     1ac: de 00        	movwf	0x5e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:330
+;                     tx_pulse_phase = 2;
+     1ad: 02 30        	movlw	0x2
+     1ae: e5 00        	movwf	0x65
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:331
+;                 } 
+     1af: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:332
+;                 else if (tx_pulse_phase == 2) { // Pulse HIGH (Make: 67ms)
+     1b0: 02 30        	movlw	0x2
+     1b1: 65 06        	xorwf	0x65, w
+     1b2: 03 1d        	btfss	0x3, 0x2
+     1b3: b5 29        	goto	0x1b5
+     1b4: b6 29        	goto	0x1b6
+     1b5: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:333
+;                     HO_OUT_SetHigh();
+     1b6: 22 00        	movlb	0x2
+     1b7: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:334
+;                     tx_pulse_count--;
+     1b8: 01 30        	movlw	0x1
+     1b9: 20 00        	movlb	0x0
+     1ba: e6 02        	subwf	0x66, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:335
+;                     if (tx_pulse_count > 0) {
+     1bb: 66 08        	movf	0x66, w
+     1bc: 03 19        	btfsc	0x3, 0x2
+     1bd: bf 29        	goto	0x1bf
+     1be: c0 29        	goto	0x1c0
+     1bf: c7 29        	goto	0x1c7
+; _uart_rx_buf():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:336
+;                         state_timer = 67;
+     1c0: 43 30        	movlw	0x43
+     1c1: dd 00        	movwf	0x5d
+     1c2: 00 30        	movlw	0x0
+     1c3: de 00        	movwf	0x5e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:337
+;                         tx_pulse_phase = 1;
+     1c4: 01 30        	movlw	0x1
+     1c5: e5 00        	movwf	0x65
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:338
+;                     } else {
+     1c6: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:339
+;                         state_timer = 800; // 桁間ポーズ(PBXの600ms以上にする)
+     1c7: 20 30        	movlw	0x20
+     1c8: dd 00        	movwf	0x5d
+     1c9: 03 30        	movlw	0x3
+     1ca: de 00        	movwf	0x5e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:340
+;                         tx_pulse_phase = 0;
+     1cb: e5 01        	clrf	0x65
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:341
+;                         tx_digit_idx++;
+     1cc: 01 30        	movlw	0x1
+     1cd: e7 07        	addwf	0x67, f
+     1ce: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:351
+;             if (state_timer == 0) {
+     1cf: 5d 08        	movf	0x5d, w
+     1d0: 5e 04        	iorwf	0x5e, w
+     1d1: 03 1d        	btfss	0x3, 0x2
+     1d2: d4 29        	goto	0x1d4
+     1d3: d5 29        	goto	0x1d5
+     1d4: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:352
+;                 if (T1_IN_GetValue() == 1 && T2_IN_GetValue() == 1) {
+     1d5: 0c 1d        	btfss	0xc, 0x2
+     1d6: d8 29        	goto	0x1d8
+     1d7: d9 29        	goto	0x1d9
+     1d8: 08 2a        	goto	0x208
+     1d9: 0e 1c        	btfss	0xe, 0x0
+     1da: dc 29        	goto	0x1dc
+     1db: dd 29        	goto	0x1dd
+     1dc: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:353
+;                     printf("ANS\r\n"); // Pythonへ応答を通知して accept させる
+     1dd: 10 30        	movlw	0x10
+     1de: b7 00        	movwf	0x37
+     1df: 90 30        	movlw	0x90
+     1e0: b8 00        	movwf	0x38
+     1e1: 87 31        	movlp	0x7
+     1e2: a3 27        	call	0x7a3
+     1e3: 80 31        	movlp	0x0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:354
+;                     current_state = STATE_TALKING;
+     1e4: 05 30        	movlw	0x5
+     1e5: 20 00        	movlb	0x0
+     1e6: eb 00        	movwf	0x6b
+     1e7: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:362
+;     }
+     1e8: 20 00        	movlb	0x0
+     1e9: 6b 08        	movf	0x6b, w
+     1ea: bc 00        	movwf	0x3c
+     1eb: bd 01        	clrf	0x3d
+     1ec: 3d 08        	movf	0x3d, w
+     1ed: 00 3a        	xorlw	0x0
+     1ee: 03 19        	btfsc	0x3, 0x2
+     1ef: f1 29        	goto	0x1f1
+     1f0: 08 2a        	goto	0x208
+     1f1: 3c 08        	movf	0x3c, w
+     1f2: 00 3a        	xorlw	0x0
+     1f3: 03 19        	btfsc	0x3, 0x2
+     1f4: a3 28        	goto	0xa3
+     1f5: 01 3a        	xorlw	0x1
+     1f6: 03 19        	btfsc	0x3, 0x2
+     1f7: c4 28        	goto	0xc4
+     1f8: 03 3a        	xorlw	0x3
+     1f9: 03 19        	btfsc	0x3, 0x2
+     1fa: 46 29        	goto	0x146
+     1fb: 01 3a        	xorlw	0x1
+     1fc: 03 19        	btfsc	0x3, 0x2
+     1fd: 5c 29        	goto	0x15c
+     1fe: 07 3a        	xorlw	0x7
+     1ff: 03 19        	btfsc	0x3, 0x2
+     200: 6b 29        	goto	0x16b
+     201: 01 3a        	xorlw	0x1
+     202: 03 19        	btfsc	0x3, 0x2
+     203: 08 2a        	goto	0x208
+     204: 03 3a        	xorlw	0x3
+     205: 03 19        	btfsc	0x3, 0x2
+     206: cf 29        	goto	0x1cf
+     207: 08 2a        	goto	0x208
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:364
+;     last_ri_state = current_ri;
+     208: 44 08        	movf	0x44, w
+     209: ee 00        	movwf	0x6e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:365
+; }
+     20a: 08 00        	return
+
+0000020b <_main>:
+; __end_of_ProcessStateMachine():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:158
+;     SYSTEM_Initialize();
+     20b: 87 31        	movlp	0x7
+     20c: 7f 27        	call	0x77f
+     20d: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:160
+;     printf("\r\nIP Unit Started.\r\n");
+     20e: 6a 30        	movlw	0x6a
+     20f: 20 00        	movlb	0x0
+     210: b7 00        	movwf	0x37
+     211: 87 30        	movlw	0x87
+     212: b8 00        	movwf	0x38
+     213: 87 31        	movlp	0x7
+     214: a3 27        	call	0x7a3
+     215: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:161
+;     HO_OUT_SetLow(); // オンフック(切断)状態で開始
+     216: 22 00        	movlb	0x2
+     217: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:165
+;     printf("Waiting...\r\n");
+     218: d0 30        	movlw	0xd0
+     219: 20 00        	movlb	0x0
+     21a: b7 00        	movwf	0x37
+     21b: 87 30        	movlw	0x87
+     21c: b8 00        	movwf	0x38
+     21d: 87 31        	movlp	0x7
+     21e: a3 27        	call	0x7a3
+     21f: 82 31        	movlp	0x2
+; __pbssBANK4():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:166
+;     for(uint16_t i = 0; i < 100; i++){
+     220: 21 00        	movlb	0x1
+     221: e6 01        	clrf	0x66
+     222: e7 01        	clrf	0x67
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:167
+;         LED1_Toggle();
+     223: 03 10        	bcf	0x3, 0x0
+     224: 22 00        	movlb	0x2
+     225: 8c 1e        	btfss	0xc, 0x5
+     226: 03 14        	bsf	0x3, 0x0
+     227: 03 18        	btfsc	0x3, 0x0
+     228: 2a 2a        	goto	0x22a
+     229: 2d 2a        	goto	0x22d
+     22a: 22 00        	movlb	0x2
+     22b: 8c 16        	bsf	0xc, 0x5
+     22c: 2f 2a        	goto	0x22f
+     22d: 22 00        	movlb	0x2
+     22e: 8c 12        	bcf	0xc, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:168
+;         LED2_Toggle();
+     22f: 03 10        	bcf	0x3, 0x0
+     230: 0c 1e        	btfss	0xc, 0x4
+     231: 03 14        	bsf	0x3, 0x0
+     232: 03 18        	btfsc	0x3, 0x0
+     233: 35 2a        	goto	0x235
+     234: 38 2a        	goto	0x238
+     235: 22 00        	movlb	0x2
+     236: 0c 16        	bsf	0xc, 0x4
+     237: 3a 2a        	goto	0x23a
+     238: 22 00        	movlb	0x2
+     239: 0c 12        	bcf	0xc, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:169
+;         LED3_Toggle();
+     23a: 03 10        	bcf	0x3, 0x0
+     23b: 8e 1e        	btfss	0xe, 0x5
+     23c: 03 14        	bsf	0x3, 0x0
+     23d: 03 18        	btfsc	0x3, 0x0
+     23e: 40 2a        	goto	0x240
+     23f: 43 2a        	goto	0x243
+     240: 22 00        	movlb	0x2
+     241: 8e 16        	bsf	0xe, 0x5
+     242: 45 2a        	goto	0x245
+     243: 22 00        	movlb	0x2
+     244: 8e 12        	bcf	0xe, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:170
+;         __delay_ms(100);
+     245: 05 30        	movlw	0x5
+     246: 20 00        	movlb	0x0
+     247: c6 00        	movwf	0x46
+     248: 0f 30        	movlw	0xf
+     249: c5 00        	movwf	0x45
+     24a: f1 30        	movlw	0xf1
+     24b: 89 0b        	decfsz	0x9, f
+     24c: 4b 2a        	goto	0x24b
+     24d: c5 0b        	decfsz	0x45, f
+     24e: 4b 2a        	goto	0x24b
+     24f: c6 0b        	decfsz	0x46, f
+     250: 4b 2a        	goto	0x24b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:171
+;         CLRWDT();
+     251: 64 00        	tris	0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:172
+;     }
+     252: 01 30        	movlw	0x1
+     253: 21 00        	movlb	0x1
+     254: e6 07        	addwf	0x66, f
+     255: 00 30        	movlw	0x0
+     256: e7 3d        	addwfc	0x67, f
+     257: 00 30        	movlw	0x0
+     258: 67 02        	subwf	0x67, w
+     259: 64 30        	movlw	0x64
+     25a: 03 19        	btfsc	0x3, 0x2
+     25b: 66 02        	subwf	0x66, w
+     25c: 03 1c        	btfss	0x3, 0x0
+     25d: 5f 2a        	goto	0x25f
+     25e: 60 2a        	goto	0x260
+     25f: 23 2a        	goto	0x223
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:179
+;     StatusLEDControl(0x07);
+     260: 07 30        	movlw	0x7
+     261: 85 31        	movlp	0x5
+     262: bb 25        	call	0x5bb
+     263: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:180
+;     CLRWDT();
+     264: 64 00        	tris	0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:181
+;     HO_OUT_SetHigh();
+     265: 22 00        	movlb	0x2
+     266: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:182
+;     __delay_ms(500);
+     267: 15 30        	movlw	0x15
+     268: 20 00        	movlb	0x0
+     269: c6 00        	movwf	0x46
+     26a: 4b 30        	movlw	0x4b
+     26b: c5 00        	movwf	0x45
+     26c: be 30        	movlw	0xbe
+     26d: 89 0b        	decfsz	0x9, f
+     26e: 6d 2a        	goto	0x26d
+     26f: c5 0b        	decfsz	0x45, f
+     270: 6d 2a        	goto	0x26d
+     271: c6 0b        	decfsz	0x46, f
+     272: 6d 2a        	goto	0x26d
+     273: 00 00        	nop
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:183
+;     CLRWDT();
+     274: 64 00        	tris	0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:184
+;     HO_OUT_SetLow();
+     275: 22 00        	movlb	0x2
+     276: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:185
+;     __delay_ms(500);
+     277: 15 30        	movlw	0x15
+     278: 20 00        	movlb	0x0
+     279: c6 00        	movwf	0x46
+     27a: 4b 30        	movlw	0x4b
+     27b: c5 00        	movwf	0x45
+     27c: be 30        	movlw	0xbe
+     27d: 89 0b        	decfsz	0x9, f
+     27e: 7d 2a        	goto	0x27d
+     27f: c5 0b        	decfsz	0x45, f
+     280: 7d 2a        	goto	0x27d
+     281: c6 0b        	decfsz	0x46, f
+     282: 7d 2a        	goto	0x27d
+     283: 00 00        	nop
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:186
+;     HO_OUT_SetHigh();
+     284: 22 00        	movlb	0x2
+     285: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:187
+;     CLRWDT();
+     286: 64 00        	tris	0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:188
+;     __delay_ms(500);
+     287: 15 30        	movlw	0x15
+     288: 20 00        	movlb	0x0
+     289: c6 00        	movwf	0x46
+     28a: 4b 30        	movlw	0x4b
+     28b: c5 00        	movwf	0x45
+     28c: be 30        	movlw	0xbe
+     28d: 89 0b        	decfsz	0x9, f
+     28e: 8d 2a        	goto	0x28d
+     28f: c5 0b        	decfsz	0x45, f
+     290: 8d 2a        	goto	0x28d
+     291: c6 0b        	decfsz	0x46, f
+     292: 8d 2a        	goto	0x28d
+     293: 00 00        	nop
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:189
+;     HO_OUT_SetLow();
+     294: 22 00        	movlb	0x2
+     295: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:192
+;     TMR2_OverflowCallbackRegister(SystemTick_1ms);
+     296: 5d 30        	movlw	0x5d
+     297: f2 00        	movwf	0x72
+     298: 04 30        	movlw	0x4
+     299: f3 00        	movwf	0x73
+     29a: 8f 31        	movlp	0xf
+     29b: d8 27        	call	0x7d8
+     29c: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:194
+;     INTERRUPT_GlobalInterruptEnable();
+     29d: 8b 17        	bsf	0xb, 0x7
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:195
+;     INTERRUPT_PeripheralInterruptEnable();
+     29e: 0b 17        	bsf	0xb, 0x6
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:197
+;     printf("Ready.\r\n");
+     29f: 00 30        	movlw	0x0
+     2a0: 20 00        	movlb	0x0
+     2a1: b7 00        	movwf	0x37
+     2a2: 90 30        	movlw	0x90
+     2a3: b8 00        	movwf	0x38
+     2a4: 87 31        	movlp	0x7
+     2a5: a3 27        	call	0x7a3
+     2a6: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:198
+;     StatusLEDControl(0x00);
+     2a7: 00 30        	movlw	0x0
+     2a8: 85 31        	movlp	0x5
+     2a9: bb 25        	call	0x5bb
+     2aa: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:201
+;     last_ri_state = RI_IN_GetValue();
+     2ab: 20 00        	movlb	0x0
+     2ac: 0e 0c        	rrf	0xe, w
+     2ad: 89 0c        	rrf	0x9, f
+     2ae: 01 39        	andlw	0x1
+     2af: ee 00        	movwf	0x6e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:205
+;         CLRWDT();
+     2b0: 64 00        	tris	0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:208
+;         if (EUSART_IsRxReady()) {
+     2b1: 8f 31        	movlp	0xf
+     2b2: e4 27        	call	0x7e4
+     2b3: 82 31        	movlp	0x2
+     2b4: 00 3a        	xorlw	0x0
+     2b5: 03 19        	btfsc	0x3, 0x2
+     2b6: b8 2a        	goto	0x2b8
+     2b7: b9 2a        	goto	0x2b9
+     2b8: f0 2a        	goto	0x2f0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:209
+;             char c = EUSART_Read();
+     2b9: 87 31        	movlp	0x7
+     2ba: 1d 27        	call	0x71d
+     2bb: 82 31        	movlp	0x2
+     2bc: 21 00        	movlb	0x1
+     2bd: e8 00        	movwf	0x68
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:210
+;             if (c == '\r' || c == '\n') {
+     2be: 0d 30        	movlw	0xd
+     2bf: 68 06        	xorwf	0x68, w
+     2c0: 03 19        	btfsc	0x3, 0x2
+     2c1: c3 2a        	goto	0x2c3
+     2c2: c4 2a        	goto	0x2c4
+     2c3: ca 2a        	goto	0x2ca
+     2c4: 0a 30        	movlw	0xa
+     2c5: 68 06        	xorwf	0x68, w
+     2c6: 03 1d        	btfss	0x3, 0x2
+     2c7: c9 2a        	goto	0x2c9
+     2c8: ca 2a        	goto	0x2ca
+     2c9: de 2a        	goto	0x2de
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:211
+;                 if (uart_rx_idx > 0) {
+     2ca: 20 00        	movlb	0x0
+     2cb: 64 08        	movf	0x64, w
+     2cc: 03 19        	btfsc	0x3, 0x2
+     2cd: cf 2a        	goto	0x2cf
+     2ce: d0 2a        	goto	0x2d0
+     2cf: f0 2a        	goto	0x2f0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:212
+;                     uart_rx_buf[uart_rx_idx] = '\0';
+     2d0: 64 08        	movf	0x64, w
+     2d1: c0 3e        	addlw	0x40, f
+     2d2: 86 00        	movwf	0x6
+     2d3: 01 30        	movlw	0x1
+     2d4: 87 00        	movwf	0x7
+     2d5: 81 01        	clrf	0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:213
+;                     ProcessUARTCommand(uart_rx_buf);
+     2d6: c0 30        	movlw	0xc0
+     2d7: bc 00        	movwf	0x3c
+     2d8: 83 31        	movlp	0x3
+     2d9: ce 23        	call	0x3ce
+     2da: 82 31        	movlp	0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:214
+;                     uart_rx_idx = 0;
+     2db: 20 00        	movlb	0x0
+     2dc: e4 01        	clrf	0x64
+     2dd: f0 2a        	goto	0x2f0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:217
+;                 if (uart_rx_idx < UART_BUF_SIZE - 1) {
+     2de: 1f 30        	movlw	0x1f
+     2df: 20 00        	movlb	0x0
+     2e0: 64 02        	subwf	0x64, w
+     2e1: 03 18        	btfsc	0x3, 0x0
+     2e2: e4 2a        	goto	0x2e4
+     2e3: e5 2a        	goto	0x2e5
+     2e4: f0 2a        	goto	0x2f0
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:218
+;                     uart_rx_buf[uart_rx_idx++] = c;
+     2e5: 64 08        	movf	0x64, w
+     2e6: c0 3e        	addlw	0x40, f
+     2e7: 86 00        	movwf	0x6
+     2e8: 01 30        	movlw	0x1
+     2e9: 87 00        	movwf	0x7
+     2ea: 21 00        	movlb	0x1
+     2eb: 68 08        	movf	0x68, w
+     2ec: 81 00        	movwf	0x1
+     2ed: 01 30        	movlw	0x1
+     2ee: 20 00        	movlb	0x0
+     2ef: e4 07        	addwf	0x64, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:224
+;         ProcessStateMachine();
+     2f0: 80 31        	movlp	0x0
+     2f1: 7b 20        	call	0x7b
+     2f2: 82 31        	movlp	0x2
+     2f3: b0 2a        	goto	0x2b0
+     2f4: 80 31        	movlp	0x0
+     2f5: 3f 28        	goto	0x3f
+
+000002f6 <_vfpfcnvrt>:
+; __end_of_main():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1201
+;     if ((*fmt)[0] == '%') {
+     2f6: 20 00        	movlb	0x0
+     2f7: 27 08        	movf	0x27, w
+     2f8: 86 00        	movwf	0x6
+     2f9: 87 01        	clrf	0x7
+     2fa: 40 3f        	moviw	0[FSR1]
+     2fb: aa 00        	movwf	0x2a
+     2fc: 41 3f        	moviw	1[FSR1]
+     2fd: ab 00        	movwf	0x2b
+     2fe: 2a 08        	movf	0x2a, w
+     2ff: 84 00        	movwf	0x4
+     300: 2b 08        	movf	0x2b, w
+     301: 85 00        	movwf	0x5
+     302: 12 00        	moviw	FSR0++
+     303: 25 3a        	xorlw	0x25
+     304: 03 1d        	btfss	0x3, 0x2
+     305: 07 2b        	goto	0x307
+     306: 08 2b        	goto	0x308
+     307: b3 2b        	goto	0x3b3
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1202
+;         ++*fmt;
+     308: 27 08        	movf	0x27, w
+     309: 86 00        	movwf	0x6
+     30a: 87 01        	clrf	0x7
+     30b: 01 30        	movlw	0x1
+     30c: 81 07        	addwf	0x1, f
+     30d: 41 31        	addfsr	1, 0x1
+     30e: 03 18        	btfsc	0x3, 0x0
+     30f: 81 0a        	incf	0x1, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1204
+;         flags = width = 0;
+     310: c7 01        	clrf	0x47
+     311: c8 01        	clrf	0x48
+     312: 00 30        	movlw	0x0
+     313: df 00        	movwf	0x5f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1205
+;         prec = -1;
+     314: ff 30        	movlw	0xff
+     315: c9 00        	movwf	0x49
+     316: ff 30        	movlw	0xff
+     317: ca 00        	movwf	0x4a
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1656
+; 		done = false;
+     318: ae 01        	clrf	0x2e
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1657
+; 		if ((*fmt)[0] == 's') {
+     319: 27 08        	movf	0x27, w
+     31a: 86 00        	movwf	0x6
+     31b: 87 01        	clrf	0x7
+     31c: 40 3f        	moviw	0[FSR1]
+     31d: aa 00        	movwf	0x2a
+     31e: 41 3f        	moviw	1[FSR1]
+     31f: ab 00        	movwf	0x2b
+     320: 2a 08        	movf	0x2a, w
+     321: 84 00        	movwf	0x4
+     322: 2b 08        	movf	0x2b, w
+     323: 85 00        	movwf	0x5
+     324: 12 00        	moviw	FSR0++
+     325: 73 3a        	xorlw	0x73
+     326: 03 1d        	btfss	0x3, 0x2
+     327: 29 2b        	goto	0x329
+     328: 2a 2b        	goto	0x32a
+     329: 35 2b        	goto	0x335
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1658
+; 			++*fmt;
+     32a: 27 08        	movf	0x27, w
+     32b: 86 00        	movwf	0x6
+     32c: 87 01        	clrf	0x7
+     32d: 01 30        	movlw	0x1
+     32e: 81 07        	addwf	0x1, f
+     32f: 41 31        	addfsr	1, 0x1
+     330: 03 18        	btfsc	0x3, 0x0
+     331: 81 0a        	incf	0x1, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1659
+; 			done = true;
+     332: 01 30        	movlw	0x1
+     333: ae 00        	movwf	0x2e
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1660
+; 		}
+     334: 77 2b        	goto	0x377
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1661
+; 		else if ((*fmt)[0] == 'l' && (*fmt)[1] == 'l' && (*fmt)[2] == 's') {
+     335: 27 08        	movf	0x27, w
+     336: 86 00        	movwf	0x6
+     337: 87 01        	clrf	0x7
+     338: 40 3f        	moviw	0[FSR1]
+     339: aa 00        	movwf	0x2a
+     33a: 41 3f        	moviw	1[FSR1]
+     33b: ab 00        	movwf	0x2b
+     33c: 2a 08        	movf	0x2a, w
+     33d: 84 00        	movwf	0x4
+     33e: 2b 08        	movf	0x2b, w
+     33f: 85 00        	movwf	0x5
+     340: 12 00        	moviw	FSR0++
+     341: 6c 3a        	xorlw	0x6c
+     342: 03 1d        	btfss	0x3, 0x2
+     343: 45 2b        	goto	0x345
+     344: 46 2b        	goto	0x346
+     345: 77 2b        	goto	0x377
+     346: 27 08        	movf	0x27, w
+     347: 86 00        	movwf	0x6
+     348: 87 01        	clrf	0x7
+     349: 40 3f        	moviw	0[FSR1]
+     34a: aa 00        	movwf	0x2a
+     34b: 41 3f        	moviw	1[FSR1]
+     34c: ab 00        	movwf	0x2b
+     34d: 01 30        	movlw	0x1
+     34e: 2a 07        	addwf	0x2a, w
+     34f: 84 00        	movwf	0x4
+     350: 2b 08        	movf	0x2b, w
+     351: 03 18        	btfsc	0x3, 0x0
+     352: 01 3e        	addlw	0x1, w
+     353: 85 00        	movwf	0x5
+     354: 12 00        	moviw	FSR0++
+     355: 6c 3a        	xorlw	0x6c
+     356: 03 1d        	btfss	0x3, 0x2
+     357: 59 2b        	goto	0x359
+     358: 5a 2b        	goto	0x35a
+     359: 77 2b        	goto	0x377
+     35a: 27 08        	movf	0x27, w
+     35b: 86 00        	movwf	0x6
+     35c: 87 01        	clrf	0x7
+     35d: 40 3f        	moviw	0[FSR1]
+     35e: aa 00        	movwf	0x2a
+     35f: 41 3f        	moviw	1[FSR1]
+     360: ab 00        	movwf	0x2b
+     361: 02 30        	movlw	0x2
+     362: 2a 07        	addwf	0x2a, w
+     363: 84 00        	movwf	0x4
+     364: 2b 08        	movf	0x2b, w
+     365: 03 18        	btfsc	0x3, 0x0
+     366: 01 3e        	addlw	0x1, w
+     367: 85 00        	movwf	0x5
+     368: 12 00        	moviw	FSR0++
+     369: 73 3a        	xorlw	0x73
+     36a: 03 1d        	btfss	0x3, 0x2
+     36b: 6d 2b        	goto	0x36d
+     36c: 6e 2b        	goto	0x36e
+     36d: 77 2b        	goto	0x377
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1662
+; 			*fmt += 3;
+     36e: 27 08        	movf	0x27, w
+     36f: 86 00        	movwf	0x6
+     370: 87 01        	clrf	0x7
+     371: 03 30        	movlw	0x3
+     372: 81 07        	addwf	0x1, f
+     373: 41 31        	addfsr	1, 0x1
+     374: 03 18        	btfsc	0x3, 0x0
+     375: 81 0a        	incf	0x1, f
+     376: 32 2b        	goto	0x332
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1665
+; 		if (done) {
+     377: 2e 08        	movf	0x2e, w
+     378: 03 19        	btfsc	0x3, 0x2
+     379: 7b 2b        	goto	0x37b
+     37a: 7c 2b        	goto	0x37c
+     37b: a9 2b        	goto	0x3a9
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1669
+; 			for (char * cp = va_arg(ap, char *); *cp != '\0'; cp++) {
+     37c: 28 08        	movf	0x28, w
+     37d: 86 00        	movwf	0x6
+     37e: 29 08        	movf	0x29, w
+     37f: 87 00        	movwf	0x7
+     380: 01 08        	movf	0x1, w
+     381: 84 00        	movwf	0x4
+     382: 85 01        	clrf	0x5
+     383: 02 30        	movlw	0x2
+     384: 81 07        	addwf	0x1, f
+     385: 00 3f        	moviw	0[FSR0]
+     386: aa 00        	movwf	0x2a
+     387: 01 3f        	moviw	1[FSR0]
+     388: ab 00        	movwf	0x2b
+     389: 2a 08        	movf	0x2a, w
+     38a: af 00        	movwf	0x2f
+     38b: a0 2b        	goto	0x3a0
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1670
+; 				fputc(*cp, fp);
+     38c: 2f 08        	movf	0x2f, w
+     38d: 86 00        	movwf	0x6
+     38e: 87 01        	clrf	0x7
+     38f: 01 08        	movf	0x1, w
+     390: aa 00        	movwf	0x2a
+     391: ab 01        	clrf	0x2b
+     392: 2a 08        	movf	0x2a, w
+     393: f5 00        	movwf	0x75
+     394: 2b 08        	movf	0x2b, w
+     395: f6 00        	movwf	0x76
+     396: 26 08        	movf	0x26, w
+     397: f8 00        	movwf	0x78
+     398: 25 08        	movf	0x25, w
+     399: f7 00        	movwf	0x77
+     39a: 84 31        	movlp	0x4
+     39b: bc 24        	call	0x4bc
+     39c: 82 31        	movlp	0x2
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1674
+; 			}
+     39d: 01 30        	movlw	0x1
+     39e: 20 00        	movlb	0x0
+     39f: af 07        	addwf	0x2f, f
+     3a0: 2f 08        	movf	0x2f, w
+     3a1: 86 00        	movwf	0x6
+     3a2: 87 01        	clrf	0x7
+     3a3: 01 08        	movf	0x1, w
+     3a4: 03 1d        	btfss	0x3, 0x2
+     3a5: a7 2b        	goto	0x3a7
+     3a6: a8 2b        	goto	0x3a8
+     3a7: 8c 2b        	goto	0x38c
+     3a8: cd 2b        	goto	0x3cd
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1806
+;         ++*fmt;
+     3a9: 20 00        	movlb	0x0
+     3aa: 27 08        	movf	0x27, w
+     3ab: 86 00        	movwf	0x6
+     3ac: 87 01        	clrf	0x7
+     3ad: 01 30        	movlw	0x1
+     3ae: 81 07        	addwf	0x1, f
+     3af: 41 31        	addfsr	1, 0x1
+     3b0: 03 18        	btfsc	0x3, 0x0
+     3b1: 81 0a        	incf	0x1, f
+     3b2: cd 2b        	goto	0x3cd
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1811
+;     fputc((int)(*fmt)[0], fp);
+     3b3: 27 08        	movf	0x27, w
+     3b4: 86 00        	movwf	0x6
+     3b5: 87 01        	clrf	0x7
+     3b6: 40 3f        	moviw	0[FSR1]
+     3b7: aa 00        	movwf	0x2a
+     3b8: 41 3f        	moviw	1[FSR1]
+     3b9: ab 00        	movwf	0x2b
+     3ba: 2a 08        	movf	0x2a, w
+     3bb: 84 00        	movwf	0x4
+     3bc: 2b 08        	movf	0x2b, w
+     3bd: 85 00        	movwf	0x5
+     3be: 00 08        	movf	0x0, w
+     3bf: ac 00        	movwf	0x2c
+     3c0: ad 01        	clrf	0x2d
+     3c1: 2c 08        	movf	0x2c, w
+     3c2: f5 00        	movwf	0x75
+     3c3: 2d 08        	movf	0x2d, w
+     3c4: f6 00        	movwf	0x76
+     3c5: 26 08        	movf	0x26, w
+     3c6: f8 00        	movwf	0x78
+     3c7: 25 08        	movf	0x25, w
+     3c8: f7 00        	movwf	0x77
+     3c9: 84 31        	movlp	0x4
+     3ca: bc 24        	call	0x4bc
+     3cb: 82 31        	movlp	0x2
+     3cc: a9 2b        	goto	0x3a9
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/doprnt.c:1814
+; }
+     3cd: 08 00        	return
+
+000003ce <__ptext12>:
+; __ptext12():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:370
+;     if (strcmp(cmd, "PING") == 0) {
+     3ce: 20 00        	movlb	0x0
+     3cf: 3c 08        	movf	0x3c, w
+     3d0: f2 00        	movwf	0x72
+     3d1: 1c 30        	movlw	0x1c
+     3d2: f3 00        	movwf	0x73
+     3d3: 90 30        	movlw	0x90
+     3d4: f4 00        	movwf	0x74
+     3d5: 86 31        	movlp	0x6
+     3d6: 5c 26        	call	0x65c
+     3d7: 83 31        	movlp	0x3
+     3d8: 72 08        	movf	0x72, w
+     3d9: 73 04        	iorwf	0x73, w
+     3da: 03 1d        	btfss	0x3, 0x2
+     3db: dd 2b        	goto	0x3dd
+     3dc: de 2b        	goto	0x3de
+     3dd: ed 2b        	goto	0x3ed
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:371
+;         sbc_link_timer = 15000; // タイマーを15秒にリセット
+     3de: 98 30        	movlw	0x98
+     3df: 20 00        	movlb	0x0
+     3e0: d7 00        	movwf	0x57
+     3e1: 3a 30        	movlw	0x3a
+     3e2: d8 00        	movwf	0x58
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:372
+;         is_link_up = true;
+     3e3: 01 30        	movlw	0x1
+     3e4: ea 00        	movwf	0x6a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:373
+;         printf("PONG\r\n");     // PONGを即座に返す
+     3e5: 09 30        	movlw	0x9
+     3e6: b7 00        	movwf	0x37
+     3e7: 90 30        	movlw	0x90
+     3e8: b8 00        	movwf	0x38
+     3e9: 87 31        	movlp	0x7
+     3ea: a3 27        	call	0x7a3
+     3eb: 83 31        	movlp	0x3
+     3ec: 5c 2c        	goto	0x45c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:377
+;     if (strncmp(cmd, "RING ", 5) == 0) {
+     3ed: 20 00        	movlb	0x0
+     3ee: 3c 08        	movf	0x3c, w
+     3ef: f2 00        	movwf	0x72
+     3f0: 16 30        	movlw	0x16
+     3f1: f3 00        	movwf	0x73
+     3f2: 90 30        	movlw	0x90
+     3f3: f4 00        	movwf	0x74
+     3f4: 05 30        	movlw	0x5
+     3f5: f5 00        	movwf	0x75
+     3f6: 00 30        	movlw	0x0
+     3f7: f6 00        	movwf	0x76
+     3f8: 85 31        	movlp	0x5
+     3f9: 6b 25        	call	0x56b
+     3fa: 83 31        	movlp	0x3
+     3fb: 72 08        	movf	0x72, w
+     3fc: 73 04        	iorwf	0x73, w
+     3fd: 03 1d        	btfss	0x3, 0x2
+     3fe: 00 2c        	goto	0x400
+     3ff: 01 2c        	goto	0x401
+     400: 1d 2c        	goto	0x41d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:378
+;         if (current_state == STATE_IDLE) {
+     401: 20 00        	movlb	0x0
+     402: 6b 08        	movf	0x6b, w
+     403: 03 1d        	btfss	0x3, 0x2
+     404: 06 2c        	goto	0x406
+     405: 07 2c        	goto	0x407
+     406: 5c 2c        	goto	0x45c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:379
+;             strncpy(tx_number, cmd + 5, sizeof(tx_number) - 1);
+     407: c0 30        	movlw	0xc0
+     408: f2 00        	movwf	0x72
+     409: 3c 08        	movf	0x3c, w
+     40a: 05 3e        	addlw	0x5, w
+     40b: f3 00        	movwf	0x73
+     40c: 0f 30        	movlw	0xf
+     40d: f4 00        	movwf	0x74
+     40e: 00 30        	movlw	0x0
+     40f: f5 00        	movwf	0x75
+     410: 85 31        	movlp	0x5
+     411: f9 25        	call	0x5f9
+     412: 83 31        	movlp	0x3
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:380
+;             HO_OUT_SetHigh(); // オフフック
+     413: 22 00        	movlb	0x2
+     414: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:381
+;             state_timer = 600; // PBXがダイヤルトーンを出すまでの猶予時間
+     415: 58 30        	movlw	0x58
+     416: 20 00        	movlb	0x0
+     417: dd 00        	movwf	0x5d
+     418: 02 30        	movlw	0x2
+     419: de 00        	movwf	0x5e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:382
+;             current_state = STATE_TX_PULSE_SETUP;
+     41a: 03 30        	movlw	0x3
+     41b: eb 00        	movwf	0x6b
+     41c: 5c 2c        	goto	0x45c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:385
+;     else if (strcmp(cmd, "ANS") == 0) {
+     41d: 20 00        	movlb	0x0
+     41e: 3c 08        	movf	0x3c, w
+     41f: f2 00        	movwf	0x72
+     420: 26 30        	movlw	0x26
+     421: f3 00        	movwf	0x73
+     422: 90 30        	movlw	0x90
+     423: f4 00        	movwf	0x74
+     424: 86 31        	movlp	0x6
+     425: 5c 26        	call	0x65c
+     426: 83 31        	movlp	0x3
+     427: 72 08        	movf	0x72, w
+     428: 73 04        	iorwf	0x73, w
+     429: 03 1d        	btfss	0x3, 0x2
+     42a: 2c 2c        	goto	0x42c
+     42b: 2d 2c        	goto	0x42d
+     42c: 3a 2c        	goto	0x43a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:386
+;         if (current_state == STATE_WAIT_IP_ANS) {
+     42d: 02 30        	movlw	0x2
+     42e: 20 00        	movlb	0x0
+     42f: 6b 06        	xorwf	0x6b, w
+     430: 03 1d        	btfss	0x3, 0x2
+     431: 33 2c        	goto	0x433
+     432: 34 2c        	goto	0x434
+     433: 5c 2c        	goto	0x45c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:387
+;             HO_OUT_SetHigh(); // オフフックして通話を確立
+     434: 22 00        	movlb	0x2
+     435: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:388
+;             current_state = STATE_TALKING;
+     436: 05 30        	movlw	0x5
+     437: 20 00        	movlb	0x0
+     438: eb 00        	movwf	0x6b
+     439: 5c 2c        	goto	0x45c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:391
+;     else if (strcmp(cmd, "DROP") == 0) {
+     43a: 20 00        	movlb	0x0
+     43b: 3c 08        	movf	0x3c, w
+     43c: f2 00        	movwf	0x72
+     43d: 21 30        	movlw	0x21
+     43e: f3 00        	movwf	0x73
+     43f: 90 30        	movlw	0x90
+     440: f4 00        	movwf	0x74
+     441: 86 31        	movlp	0x6
+     442: 5c 26        	call	0x65c
+     443: 83 31        	movlp	0x3
+     444: 72 08        	movf	0x72, w
+     445: 73 04        	iorwf	0x73, w
+     446: 03 1d        	btfss	0x3, 0x2
+     447: 49 2c        	goto	0x449
+     448: 4a 2c        	goto	0x44a
+     449: 5c 2c        	goto	0x45c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:393
+;         HO_OUT_SetHigh();
+     44a: 22 00        	movlb	0x2
+     44b: 8e 14        	bsf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:394
+;         __delay_ms(100);
+     44c: 05 30        	movlw	0x5
+     44d: 20 00        	movlb	0x0
+     44e: be 00        	movwf	0x3e
+     44f: 0f 30        	movlw	0xf
+     450: bd 00        	movwf	0x3d
+     451: f1 30        	movlw	0xf1
+     452: 89 0b        	decfsz	0x9, f
+     453: 52 2c        	goto	0x452
+     454: bd 0b        	decfsz	0x3d, f
+     455: 52 2c        	goto	0x452
+     456: be 0b        	decfsz	0x3e, f
+     457: 52 2c        	goto	0x452
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:395
+;         HO_OUT_SetLow(); // オンフック(切断)
+     458: 22 00        	movlb	0x2
+     459: 8e 10        	bcf	0xe, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:396
+;         current_state = STATE_IDLE;
+     45a: 20 00        	movlb	0x0
+     45b: eb 01        	clrf	0x6b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:398
+; }
+     45c: 08 00        	return
+
+0000045d <__ptext30>:
+; __ptext30():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:127
+;     if (state_timer > 0) state_timer--;
+     45d: 20 00        	movlb	0x0
+     45e: 5d 08        	movf	0x5d, w
+     45f: 5e 04        	iorwf	0x5e, w
+     460: 03 19        	btfsc	0x3, 0x2
+     461: 63 2c        	goto	0x463
+     462: 64 2c        	goto	0x464
+     463: 68 2c        	goto	0x468
+     464: 01 30        	movlw	0x1
+     465: dd 02        	subwf	0x5d, f
+     466: 00 30        	movlw	0x0
+     467: de 3b        	<unknown>
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:128
+;     if (pulse_timeout > 0) pulse_timeout--;
+     468: 5b 08        	movf	0x5b, w
+     469: 5c 04        	iorwf	0x5c, w
+     46a: 03 19        	btfsc	0x3, 0x2
+     46b: 6d 2c        	goto	0x46d
+     46c: 6e 2c        	goto	0x46e
+     46d: 72 2c        	goto	0x472
+     46e: 01 30        	movlw	0x1
+     46f: db 02        	subwf	0x5b, f
+     470: 00 30        	movlw	0x0
+     471: dc 3b        	<unknown>
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:131
+;     if (sbc_link_timer > 0) {
+     472: 57 08        	movf	0x57, w
+     473: 58 04        	iorwf	0x58, w
+     474: 03 19        	btfsc	0x3, 0x2
+     475: 77 2c        	goto	0x477
+     476: 78 2c        	goto	0x478
+     477: 83 2c        	goto	0x483
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:132
+;         sbc_link_timer--;
+     478: 01 30        	movlw	0x1
+     479: d7 02        	subwf	0x57, f
+     47a: 00 30        	movlw	0x0
+     47b: d8 3b        	<unknown>
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:133
+;         if (sbc_link_timer == 0) {
+     47c: 57 08        	movf	0x57, w
+     47d: 58 04        	iorwf	0x58, w
+     47e: 03 1d        	btfss	0x3, 0x2
+     47f: 81 2c        	goto	0x481
+     480: 82 2c        	goto	0x482
+     481: 83 2c        	goto	0x483
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:134
+;             is_link_up = false; // 15秒間PINGが来なければリンクダウン
+     482: ea 01        	clrf	0x6a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:139
+;     if(!is_link_up){
+     483: 6a 08        	movf	0x6a, w
+     484: 03 1d        	btfss	0x3, 0x2
+     485: 87 2c        	goto	0x487
+     486: 88 2c        	goto	0x488
+     487: a3 2c        	goto	0x4a3
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:140
+;         led_blink_timer--;
+     488: 01 30        	movlw	0x1
+     489: ec 02        	subwf	0x6c, f
+     48a: 00 30        	movlw	0x0
+     48b: ed 3b        	<unknown>
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:141
+;         if(led_blink_timer == 0){
+     48c: 6c 08        	movf	0x6c, w
+     48d: 6d 04        	iorwf	0x6d, w
+     48e: 03 1d        	btfss	0x3, 0x2
+     48f: 91 2c        	goto	0x491
+     490: 92 2c        	goto	0x492
+     491: a3 2c        	goto	0x4a3
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:142
+;             LED3_Toggle();
+     492: 03 10        	bcf	0x3, 0x0
+     493: 22 00        	movlb	0x2
+     494: 8e 1e        	btfss	0xe, 0x5
+     495: 03 14        	bsf	0x3, 0x0
+     496: 03 18        	btfsc	0x3, 0x0
+     497: 99 2c        	goto	0x499
+     498: 9c 2c        	goto	0x49c
+     499: 22 00        	movlb	0x2
+     49a: 8e 16        	bsf	0xe, 0x5
+     49b: 9e 2c        	goto	0x49e
+     49c: 22 00        	movlb	0x2
+     49d: 8e 12        	bcf	0xe, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:143
+;             led_blink_timer = 500;
+     49e: f4 30        	movlw	0xf4
+     49f: 20 00        	movlb	0x0
+     4a0: ec 00        	movwf	0x6c
+     4a1: 01 30        	movlw	0x1
+     4a2: ed 00        	movwf	0x6d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:149
+;     if (T1_IN_GetValue() == 0 && T2_IN_GetValue() == 1) {
+     4a3: 0c 19        	btfsc	0xc, 0x2
+     4a4: a6 2c        	goto	0x4a6
+     4a5: a7 2c        	goto	0x4a7
+     4a6: b9 2c        	goto	0x4b9
+     4a7: 0e 1c        	btfss	0xe, 0x0
+     4a8: aa 2c        	goto	0x4aa
+     4a9: ab 2c        	goto	0x4ab
+     4aa: b9 2c        	goto	0x4b9
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:150
+;         if (pbx_busy_timer < 65000) pbx_busy_timer++;
+     4ab: fd 30        	movlw	0xfd
+     4ac: 5a 02        	subwf	0x5a, w
+     4ad: e8 30        	movlw	0xe8
+     4ae: 03 19        	btfsc	0x3, 0x2
+     4af: 59 02        	subwf	0x59, w
+     4b0: 03 18        	btfsc	0x3, 0x0
+     4b1: b3 2c        	goto	0x4b3
+     4b2: b4 2c        	goto	0x4b4
+     4b3: bb 2c        	goto	0x4bb
+     4b4: 01 30        	movlw	0x1
+     4b5: d9 07        	addwf	0x59, f
+     4b6: 00 30        	movlw	0x0
+     4b7: da 3d        	addwfc	0x5a, f
+     4b8: bb 2c        	goto	0x4bb
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:152
+;         pbx_busy_timer = 0;
+     4b9: d9 01        	clrf	0x59
+     4ba: da 01        	clrf	0x5a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:154
+; }
+     4bb: 08 00        	return
+
+000004bc <_fputc>:
+; _fputc():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:12
+;     if ((fp == stdout) || (fp == stderr)) {
+     4bc: 77 08        	movf	0x77, w
+     4bd: 78 04        	iorwf	0x78, w
+     4be: 03 19        	btfsc	0x3, 0x2
+     4bf: c1 2c        	goto	0x4c1
+     4c0: c2 2c        	goto	0x4c2
+     4c1: c8 2c        	goto	0x4c8
+     4c2: 77 08        	movf	0x77, w
+     4c3: 78 04        	iorwf	0x78, w
+     4c4: 03 1d        	btfss	0x3, 0x2
+     4c5: c7 2c        	goto	0x4c7
+     4c6: c8 2c        	goto	0x4c8
+     4c7: cd 2c        	goto	0x4cd
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:13
+;         putch((char)c);
+     4c8: 75 08        	movf	0x75, w
+     4c9: 87 31        	movlp	0x7
+     4ca: c2 27        	call	0x7c2
+     4cb: 84 31        	movlp	0x4
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:14
+;     } else {
+     4cc: 19 2d        	goto	0x519
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:15
+; 		if((fp->limit == 0) || (fp->count < fp->limit)) {
+     4cd: 77 08        	movf	0x77, w
+     4ce: 86 00        	movwf	0x6
+     4cf: 78 08        	movf	0x78, w
+     4d0: 87 00        	movwf	0x7
+     4d1: 49 31        	addfsr	1, 0x9
+     4d2: 16 00        	moviw	FSR1++
+     4d3: 01 04        	iorwf	0x1, w
+     4d4: 03 19        	btfsc	0x3, 0x2
+     4d5: d7 2c        	goto	0x4d7
+     4d6: d8 2c        	goto	0x4d8
+     4d7: f9 2c        	goto	0x4f9
+     4d8: 77 08        	movf	0x77, w
+     4d9: 86 00        	movwf	0x6
+     4da: 78 08        	movf	0x78, w
+     4db: 87 00        	movwf	0x7
+     4dc: 49 31        	addfsr	1, 0x9
+     4dd: 40 3f        	moviw	0[FSR1]
+     4de: 20 00        	movlb	0x0
+     4df: a0 00        	movwf	0x20
+     4e0: 41 3f        	moviw	1[FSR1]
+     4e1: a1 00        	movwf	0x21
+     4e2: 77 08        	movf	0x77, w
+     4e3: 86 00        	movwf	0x6
+     4e4: 78 08        	movf	0x78, w
+     4e5: 87 00        	movwf	0x7
+     4e6: 42 31        	addfsr	1, 0x2
+     4e7: 40 3f        	moviw	0[FSR1]
+     4e8: a2 00        	movwf	0x22
+     4e9: 41 3f        	moviw	1[FSR1]
+     4ea: a3 00        	movwf	0x23
+     4eb: 23 08        	movf	0x23, w
+     4ec: 80 3a        	xorlw	0x80
+     4ed: a4 00        	movwf	0x24
+     4ee: 21 08        	movf	0x21, w
+     4ef: 80 3a        	xorlw	0x80
+     4f0: 24 02        	subwf	0x24, w
+     4f1: 03 1d        	btfss	0x3, 0x2
+     4f2: f5 2c        	goto	0x4f5
+     4f3: 20 08        	movf	0x20, w
+     4f4: 22 02        	subwf	0x22, w
+     4f5: 03 18        	btfsc	0x3, 0x0
+     4f6: f8 2c        	goto	0x4f8
+     4f7: f9 2c        	goto	0x4f9
+     4f8: 19 2d        	goto	0x519
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:18
+; 			fp->buffer[fp->count] = (char)c;
+     4f9: 77 08        	movf	0x77, w
+     4fa: 86 00        	movwf	0x6
+     4fb: 78 08        	movf	0x78, w
+     4fc: 87 00        	movwf	0x7
+     4fd: 42 31        	addfsr	1, 0x2
+     4fe: 77 08        	movf	0x77, w
+     4ff: 84 00        	movwf	0x4
+     500: 78 08        	movf	0x78, w
+     501: 85 00        	movwf	0x5
+     502: 00 3f        	moviw	0[FSR0]
+     503: 20 00        	movlb	0x0
+     504: a0 00        	movwf	0x20
+     505: 01 3f        	moviw	1[FSR0]
+     506: a1 00        	movwf	0x21
+     507: 40 3f        	moviw	0[FSR1]
+     508: 20 07        	addwf	0x20, w
+     509: 84 00        	movwf	0x4
+     50a: 41 3f        	moviw	1[FSR1]
+     50b: 21 3d        	addwfc	0x21, w
+     50c: 85 00        	movwf	0x5
+     50d: 75 08        	movf	0x75, w
+     50e: 80 00        	movwf	0x0
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:20
+; 			++fp->count;
+     50f: 77 08        	movf	0x77, w
+     510: 86 00        	movwf	0x6
+     511: 78 08        	movf	0x78, w
+     512: 87 00        	movwf	0x7
+     513: 42 31        	addfsr	1, 0x2
+     514: 01 30        	movlw	0x1
+     515: 81 07        	addwf	0x1, f
+     516: 41 31        	addfsr	1, 0x1
+     517: 03 18        	btfsc	0x3, 0x0
+     518: 81 0a        	incf	0x1, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/nf_fputc.c:24
+; }
+     519: 08 00        	return
+
+0000051a <__ptext33>:
+; __end_of_fputc():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:283
+;     eusartRxStatusBuffer[eusartRxHead].status = 0;
+     51a: 7b 35        	lslf	0x7b, w
+     51b: 20 3e        	addlw	0x20, w
+     51c: 86 00        	movwf	0x6
+     51d: 01 30        	movlw	0x1
+     51e: 87 00        	movwf	0x7
+     51f: 00 30        	movlw	0x0
+     520: c0 3f        	movwi	0[FSR1]
+     521: c1 3f        	movwi	1[FSR1]
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:285
+;     if(true == RC1STAbits.OERR)
+     522: 23 00        	movlb	0x3
+     523: 9d 1c        	btfss	0x1d, 0x1
+     524: 26 2d        	goto	0x526
+     525: 27 2d        	goto	0x527
+     526: 39 2d        	goto	0x539
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:287
+;         eusartRxStatusBuffer[eusartRxHead].oerr = 1;
+     527: 7b 35        	lslf	0x7b, w
+     528: 20 3e        	addlw	0x20, w
+     529: 86 00        	movwf	0x6
+     52a: 01 30        	movlw	0x1
+     52b: 87 00        	movwf	0x7
+     52c: 01 15        	bsf	0x1, 0x2
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:288
+;         if(NULL != EUSART_OverrunErrorHandler)
+     52d: 20 00        	movlb	0x0
+     52e: 4b 08        	movf	0x4b, w
+     52f: 4c 04        	iorwf	0x4c, w
+     530: 03 19        	btfsc	0x3, 0x2
+     531: 33 2d        	goto	0x533
+     532: 34 2d        	goto	0x534
+     533: 39 2d        	goto	0x539
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:290
+;             EUSART_OverrunErrorHandler();
+     534: 4c 08        	movf	0x4c, w
+     535: 8a 00        	movwf	0xa
+     536: 4b 08        	movf	0x4b, w
+     537: 0a 00        	callw
+     538: 85 31        	movlp	0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:293
+;     if(true == RC1STAbits.FERR)
+     539: 23 00        	movlb	0x3
+     53a: 1d 1d        	btfss	0x1d, 0x2
+     53b: 3d 2d        	goto	0x53d
+     53c: 3e 2d        	goto	0x53e
+     53d: 50 2d        	goto	0x550
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:295
+;         eusartRxStatusBuffer[eusartRxHead].ferr = 1;
+     53e: 7b 35        	lslf	0x7b, w
+     53f: 20 3e        	addlw	0x20, w
+     540: 86 00        	movwf	0x6
+     541: 01 30        	movlw	0x1
+     542: 87 00        	movwf	0x7
+     543: 81 14        	bsf	0x1, 0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:296
+;         if(NULL != EUSART_FramingErrorHandler)
+     544: 20 00        	movlb	0x0
+     545: 4d 08        	movf	0x4d, w
+     546: 4e 04        	iorwf	0x4e, w
+     547: 03 19        	btfsc	0x3, 0x2
+     548: 4a 2d        	goto	0x54a
+     549: 4b 2d        	goto	0x54b
+     54a: 50 2d        	goto	0x550
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:298
+;             EUSART_FramingErrorHandler();
+     54b: 4e 08        	movf	0x4e, w
+     54c: 8a 00        	movwf	0xa
+     54d: 4d 08        	movf	0x4d, w
+     54e: 0a 00        	callw
+     54f: 85 31        	movlp	0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:302
+;     regValue = RC1REG;
+     550: 23 00        	movlb	0x3
+     551: 19 08        	movf	0x19, w
+     552: f0 00        	movwf	0x70
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:304
+;     tempRxHead = (eusartRxHead + 1U) & EUSART_RX_BUFFER_MASK;// Buffer size of RX should be in the 2^n
+     553: 7b 08        	movf	0x7b, w
+     554: 01 3e        	addlw	0x1, w
+     555: 1f 39        	andlw	0x1f
+     556: f1 00        	movwf	0x71
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:305
+;     if (tempRxHead == eusartRxTail) 
+     557: 71 08        	movf	0x71, w
+     558: 7a 06        	xorwf	0x7a, w
+     559: 03 1d        	btfss	0x3, 0x2
+     55a: 5c 2d        	goto	0x55c
+     55b: 5d 2d        	goto	0x55d
+     55c: 5e 2d        	goto	0x55e
+     55d: 6a 2d        	goto	0x56a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:311
+;         eusartRxBuffer[eusartRxHead] = regValue;
+     55e: 7b 08        	movf	0x7b, w
+     55f: a0 3e        	addlw	0x20, f
+     560: 86 00        	movwf	0x6
+     561: 01 30        	movlw	0x1
+     562: 87 00        	movwf	0x7
+     563: 70 08        	movf	0x70, w
+     564: 81 00        	movwf	0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:312
+; 		eusartRxHead = tempRxHead;
+     565: 71 08        	movf	0x71, w
+     566: fb 00        	movwf	0x7b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:313
+; 		eusartRxCount++;
+     567: 01 30        	movlw	0x1
+     568: 20 00        	movlb	0x0
+     569: e0 07        	addwf	0x60, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:320
+; }
+     56a: 08 00        	return
+
+0000056b <_strncmp>:
+; _strncmp():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncmp.c:5
+; 	if (!n--) return 0;
+     56b: 01 30        	movlw	0x1
+     56c: f5 02        	subwf	0x75, f
+     56d: 00 30        	movlw	0x0
+     56e: f6 3b        	<unknown>
+     56f: 75 0a        	incf	0x75, w
+     570: 03 1d        	btfss	0x3, 0x2
+     571: 76 2d        	goto	0x576
+     572: 76 0a        	incf	0x76, w
+     573: 03 1d        	btfss	0x3, 0x2
+     574: 76 2d        	goto	0x576
+     575: 77 2d        	goto	0x577
+     576: 84 2d        	goto	0x584
+     577: f2 01        	clrf	0x72
+     578: f3 01        	clrf	0x73
+     579: ba 2d        	goto	0x5ba
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncmp.c:6
+; 	for (; *l && *r && n && *l == *r ; l++, r++, n--);
+     57a: 01 30        	movlw	0x1
+     57b: f2 07        	addwf	0x72, f
+     57c: 01 30        	movlw	0x1
+     57d: f3 07        	addwf	0x73, f
+     57e: 00 30        	movlw	0x0
+     57f: f4 3d        	addwfc	0x74, f
+     580: 01 30        	movlw	0x1
+     581: f5 02        	subwf	0x75, f
+     582: 00 30        	movlw	0x0
+     583: f6 3b        	<unknown>
+     584: 72 08        	movf	0x72, w
+     585: 86 00        	movwf	0x6
+     586: 01 30        	movlw	0x1
+     587: 87 00        	movwf	0x7
+     588: 01 08        	movf	0x1, w
+     589: 03 19        	btfsc	0x3, 0x2
+     58a: 8c 2d        	goto	0x58c
+     58b: 8d 2d        	goto	0x58d
+     58c: ac 2d        	goto	0x5ac
+     58d: 73 08        	movf	0x73, w
+     58e: 84 00        	movwf	0x4
+     58f: 74 08        	movf	0x74, w
+     590: 85 00        	movwf	0x5
+     591: 12 00        	moviw	FSR0++
+     592: 03 19        	btfsc	0x3, 0x2
+     593: 95 2d        	goto	0x595
+     594: 96 2d        	goto	0x596
+     595: ac 2d        	goto	0x5ac
+     596: 75 08        	movf	0x75, w
+     597: 76 04        	iorwf	0x76, w
+     598: 03 19        	btfsc	0x3, 0x2
+     599: 9b 2d        	goto	0x59b
+     59a: 9c 2d        	goto	0x59c
+     59b: ac 2d        	goto	0x5ac
+     59c: 73 08        	movf	0x73, w
+     59d: 84 00        	movwf	0x4
+     59e: 74 08        	movf	0x74, w
+     59f: 85 00        	movwf	0x5
+     5a0: 00 08        	movf	0x0, w
+     5a1: f7 00        	movwf	0x77
+     5a2: 72 08        	movf	0x72, w
+     5a3: 86 00        	movwf	0x6
+     5a4: 01 30        	movlw	0x1
+     5a5: 87 00        	movwf	0x7
+     5a6: 01 08        	movf	0x1, w
+     5a7: 77 06        	xorwf	0x77, w
+     5a8: 03 19        	btfsc	0x3, 0x2
+     5a9: ab 2d        	goto	0x5ab
+     5aa: ac 2d        	goto	0x5ac
+     5ab: 7a 2d        	goto	0x57a
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncmp.c:7
+; 	return *(unsigned char*)l - *(unsigned char *)r;
+     5ac: 72 08        	movf	0x72, w
+     5ad: 86 00        	movwf	0x6
+     5ae: 01 30        	movlw	0x1
+     5af: 87 00        	movwf	0x7
+     5b0: 73 08        	movf	0x73, w
+     5b1: 84 00        	movwf	0x4
+     5b2: 74 08        	movf	0x74, w
+     5b3: 85 00        	movwf	0x5
+     5b4: 00 08        	movf	0x0, w
+     5b5: 01 02        	subwf	0x1, w
+     5b6: f2 00        	movwf	0x72
+     5b7: f3 01        	clrf	0x73
+     5b8: 03 1c        	btfss	0x3, 0x0
+     5b9: f3 03        	decf	0x73, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncmp.c:8
+; }
+     5ba: 08 00        	return
+
+000005bb <__ptext25>:
+; __ptext25():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:81
+; void StatusLEDControl(uint8_t num){
+     5bb: f2 00        	movwf	0x72
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:83
+;     if(is_link_up){
+     5bc: 20 00        	movlb	0x0
+     5bd: 6a 08        	movf	0x6a, w
+     5be: 03 19        	btfsc	0x3, 0x2
+     5bf: c1 2d        	goto	0x5c1
+     5c0: c2 2d        	goto	0x5c2
+     5c1: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:84
+;         LED1_SetLow();
+     5c2: 22 00        	movlb	0x2
+     5c3: 8c 12        	bcf	0xc, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:85
+;         LED2_SetLow();
+     5c4: 0c 12        	bcf	0xc, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:86
+;         LED3_SetLow();
+     5c5: 8e 12        	bcf	0xe, 0x5
+     5c6: de 2d        	goto	0x5de
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:92
+;                 LED1_SetHigh();
+     5c7: 8c 16        	bsf	0xc, 0x5
+     5c8: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:95
+;                 LED2_SetHigh();
+     5c9: 0c 16        	bsf	0xc, 0x4
+     5ca: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:98
+;                 LED1_SetHigh();
+     5cb: 8c 16        	bsf	0xc, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:99
+;                 LED2_SetHigh();
+     5cc: 0c 16        	bsf	0xc, 0x4
+     5cd: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:102
+;                 LED3_SetHigh();
+     5ce: 8e 16        	bsf	0xe, 0x5
+     5cf: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:105
+;                 LED1_SetHigh();
+     5d0: 8c 16        	bsf	0xc, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:106
+;                 LED3_SetHigh();
+     5d1: 8e 16        	bsf	0xe, 0x5
+     5d2: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:109
+;                 LED2_SetHigh();
+     5d3: 0c 16        	bsf	0xc, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:110
+;                 LED3_SetHigh();
+     5d4: 8e 16        	bsf	0xe, 0x5
+     5d5: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:113
+;                 LED1_SetHigh();
+     5d6: 8c 16        	bsf	0xc, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:114
+;                 LED2_SetHigh();
+     5d7: 0c 16        	bsf	0xc, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:115
+;                 LED3_SetHigh();
+     5d8: 8e 16        	bsf	0xe, 0x5
+     5d9: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:118
+;                 LED1_SetLow();
+     5da: 8c 12        	bcf	0xc, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:119
+;                 LED2_SetLow();
+     5db: 0c 12        	bcf	0xc, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:120
+;                 LED3_SetLow();
+     5dc: 8e 12        	bcf	0xe, 0x5
+     5dd: f8 2d        	goto	0x5f8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:121
+;         }
+     5de: 72 08        	movf	0x72, w
+     5df: 00 3a        	xorlw	0x0
+     5e0: 03 19        	btfsc	0x3, 0x2
+     5e1: f8 2d        	goto	0x5f8
+     5e2: 01 3a        	xorlw	0x1
+     5e3: 03 19        	btfsc	0x3, 0x2
+     5e4: c7 2d        	goto	0x5c7
+     5e5: 03 3a        	xorlw	0x3
+     5e6: 03 19        	btfsc	0x3, 0x2
+     5e7: c9 2d        	goto	0x5c9
+     5e8: 01 3a        	xorlw	0x1
+     5e9: 03 19        	btfsc	0x3, 0x2
+     5ea: cb 2d        	goto	0x5cb
+     5eb: 07 3a        	xorlw	0x7
+     5ec: 03 19        	btfsc	0x3, 0x2
+     5ed: ce 2d        	goto	0x5ce
+     5ee: 01 3a        	xorlw	0x1
+     5ef: 03 19        	btfsc	0x3, 0x2
+     5f0: d0 2d        	goto	0x5d0
+     5f1: 03 3a        	xorlw	0x3
+     5f2: 03 19        	btfsc	0x3, 0x2
+     5f3: d3 2d        	goto	0x5d3
+     5f4: 01 3a        	xorlw	0x1
+     5f5: 03 19        	btfsc	0x3, 0x2
+     5f6: d6 2d        	goto	0x5d6
+     5f7: da 2d        	goto	0x5da
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc/main.c:123
+; }
+     5f8: 08 00        	return
+
+000005f9 <_strncpy>:
+; _strncpy():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:6
+; 	cp = d;
+     5f9: 72 08        	movf	0x72, w
+     5fa: f6 00        	movwf	0x76
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:7
+; 	while(n) {
+     5fb: 11 2e        	goto	0x611
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:8
+; 		n--;
+     5fc: 01 30        	movlw	0x1
+     5fd: f4 02        	subwf	0x74, f
+     5fe: 00 30        	movlw	0x0
+     5ff: f5 3b        	<unknown>
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:9
+; 		if(!(*cp++ = *s++))
+     600: 76 08        	movf	0x76, w
+     601: 86 00        	movwf	0x6
+     602: 87 01        	clrf	0x7
+     603: f6 0a        	incf	0x76, f
+     604: 73 08        	movf	0x73, w
+     605: 84 00        	movwf	0x4
+     606: 01 30        	movlw	0x1
+     607: 85 00        	movwf	0x5
+     608: f3 0a        	incf	0x73, f
+     609: 00 08        	movf	0x0, w
+     60a: c0 3f        	movwi	0[FSR1]
+     60b: 89 08        	movf	0x9, f
+     60c: 03 1d        	btfss	0x3, 0x2
+     60d: 0f 2e        	goto	0x60f
+     60e: 10 2e        	goto	0x610
+     60f: 11 2e        	goto	0x611
+     610: 1e 2e        	goto	0x61e
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:7
+; 	while(n) {
+     611: 74 08        	movf	0x74, w
+     612: 75 04        	iorwf	0x75, w
+     613: 03 1d        	btfss	0x3, 0x2
+     614: 16 2e        	goto	0x616
+     615: 17 2e        	goto	0x617
+     616: fc 2d        	goto	0x5fc
+     617: 1e 2e        	goto	0x61e
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:13
+; 		*cp++ = 0;
+     618: 76 08        	movf	0x76, w
+     619: 86 00        	movwf	0x6
+     61a: 87 01        	clrf	0x7
+     61b: 81 01        	clrf	0x1
+     61c: 01 30        	movlw	0x1
+     61d: f6 07        	addwf	0x76, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:12
+; 	while(n--)
+     61e: 01 30        	movlw	0x1
+     61f: f4 02        	subwf	0x74, f
+     620: 00 30        	movlw	0x0
+     621: f5 3b        	<unknown>
+     622: 74 0a        	incf	0x74, w
+     623: 03 1d        	btfss	0x3, 0x2
+     624: 29 2e        	goto	0x629
+     625: 75 0a        	incf	0x75, w
+     626: 03 1d        	btfss	0x3, 0x2
+     627: 29 2e        	goto	0x629
+     628: 2a 2e        	goto	0x62a
+     629: 18 2e        	goto	0x618
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strncpy.c:15
+; }
+     62a: 08 00        	return
+
+0000062b <__ptext8>:
+; __ptext8():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:102
+;     PIE1bits.RCIE = 0;   
+     62b: 21 00        	movlb	0x1
+     62c: 91 12        	bcf	0x11, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:103
+;      EUSART_RxInterruptHandler = EUSART_ReceiveISR;   
+     62d: 1a 30        	movlw	0x1a
+     62e: e2 00        	movwf	0x62
+     62f: 05 30        	movlw	0x5
+     630: e3 00        	movwf	0x63
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:105
+;     PIE1bits.TXIE = 0; 
+     631: 11 12        	bcf	0x11, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:106
+;     EUSART_TxInterruptHandler = EUSART_TransmitISR; 
+     632: 38 30        	movlw	0x38
+     633: e4 00        	movwf	0x64
+     634: 07 30        	movlw	0x7
+     635: e5 00        	movwf	0x65
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:111
+;     BAUD1CON = 0x48; 
+     636: 48 30        	movlw	0x48
+     637: 23 00        	movlb	0x3
+     638: 9f 00        	movwf	0x1f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:113
+;     RC1STA = 0x90; 
+     639: 90 30        	movlw	0x90
+     63a: 9d 00        	movwf	0x1d
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:115
+;     TX1STA = 0x26; 
+     63b: 26 30        	movlw	0x26
+     63c: 9e 00        	movwf	0x1e
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:117
+;     SP1BRGL = 0x40; 
+     63d: 40 30        	movlw	0x40
+     63e: 9b 00        	movwf	0x1b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:119
+;     SP1BRGH = 0x3; 
+     63f: 03 30        	movlw	0x3
+     640: 9c 00        	movwf	0x1c
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:121
+;     EUSART_FramingErrorCallbackRegister(EUSART_DefaultFramingErrorCallback);
+     641: 02 30        	movlw	0x2
+     642: f2 00        	movwf	0x72
+     643: 00 30        	movlw	0x0
+     644: f3 00        	movwf	0x73
+     645: 87 31        	movlp	0x7
+     646: e9 27        	call	0x7e9
+     647: 86 31        	movlp	0x6
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:122
+;     EUSART_OverrunErrorCallbackRegister(EUSART_DefaultOverrunErrorCallback);
+     648: ca 30        	movlw	0xca
+     649: f2 00        	movwf	0x72
+     64a: 0f 30        	movlw	0xf
+     64b: f3 00        	movwf	0x73
+     64c: 87 31        	movlp	0x7
+     64d: dd 27        	call	0x7dd
+     64e: 86 31        	movlp	0x6
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:123
+;     eusartRxLastError.status = 0;  
+     64f: 20 00        	movlb	0x0
+     650: d3 01        	clrf	0x53
+     651: d4 01        	clrf	0x54
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:125
+;     eusartTxHead = 0;
+     652: e3 01        	clrf	0x63
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:126
+;     eusartTxTail = 0;
+     653: e2 01        	clrf	0x62
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:127
+;     eusartTxBufferRemaining = sizeof(eusartTxBuffer);
+     654: 20 30        	movlw	0x20
+     655: e1 00        	movwf	0x61
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:129
+;     eusartRxHead = 0;
+     656: fb 01        	clrf	0x7b
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:130
+;     eusartRxTail = 0;
+     657: fa 01        	clrf	0x7a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:131
+;     eusartRxCount = 0;
+     658: e0 01        	clrf	0x60
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:133
+;     PIE1bits.RCIE = 1; 
+     659: 21 00        	movlb	0x1
+     65a: 91 16        	bsf	0x11, 0x5
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:134
+; }
+     65b: 08 00        	return
+
+0000065c <_strcmp>:
+; _strcmp():
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strcmp.c:5
+; 	for (; *l==*r && *l; l++, r++);
+     65c: 63 2e        	goto	0x663
+     65d: 01 30        	movlw	0x1
+     65e: f2 07        	addwf	0x72, f
+     65f: 01 30        	movlw	0x1
+     660: f3 07        	addwf	0x73, f
+     661: 00 30        	movlw	0x0
+     662: f4 3d        	addwfc	0x74, f
+     663: 73 08        	movf	0x73, w
+     664: 84 00        	movwf	0x4
+     665: 74 08        	movf	0x74, w
+     666: 85 00        	movwf	0x5
+     667: 00 08        	movf	0x0, w
+     668: f5 00        	movwf	0x75
+     669: 72 08        	movf	0x72, w
+     66a: 86 00        	movwf	0x6
+     66b: 01 30        	movlw	0x1
+     66c: 87 00        	movwf	0x7
+     66d: 01 08        	movf	0x1, w
+     66e: 75 06        	xorwf	0x75, w
+     66f: 03 1d        	btfss	0x3, 0x2
+     670: 72 2e        	goto	0x672
+     671: 73 2e        	goto	0x673
+     672: 7c 2e        	goto	0x67c
+     673: 72 08        	movf	0x72, w
+     674: 86 00        	movwf	0x6
+     675: 01 30        	movlw	0x1
+     676: 87 00        	movwf	0x7
+     677: 01 08        	movf	0x1, w
+     678: 03 1d        	btfss	0x3, 0x2
+     679: 7b 2e        	goto	0x67b
+     67a: 7c 2e        	goto	0x67c
+     67b: 5d 2e        	goto	0x65d
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strcmp.c:6
+; 	return *(unsigned char *)l - *(unsigned char *)r;
+     67c: 72 08        	movf	0x72, w
+     67d: 86 00        	movwf	0x6
+     67e: 01 30        	movlw	0x1
+     67f: 87 00        	movwf	0x7
+     680: 73 08        	movf	0x73, w
+     681: 84 00        	movwf	0x4
+     682: 74 08        	movf	0x74, w
+     683: 85 00        	movwf	0x5
+     684: 00 08        	movf	0x0, w
+     685: 01 02        	subwf	0x1, w
+     686: f2 00        	movwf	0x72
+     687: f3 01        	clrf	0x73
+     688: 03 1c        	btfss	0x3, 0x0
+     689: f3 03        	decf	0x73, f
+; c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common/strcmp.c:7
+; }
+     68a: 08 00        	return
+
+0000068b <__ptext5>:
+; __ptext5():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:43
+;     LATA = 0x0;
+     68b: 22 00        	movlb	0x2
+     68c: 8c 01        	clrf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:44
+;     LATC = 0x8;
+     68d: 08 30        	movlw	0x8
+     68e: 8e 00        	movwf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:49
+;     TRISA = 0xC;
+     68f: 0c 30        	movlw	0xc
+     690: 21 00        	movlb	0x1
+     691: 8c 00        	movwf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:50
+;     TRISC = 0x15;
+     692: 15 30        	movlw	0x15
+     693: 8e 00        	movwf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:55
+;     ANSELA = 0x0;
+     694: 23 00        	movlb	0x3
+     695: 8c 01        	clrf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:56
+;     ANSELC = 0x0;
+     696: 8e 01        	clrf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:61
+;     WPUA = 0x4;
+     697: 04 30        	movlw	0x4
+     698: 24 00        	movlb	0x4
+     699: 8c 00        	movwf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:62
+;     WPUC = 0x5;
+     69a: 05 30        	movlw	0x5
+     69b: 8e 00        	movwf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:68
+;     ODCONA = 0x0;
+     69c: 25 00        	movlb	0x5
+     69d: 8c 01        	clrf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:69
+;     ODCONC = 0x0;
+     69e: 8e 01        	clrf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:73
+;     SLRCONA = 0x37;
+     69f: 37 30        	movlw	0x37
+     6a0: 26 00        	movlb	0x6
+     6a1: 8c 00        	movwf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:74
+;     SLRCONC = 0x3F;
+     6a2: 3f 30        	movlw	0x3f
+     6a3: 8e 00        	movwf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:78
+;     INLVLA = 0x3F;
+     6a4: 3f 30        	movlw	0x3f
+     6a5: 27 00        	movlb	0x7
+     6a6: 8c 00        	movwf	0xc
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:79
+;     INLVLC = 0x3F;
+     6a7: 3f 30        	movlw	0x3f
+     6a8: 8e 00        	movwf	0xe
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:84
+;     RXPPS = 0x14; //RC4->EUSART:RX;
+     6a9: 14 30        	movlw	0x14
+     6aa: 3c 00        	movlb	0x1c
+     6ab: a4 00        	movwf	0x24
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:85
+;     RC3PPS = 20;  //RC3->EUSART:TX;
+     6ac: 14 30        	movlw	0x14
+     6ad: 3d 00        	movlb	0x1d
+     6ae: a3 00        	movwf	0x23
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:94
+;     IOCAP = 0x0;
+     6af: 27 00        	movlb	0x7
+     6b0: 91 01        	clrf	0x11
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:95
+;     IOCAN = 0x0;
+     6b1: 92 01        	clrf	0x12
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:96
+;     IOCAF = 0x0;
+     6b2: 93 01        	clrf	0x13
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:97
+;     IOCCP = 0x0;
+     6b3: 97 01        	clrf	0x17
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:98
+;     IOCCN = 0x0;
+     6b4: 98 01        	clrf	0x18
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:99
+;     IOCCF = 0x0;
+     6b5: 99 01        	clrf	0x19
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\system\src/pins.c:102
+; }
+     6b6: 08 00        	return
+
+000006b7 <__ptext22>:
+; __end_of_PIN_MANAGER_Initialize():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:322
+; void EUSART_Write(uint8_t txData)
+     6b7: f3 00        	movwf	0x73
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:326
+;     if(0 == PIE1bits.TXIE)
+     6b8: 21 00        	movlb	0x1
+     6b9: 11 1a        	btfsc	0x11, 0x4
+     6ba: bc 2e        	goto	0x6bc
+     6bb: bd 2e        	goto	0x6bd
+     6bc: c1 2e        	goto	0x6c1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:328
+;         TX1REG = txData;
+     6bd: 73 08        	movf	0x73, w
+     6be: 23 00        	movlb	0x3
+     6bf: 9a 00        	movwf	0x1a
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:329
+;     }
+     6c0: d8 2e        	goto	0x6d8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:330
+;     else if(0U < eusartTxBufferRemaining) // check if at least one byte place is available in TX buffer
+     6c1: 20 00        	movlb	0x0
+     6c2: 61 08        	movf	0x61, w
+     6c3: 03 19        	btfsc	0x3, 0x2
+     6c4: c6 2e        	goto	0x6c6
+     6c5: c7 2e        	goto	0x6c7
+     6c6: d8 2e        	goto	0x6d8
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:332
+;        eusartTxBuffer[eusartTxHead] = txData;
+     6c7: 63 08        	movf	0x63, w
+     6c8: a0 3e        	addlw	0x20, f
+     6c9: 86 00        	movwf	0x6
+     6ca: 87 01        	clrf	0x7
+     6cb: 73 08        	movf	0x73, w
+     6cc: 81 00        	movwf	0x1
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:333
+;        tempTxHead = (eusartTxHead + 1U) & EUSART_TX_BUFFER_MASK;
+     6cd: 63 08        	movf	0x63, w
+     6ce: 01 3e        	addlw	0x1, w
+     6cf: 1f 39        	andlw	0x1f
+     6d0: f2 00        	movwf	0x72
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:335
+;        eusartTxHead = tempTxHead;
+     6d1: 72 08        	movf	0x72, w
+     6d2: e3 00        	movwf	0x63
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:336
+;        PIE1bits.TXIE = 0; //Critical value decrement
+     6d3: 21 00        	movlb	0x1
+     6d4: 11 12        	bcf	0x11, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:337
+;        eusartTxBufferRemaining--; // one less byte remaining in TX buffer
+     6d5: 01 30        	movlw	0x1
+     6d6: 20 00        	movlb	0x0
+     6d7: e1 02        	subwf	0x61, f
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:343
+;     PIE1bits.TXIE = 1;
+     6d8: 21 00        	movlb	0x1
+     6d9: 11 16        	bsf	0x11, 0x4
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:344
+; }
+     6da: 08 00        	return
+
+Disassembly of section text35:
+
+00000002 <__ptext35>:
+; __ptext35():
+; C:\Users\tsq\MPLABProjects\Analog_PBX\IP_UNIT\config.mcc\mcc_generated_files\uart\src/eusart.c:390
+; }
+       2: 08 00        	return
+
+Disassembly of section clrtext:
+
+00000fde <clear_ram0>:
+; __end_of_TMR2_PeriodMatchCallbackRegister():
+     fde: 64 00        	tris	0x4
+     fdf: 80 01        	clrf	0x0
+     fe0: 01 31        	addfsr	0, 0x1
+     fe1: 89 0b        	decfsz	0x9, f
+     fe2: df 2f        	goto	0x7df
+     fe3: 00 34        	retlw	0x0

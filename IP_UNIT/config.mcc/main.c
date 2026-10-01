@@ -389,6 +389,9 @@ void ProcessUARTCommand(char *cmd) {
         }
     } 
     else if (strcmp(cmd, "DROP") == 0) {
+        // DROPされた場合にアナログをBUSYにするため一瞬オフフックからのオンフックで処理
+        HO_OUT_SetHigh();
+        __delay_ms(100);
         HO_OUT_SetLow(); // オンフック(切断)
         current_state = STATE_IDLE;
     }

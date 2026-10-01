@@ -173,6 +173,8 @@ async def handle_baresip_event(event):
     elif evt_type == 'CALL_CLOSED':
         logger.info("<- Baresip CLOSED")
         if serial_writer:
+            # 応答速度が速すぎる場合の安全策
+            await asyncio.sleep(1)
             serial_writer.write(b"DROP\n")
             logger.info("-> PIC: DROP")
 
