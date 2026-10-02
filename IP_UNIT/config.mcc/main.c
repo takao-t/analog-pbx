@@ -262,10 +262,18 @@ void ProcessStateMachine(void) {
             
             // パルスが途絶えたら1桁確定
             if (current_ri == true && pulse_timeout == 0 && rx_pulse_count > 0) {
-                uint8_t digit = (rx_pulse_count == 10) ? 0 : rx_pulse_count;
-                rx_number[rx_digit_count++] = digit + '0';
+                if(1 <= rx_pulse_count  && rx_pulse_count <= 9){
+                    rx_number[rx_digit_count++] = rx_pulse_count + '0';
+                } else if (rx_pulse_count == 10){
+                    rx_number[rx_digit_count++] = '0';
+                } else if (rx_pulse_count == 11){ // 11と12パルスで'*','#'へ置換
+                    rx_number[rx_digit_count++] = '*';
+                } else if (rx_pulse_count == 12){
+                    rx_number[rx_digit_count++] = '#';
+                }
+
                 rx_pulse_count = 0;
-                
+
                 // 次の桁を待つロングタイマー (PBX側は300ms間隔で送ってくるので500ms待つ)
                 state_timer = 500; 
             }

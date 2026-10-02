@@ -319,10 +319,16 @@ void Start_Buffered_DialPulse(void) {
     dtmf_read_idx = 0;
     char digit = dtmf_buffer[dtmf_read_idx];
 
+    // ここの処理注意。最初の桁のみ。後の桁は送出ステートマシンに処理があるので
+    // 修正する場合には送出ステートマシンの処理も要修正
     if (digit >= '1' && digit <= '9') {
         dp_pulses_remaining = digit - '0';
     } else if (digit == '0') {
         dp_pulses_remaining = 10;
+    } else if (digit == '*') { // 掟破りの*を11で伝送
+        dp_pulses_remaining = 11;
+    } else if (digit == '#') { // 掟破りの#を12で伝送
+        dp_pulses_remaining = 12;
     } else {
         // 万が一不正な文字が含まれていた場合はバッファをクリアして中断
         dtmf_buf_count = 0;
@@ -377,6 +383,10 @@ void Process_DialPulse_StateMachine(void) {
                         dp_pulses_remaining = digit - '0';
                     } else if (digit == '0') {
                         dp_pulses_remaining = 10;
+                    } else if (digit == '*') { // 掟破りの*を11で伝送
+                        dp_pulses_remaining = 11;
+                    } else if (digit == '#') { // 掟破りの#を12で伝送
+                        dp_pulses_remaining = 12;
                     } else {
                         dp_pulses_remaining = 0; // 不正文字スキップ用
                     }
@@ -915,8 +925,9 @@ int main(void)
 
                                     // 通話中であればパルス出力させない
                                     if (is_talking == false && dp_out_enable == true) {
-                                        // 0-9の数字のみバッファリングする (*, #, A-Dは除外)
-                                        if (current_char >= '0' && current_char <= '9') {
+                                        // 0-9の数字,*,#のみバッファリングする (A-Dは除外)
+                                        // トンデモ実装として'*'は11,'#'は12にして送出機能
+                                        if (current_char >= '0' && current_char <= '9' || current_char == '*' || current_char == '#') {
                                             if (dtmf_buf_count < DTMF_BUFFER_SIZE) {
                                                 dtmf_buffer[dtmf_buf_count++] = current_char;
                                                 dtmf_pause_timer = DTMF_TIMEOUT_FRAMES; // タイマーリセット

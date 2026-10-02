@@ -9,5 +9,7 @@
         "embedded-debug",
         "gdb",
         "mplab-core-da"
-    ]
+    ],
+    "cmake.sourceDirectory": "C:/Users/tsq/MPLABProjects/Analog_PBX/PBXCore/cmake/PBXCore/default",
+    "C_Cpp.intelliSenseEngine": "disabled"
 }

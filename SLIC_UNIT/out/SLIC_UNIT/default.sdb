@@ -10,7 +10,7 @@ DP_BREAK 1
 DP_MAKE 2
 DP_PAUSE 3
 ]
-"423
+"433
 [e E7092 . `uc
 EE_ADDR_MAGIC 0
 EE_ADDR_PPS 1
@@ -101,21 +101,21 @@ NVM_ERROR 1
 [v _Set_DialPulse_PPS Set_DialPulse_PPS `(v  1 e 1 0 ]
 "316
 [v _Start_Buffered_DialPulse Start_Buffered_DialPulse `(v  1 e 1 0 ]
-"341
+"347
 [v _Process_DialPulse_StateMachine Process_DialPulse_StateMachine `(v  1 e 1 0 ]
-"407
+"417
 [v _Transmit_String Transmit_String `(v  1 e 1 0 ]
-"423
+"433
 [v _Config_Save Config_Save `(v  1 e 1 0 ]
-"430
+"440
 [v _Config_Load Config_Load `(v  1 e 1 0 ]
-"456
+"466
 [v _Config_Reset Config_Reset `(v  1 e 1 0 ]
-"483
+"493
 [v _ProcessCommand ProcessCommand `(v  1 e 1 0 ]
-"633
+"643
 [v _Dial_Pulse_Count Dial_Pulse_Count `(v  1 e 1 0 ]
-"646
+"656
 [v _main main `(i  1 e 2 0 ]
 "47 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\mcc_generated_files\adc\src\adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
@@ -950,92 +950,92 @@ NVM_ERROR 1
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
 "87
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
-"646 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"656 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"911
+"921
 [v main@d_str_447 d_str `[8]uc  1 a 8 32 ]
-"756
+"766
 [v main@d_str d_str `[8]uc  1 a 8 24 ]
-"748
+"758
 [v main@decoded_digit decoded_digit `uc  1 a 1 76 ]
-"838
+"848
 [v main@M M `l  1 a 4 8 ]
-"839
+"849
 [v main@coeff_M coeff_M `l  1 a 4 10 ]
-"837
+"847
 [v main@sq2 sq2 `l  1 a 4 72 ]
-"836
+"846
 [v main@sq1 sq1 `l  1 a 4 64 ]
-"865
-[v main@i_441 i `uc  1 a 1 4 ]
-"862
-[v main@i_440 i `uc  1 a 1 7 ]
-"834
-[v main@i i `i  1 a 2 6 ]
-"831
-[v main@power power `[8]ul  1 a 32 40 ]
-"860
-[v main@max_col_power max_col_power `ul  1 a 4 0 ]
-"859
-[v main@max_row_power max_row_power `ul  1 a 4 2 ]
 "875
-[v main@current_char current_char `uc  1 a 1 5 ]
+[v main@i_441 i `uc  1 a 1 4 ]
+"872
+[v main@i_440 i `uc  1 a 1 7 ]
+"844
+[v main@i i `i  1 a 2 6 ]
+"841
+[v main@power power `[8]ul  1 a 32 40 ]
 "870
+[v main@max_col_power max_col_power `ul  1 a 4 0 ]
+"869
+[v main@max_row_power max_row_power `ul  1 a 4 2 ]
+"885
+[v main@current_char current_char `uc  1 a 1 5 ]
+"880
 [v main@twist_ok twist_ok `a  1 a 1 1 ]
-"858
+"868
 [v main@col_idx col_idx `uc  1 a 1 0 ]
-"857
+"867
 [v main@row_idx row_idx `uc  1 a 1 77 ]
-"1080
+"1091
 [v main@output_enable output_enable `a  1 a 1 8 ]
-"963
+"974
 [v main@rxData rxData `uc  1 a 1 2 ]
-"1055
+"1066
 [v main@tone_mode tone_mode `uc  1 a 1 6 ]
-"1053
+"1064
 [v main@tg1 tg1 `a  1 a 1 0 ]
-"1054
+"1065
 [v main@tg2 tg2 `a  1 a 1 3 ]
-"773
+"783
 [v main@current_physical_hook current_physical_hook `a  1 a 1 5 ]
-"667
+"677
 [v main@cadence_cycle cadence_cycle `us  1 a 2 0 ]
-"683
+"693
 [v main@offhook_timer offhook_timer `us  1 a 2 2 ]
-"665
-[v main@busy_timer busy_timer `us  1 a 2 78 ]
-"684
-[v main@is_talking is_talking `a  1 a 1 1 ]
-"668
-[v main@ring_period ring_period `uc  1 a 1 9 ]
-"666
-[v main@busy_phase busy_phase `a  1 a 1 7 ]
-"664
-[v main@tone_mod_phase tone_mod_phase `a  1 a 1 6 ]
-"678
-[v main@rev_cmd_count rev_cmd_count `uc  1 a 1 4 ]
-"670
-[v main@last_tg2 last_tg2 `uc  1 a 1 68 ]
-"669
-[v main@last_ring_cmd last_ring_cmd `uc  1 a 1 53 ]
-"680
-[v main@initial_pps initial_pps `uc  1 a 1 52 ]
-"673
-[v main@last_detected_char last_detected_char `uc  1 s 1 last_detected_char ]
-"674
-[v main@char_match_count char_match_count `uc  1 s 1 char_match_count ]
 "675
-[v main@key_is_pressed key_is_pressed `a  1 s 1 key_is_pressed ]
+[v main@busy_timer busy_timer `us  1 a 2 78 ]
+"694
+[v main@is_talking is_talking `a  1 a 1 1 ]
+"678
+[v main@ring_period ring_period `uc  1 a 1 9 ]
 "676
+[v main@busy_phase busy_phase `a  1 a 1 7 ]
+"674
+[v main@tone_mod_phase tone_mod_phase `a  1 a 1 6 ]
+"688
+[v main@rev_cmd_count rev_cmd_count `uc  1 a 1 4 ]
+"680
+[v main@last_tg2 last_tg2 `uc  1 a 1 68 ]
+"679
+[v main@last_ring_cmd last_ring_cmd `uc  1 a 1 53 ]
+"690
+[v main@initial_pps initial_pps `uc  1 a 1 52 ]
+"683
+[v main@last_detected_char last_detected_char `uc  1 s 1 last_detected_char ]
+"684
+[v main@char_match_count char_match_count `uc  1 s 1 char_match_count ]
+"685
+[v main@key_is_pressed key_is_pressed `a  1 s 1 key_is_pressed ]
+"686
 [v main@release_count release_count `uc  1 s 1 release_count ]
-"753
+"763
 [v main@F7192 F7192 `[8]uc  1 s 8 F7192 ]
-"878
+"888
 [v main@dtmf_char dtmf_char `DC[4][4]uc  1 s 16 dtmf_char ]
-"910
+"920
 [v main@F7212 F7212 `[8]uc  1 s 8 F7212 ]
-"1106
+"1117
 } 0
 "15 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -1082,7 +1082,7 @@ NVM_ERROR 1
 {
 "320
 [v Start_Buffered_DialPulse@digit digit `uc  1 a 1 13 ]
-"336
+"342
 } 0
 "39 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\mcc_generated_files\system\src\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -1204,26 +1204,26 @@ NVM_ERROR 1
 {
 "66
 } 0
-"483 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"493 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _ProcessCommand ProcessCommand `(v  1 e 1 0 ]
 {
-"608
+"618
 [v ProcessCommand@tmp_stat_str_385 tmp_stat_str `[16]uc  1 a 16 37 ]
-"609
+"619
 [v ProcessCommand@tmp_ring_str tmp_ring_str `[4]uc  1 a 4 53 ]
-"577
+"587
 [v ProcessCommand@tmp_stat_str tmp_stat_str `[16]uc  1 a 16 21 ]
-"578
+"588
 [v ProcessCommand@tmp_dp_str tmp_dp_str `[4]uc  1 a 4 57 ]
-"579
+"589
 [v ProcessCommand@tmp_pps tmp_pps `uc  1 a 1 61 ]
-"569
+"579
 [v ProcessCommand@sec sec `uc  1 a 1 62 ]
-"485
+"495
 [v ProcessCommand@ok_flag ok_flag `uc  1 a 1 63 ]
-"483
+"493
 [v ProcessCommand@cmd cmd `*.7uc  1 p 1 49 ]
-"630
+"640
 } 0
 "3 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\strncmp.c
 [v _strncmp strncmp `(i  1 e 2 0 ]
@@ -1353,11 +1353,11 @@ NVM_ERROR 1
 [v ___lwdiv@dividend dividend `ui  1 p 2 15 ]
 "30
 } 0
-"407 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"417 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _Transmit_String Transmit_String `(v  1 e 1 0 ]
 {
 [v Transmit_String@str str `*.26DCuc  1 p 2 15 ]
-"416
+"426
 } 0
 "322 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\mcc_generated_files\uart\src\eusart.c
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
@@ -1381,12 +1381,12 @@ NVM_ERROR 1
 {
 "167
 } 0
-"456 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"466 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _Config_Reset Config_Reset `(v  1 e 1 0 ]
 {
-"464
+"474
 [v Config_Reset@pps pps `uc  1 a 1 21 ]
-"477
+"487
 } 0
 "258
 [v _NCO1_Set800Hz NCO1_Set800Hz `(v  1 e 1 0 ]
@@ -1421,12 +1421,12 @@ NVM_ERROR 1
 [v DAC1_SetOutput@inputData inputData `uc  1 p 1 13 ]
 "56
 } 1
-"430 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"440 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _Config_Load Config_Load `(v  1 e 1 0 ]
 {
-"440
+"450
 [v Config_Load@pps pps `uc  1 a 1 21 ]
-"453
+"463
 } 0
 "15 c:\PROGRA~1\MICROC~1\xc8\v3.10\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -1446,14 +1446,14 @@ NVM_ERROR 1
 [v Set_DialPulse_PPS@pps pps `uc  1 p 1 13 ]
 "282
 } 1
-"423
+"433
 [v _Config_Save Config_Save `(v  1 e 1 0 ]
 {
 [v Config_Save@addr addr `E7092  1 p 1 wreg ]
 [v Config_Save@addr addr `E7092  1 p 1 wreg ]
 [v Config_Save@value value `uc  1 p 1 13 ]
 [v Config_Save@addr addr `E7092  1 p 1 14 ]
-"427
+"437
 } 1
 "130 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\mcc_generated_files\clc\src\clc1.c
 [v _CLC1_OutputStatusGet CLC1_OutputStatusGet `(a  1 e 1 0 ]
@@ -1496,12 +1496,12 @@ NVM_ERROR 1
 {
 "214
 } 0
-"341 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"347 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _Process_DialPulse_StateMachine Process_DialPulse_StateMachine `(v  1 e 1 0 ]
 {
-"375
+"381
 [v Process_DialPulse_StateMachine@digit digit `uc  1 a 1 2 ]
-"403
+"413
 } 0
 "221 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\mcc_generated_files\timer\src\tmr5.c
 [v _TMR5_DefaultOverflowCallback TMR5_DefaultOverflowCallback `(v  1 s 1 TMR5_DefaultOverflowCallback ]
@@ -1553,10 +1553,10 @@ NVM_ERROR 1
 {
 "128
 } 0
-"633 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
+"643 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\main.c
 [v _Dial_Pulse_Count Dial_Pulse_Count `(v  1 e 1 0 ]
 {
-"641
+"651
 } 0
 "161 C:\Users\tsq\MPLABProjects\Analog_PBX\SLIC_UNIT\config.mcc\mcc_generated_files\adc\src\adc.c
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
